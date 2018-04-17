@@ -11,7 +11,7 @@ require_once SITE_ROOT . "/models/DB_Driver.php";
 class account_model extends DB_Driver
 {
     private $__table='';
-    protected $_acc_id='4';
+    protected $_acc_id='';
     private $user_name='';
     private $password='';
     protected $_role_id='';
@@ -103,6 +103,3 @@ class account_model extends DB_Driver
 
 
 }
-
-$test = new account_model();
-var_dump($test->get_profile());

@@ -46,6 +46,9 @@ $account = new account();
                             <td>Email:</td>
                             <td><?php echo $detail['email']; ?></td>
                         </tr>
+                        <?php
+                        if($_SESSION['role_id']=="1"){
+                        ?>
                         <tr>
                             <td>Major:</td>
                             <td><?php echo $detail['major']; ?></td>
@@ -55,6 +58,7 @@ $account = new account();
                             <td><?php echo $detail['campus']; ?></td>
                         </tr>
                         <?php
+                        }
                         if($_SESSION['role_id']=="3"){
                             ?>
                             <tr>
@@ -63,21 +67,54 @@ $account = new account();
                             </tr>
                             <?php
                         }
+                        if($_SESSION['role_id']=="2"){
+                            ?>
+                            <tr>
+                                <td>Role:</td>
+                                <td><?php echo $detail['issupervisorhead']?"Supervisor Head":"Supervisor"; ?></td>
+                            </tr>
+                        <?php
+                        }
+                        if($_SESSION['role_id']=="1"){
+                            ?>
+                            <tr>
+                                <td>Role:</td>
+                                <td>Student</td>
+                            </tr>
+                        <?php
+                        }
                         ?>
                     </table>
                 </td>
-                <td>
-                    <table>
-                        <tr>
-                            <td>Team:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Role in team:</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </td>
+                <?php
+                if($_SESSION['role_id']=="1") {
+                    ?>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>Team:</td>
+                                <td><?php
+
+                                    ?></td>
+                            </tr>
+                            <tr>
+                                <td>Role in team:</td>
+                                <td>
+                                    <?php
+                                    echo $detail['isteamleader']?"Team Leader<br>":"";
+                                    echo $detail['isdocleader']?"Document Team Leader<br>":"";
+                                    echo $detail['isdaleader']?"Design and Analysis Team Leader<br>":"";
+                                    echo $detail['isdevleader']?"Developing Team Leader<br>":"";
+                                    echo $detail['istestleader']?"Testing Team Leader<br>":"";
+                                    echo "Team Member";
+                                    ?>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <?php
+                }
+                ?>
             </tr>
         </table>
 </body>

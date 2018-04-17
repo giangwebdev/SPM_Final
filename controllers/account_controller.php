@@ -90,7 +90,7 @@ class account
             foreach ($this->_current_account_detail as $key=>$detail){
                 $acc_view->__set($key,$detail);
             }
-            //$acc_view->view_profile();
+            $acc_view->view_profile();
 
         }
 

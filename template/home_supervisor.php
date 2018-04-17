@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/controllers/account_controller.php");
+$account = new account();
+$account->check_Session();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,40 +15,31 @@
     <link rel="stylesheet" href="css/spmfu.css">
 </head>
 <body>
-<header id="header">
-</header>
-<div id="container" >
+        <header id="header">
+        </header>
+        <div id="container" >
 
-    <div> Welcome back, <?php
-        if(!isset($_SESSION['username'])) echo '<script type="text/javascript">
-                                                        window.location = "../index.php";
-                                                  </script>';
-        echo $username = $_SESSION['username'];
-        ?> </div>
-    <menu id="sidebar">
-        <table cellspacing="0" border="1" id="Box">
-            <tr><th id="box_header">Main menu</th></tr>
-            <tr><th id="menu">
-                    <ul>
-                        <li><a href="../approve_pending_acc.php">Manage account request</a></li>
-                        <li><a href="#">Create account</a></li>
-                        <li><a href="#">Edit account</a></li>
-                        <li><a href="#">Manage team</a></li>
-                        <li><a href="../controllers/logout.php">Logout</a></li>
-                    </ul>
-                </th>
-            </tr>
-        </table>
-    </menu>
-    <section>
+            <div> Welcome back, <?php
 
-    </section>
+                echo $username = $_SESSION['username'];
+                ?> </div>
+            <menu id="sidebar">
+                <table cellspacing="0" border="1" id="Box">
+                    <tr><th id="box_header">Personal setting</th></tr>
+                    <tr><th id="menu"><ul>
+                                <li><a href="./index.php?action=view_profile&controller=account">View profile</a></li>
+                                <li><a href="./index.php?action=edit_profile&controller=account">Edit profile</a></li>
+                                <li><a href="./index.php?action=change_password&controller=account">Change password</a></li>
+                                <li><a href="./index.php?action=logout&controller=account">Logout</a></li>
+                            </ul></th></tr>
+                </table>
+            </menu>
 
-</div>
-<footer>
-    <div id="container-fluid">
-        <div id="copyright">Copyright SPMFU</div>
-    </div>
-</footer>
+        </div>
+        <footer>
+            <div id="container-fluid">
+                <div id="copyright">Copyright SPMFU</div>
+            </div>
+        </footer>
 </body>
 </html>

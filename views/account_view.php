@@ -21,9 +21,7 @@ class account_view{
 
     function __set($name, $value)
     {
-        if($this->_acc_detail == null && !isset($this->_acc_detail) && isset($current_account_detail) && $current_account_detail != null){
             $this->_acc_detail[$name] = $value;
-        }
     }
 
     function inputLogin(){
@@ -43,7 +41,6 @@ class account_view{
     }
 
     function view_profile(){
-        var_dump($this->_acc_detail);
         foreach ($this->_acc_detail as $detail){
             require_once (SITE_ROOT."/template/view_profile.php");
         }
