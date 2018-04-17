@@ -1,0 +1,63 @@
+tr th img:hover{
+    cursor: pointer;
+}
+
+tr td img:hover{
+    cursor: pointer;
+}
+
+#header {
+    padding-top : 4px;
+    padding-left : 3px;
+    height : 130px;
+    background-color: #000000;
+    color : #000000;
+    background-image : url("imgfe.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+#container{
+    background-color:#F5DEB3 ;
+    height: 100%;
+
+}
+ #box_header{
+    background: #F37124;
+     color: white;
+}
+
+#sicebar table tr th ul{
+    margin: 0 0;
+}
+
+#sicebar table tr th ul li{
+    list-style: none;
+}
+
+#sicebar table tr th ul li a{
+    text-decoration: none;
+    float: left;
+    font-family: "Helvetica", Verdana, Arial, Sans-serif;
+    font-size: small;
+}
+#sicebar table tr th ul li a:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+a:visited{
+    color: blue;
+}
+footer{
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+}
+
+#copyright{
+    color: white;
+    text-align: center;
+}
