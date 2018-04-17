@@ -32,15 +32,15 @@ $account->check_Session();
             ?> </div>
         <menu id="sidebar">
             <table cellspacing="0" border="1" id="Box">
-                <tr><th id="box_header">Manage account</th></tr>
+                <tr><th id="box_header">Manage accounts</th></tr>
                 <tr><th id="menu"><ul>
                             <li><a href="./index.php?action=display_all_account_info&controller=staff">View account</a></li>
-                            <li><a href="#">Create account</a></li>
-                            <li><a href="#">Edit account</a></li>
+                            <li><a href="./index.php?action=create_account&controller=staff">Create account</a></li>
                      </ul></th></tr>
                 <br>
-                <tr><th id="box_header">Account setting</th></tr>
+                <tr><th id="box_header">Personal setting</th></tr>
                 <tr><th id="menu"><ul>
+                            <li><a href="./index.php?action=view_profile&controller=account">View profile</a></li>
                             <li><a href="./index.php?action=edit_profile&controller=account">Edit profile</a></li>
                             <li><a href="./index.php?action=change_password&controller=account">Change password</a></li>
                             <li><a href="./index.php?action=logout&controller=account">Logout</a></li>
