@@ -13,12 +13,30 @@ $account->check_Session();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #keoxuong{
+            padding-top: 20px;
+        }
+
+        tr{
+
+            vertical-align: top;
+        }
+    </style>
 </head>
 <body>
         <table cellspacing="0" border="1">
             <tr>
-                <td> Profile: </td>
-                <td>
+                <td align="center"> Profile
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="<?php echo $detail['profile_picture']; ?>" width="250px"/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="keoxuong">
                     <table>
                         <tr>
                             <td>Fullname: </td>
@@ -26,7 +44,9 @@ $account->check_Session();
                         </tr>
                         <tr>
                             <td>Gender: </td>
-                            <td><?php echo $detail['gender']; ?></td>
+                            <td ><input type="radio" name="gender" value="male" disabled <?php if($detail['gender']=="male") echo 'checked="checked"';?>/>Male
+                                <input type="radio" name="gender" value="female" disabled <?php if($detail['gender']=="female") echo 'checked="checked"';?>/>Female
+                            </td>
                         </tr>
                         <?php
                         if($_SESSION['role_id']=="1"){
@@ -89,11 +109,17 @@ $account->check_Session();
                 <?php
                 if($_SESSION['role_id']=="1") {
                     ?>
-                    <td>
+                    <td id="keoxuong">
                         <table>
                             <tr>
                                 <td>Team:</td>
                                 <td><?php
+                                        require_once (SITE_ROOT."/models/student_model.php");
+                                        $team = new student_model();
+                                        $team_info = $team->get_team_info();
+                                        foreach ($team_info as $info){
+                                            echo $info['team_name'];
+                                        }
 
                                     ?></td>
                             </tr>
@@ -106,7 +132,10 @@ $account->check_Session();
                                     echo $detail['isdaleader']?"Design and Analysis Team Leader<br>":"";
                                     echo $detail['isdevleader']?"Developing Team Leader<br>":"";
                                     echo $detail['istestleader']?"Testing Team Leader<br>":"";
-                                    echo "Team Member";
+                                    if($detail['isteamleader']==0 && $detail['isdocleader']==0 &&$detail['isdaleader']==0
+                                        &&$detail['isdevleader']==0 &&$detail['istestleader']==0){
+                                        echo "Team Member";
+                                    }
                                     ?>
                                 </td>
                             </tr>
@@ -117,5 +146,6 @@ $account->check_Session();
                 ?>
             </tr>
         </table>
+        <button type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
 </body>
 </html>

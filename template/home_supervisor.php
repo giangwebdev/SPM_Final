@@ -47,10 +47,13 @@ $account->check_Session();
                     <a class="nav-link" href="#">Create account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Edit account</a>
+                    <a class="nav-link" href="./index.php?action=view_profile&controller=account">View profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Manage team</a>
+                    <a class="nav-link" href="./index.php?action=edit_profile&controller=account">Edit profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.php?action=change_password&controller=account">Change password</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php?action=logout&controller=account">Logout</a>

@@ -117,6 +117,14 @@ class account
 
         }
 
+        function auto_gen_password(){
+            $password = '';
+            for($length = 0; $length < 8; $length++) {
+                $password .= chr(rand(33, 126));
+            }
+            return $password;
+        }
+
         function logout(){
             session_destroy();
             header('Location: index.php',true,301);

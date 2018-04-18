@@ -19,4 +19,8 @@ class staff_view{
         $is_supervisor_head = $supervisor->check_supervisor_head();
         require_once(SITE_ROOT . '/template/admin_view_account.php');
     }
+
+    function create_account(){
+        require_once (SITE_ROOT.'/template/admin_create_account.php');
+    }
 }
