@@ -1,13 +1,10 @@
 <?php
-///**
-// * Created by PhpStorm.
-// * User: Kevin Flynn
-// * Date: 3/12/2018
-// * Time: 7:06 AM
-// */
-//session_start();
-//?>
 
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/controllers/account_controller.php");
+$account = new account();
+$account->check_Session();
+?>
 <!doctype html>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +31,6 @@
 </head>
 
 <body>
-
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
@@ -90,5 +86,4 @@
 <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>

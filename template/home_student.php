@@ -5,7 +5,10 @@
  * Date: 3/6/2018
  * Time: 10:41 AM
  */
-
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/controllers/account_controller.php");
+$account = new account();
+$account->check_Session();
 
 ?>
 
@@ -60,5 +63,6 @@
         </div>
     </div>
 </nav>
+
 </body>
 </html>
