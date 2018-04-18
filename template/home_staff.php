@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Kevin Flynn
- * Date: 3/12/2018
- * Time: 7:06 AM
- */
+
 require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/controllers/account_controller.php");
 $account = new account();
@@ -47,16 +42,16 @@ $account->check_Session();
                     <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">View account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Create account</a>
+                    <a class="nav-link" href="./index.php?action=create_account&controller=staff">Create account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Edit account</a>
+                    <a class="nav-link" href="./index.php?action=view_profile&controller=account">View profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=edit_profile&controller=account">Manage team</a>
+                    <a class="nav-link" href="./index.php?action=edit_profile&controller=account">Edit profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=edit_profile&controller=account">Change password</a>
+                    <a class="nav-link" href="./index.php?action=change_password&controller=account">Change password</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php?action=logout&controller=account">Logout</a>

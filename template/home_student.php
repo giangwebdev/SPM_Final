@@ -35,7 +35,7 @@ $account->check_Session();
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="home_staff.php"><img src="../image/Logo-FU-01.png"></a>
+        <a class="navbar-brand" href="home_staff.php"><img src="./image/Logo-FU-01.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,10 +51,13 @@ $account->check_Session();
                     <a class="nav-link" href="">Edit account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=edit_profile&controller=account">Manage team</a>
+                    <a class="nav-link" href="./index.php?action=view_profile&controller=account">View profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=edit_profile&controller=account">Change password</a>
+                    <a class="nav-link" href="./index.php?action=edit_profile&controller=account">Edit profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.php?action=change_password&controller=account">Change password</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php?action=logout&controller=account">Logout</a>

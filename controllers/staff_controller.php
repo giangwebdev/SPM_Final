@@ -26,4 +26,28 @@ class staff extends account {
         $staff = new staff_model();
         return $staff->check_admin($this->_acc_id);
     }
+
+    function create_account(){
+        require_once (SITE_ROOT.'/views/staff_view.php');
+        $staff_view =  new staff_view();
+        $staff_view->create_account();
+        if(isset($_POST['email']) && $_POST['email'] !=null ){
+            $staff =new staff_model();
+            $email = $_POST['email'];
+            $username = substr($email, 0, strpos($email, "@"));
+            $password = $this->auto_gen_password();
+            $role_id = $_POST['role'];
+            $check = $staff->create_account($username,$password,$role_id);
+            if($check == true){
+                $acc = new account_view();
+                $acc->insert_profile();
+
+                echo "Create account successful.";
+            }else{
+                echo "Failed to create new account.";
+            }
+        }
+
+    }
+
 }

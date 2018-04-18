@@ -43,4 +43,20 @@ class staff_model extends account_model {
         }
     }
 
+    function create_account($username,$password,$role){
+        $is_active = "1";
+        $sql = "insert into account values (?,?,?,?)";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"ssii",$username,$password,$role,$is_active);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            if($row = mysqli_fetch_assoc($result)) {
+                return true;
+            }
+            mysqli_stmt_close($stmt);
+            return false;
+        }
+    }
 }
