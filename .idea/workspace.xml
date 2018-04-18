@@ -9,9 +9,14 @@
       <change beforePath="$PROJECT_DIR$/controllers/test.php" afterPath="$PROJECT_DIR$/controllers/test.php" />
       <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change beforePath="$PROJECT_DIR$/models/account_model.php" afterPath="$PROJECT_DIR$/models/account_model.php" />
-      <change beforePath="$PROJECT_DIR$/template/home_staff.php" afterPath="$PROJECT_DIR$/template/home_staff.php" />
+      <change beforePath="$PROJECT_DIR$/template/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/template/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/template/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/template/README.md" afterPath="" />
       <change beforePath="$PROJECT_DIR$/template/home_student.php" afterPath="$PROJECT_DIR$/template/home_student.php" />
       <change beforePath="$PROJECT_DIR$/template/home_supervisor.php" afterPath="$PROJECT_DIR$/template/home_supervisor.php" />
+      <change beforePath="$PROJECT_DIR$/template/package-lock.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/template/package.json" afterPath="" />
       <change beforePath="$PROJECT_DIR$/views/account_view.php" afterPath="$PROJECT_DIR$/views/account_view.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -356,18 +361,17 @@
       <workItem from="1523957922321" duration="7132000" />
       <workItem from="1523974526590" duration="12362000" />
       <workItem from="1524022051559" duration="9999000" />
-      <workItem from="1524050464120" duration="806000" />
+      <workItem from="1524050464120" duration="1305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109078000" />
+    <option name="totallyTimeSpent" value="109577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21669106" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21669106" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
