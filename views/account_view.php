@@ -36,7 +36,7 @@ class account_view{
             require_once (SITE_ROOT.'/template/home_supervisor.php');
         }
         if($role== 3){
-            require_once (SITE_ROOT.'/template/home_staff.php');
+            require_once(SITE_ROOT . '/template/home_staff.php');
         }
     }
 
