@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf797534-1f57-4c53-92fa-fed5c7fbecd9" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/models/student_model.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/template/account_edit_profile.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/controllers/account_controller.php" afterPath="$PROJECT_DIR$/controllers/account_controller.php" />
+      <change beforePath="$PROJECT_DIR$/controllers/create_account.php" afterPath="$PROJECT_DIR$/controllers/student_controller.php" />
+      <change beforePath="$PROJECT_DIR$/controllers/login.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/controllers/logout.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/controllers/request_account.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/controllers/staff_controller.php" afterPath="$PROJECT_DIR$/controllers/staff_controller.php" />
       <change beforePath="$PROJECT_DIR$/models/account_model.php" afterPath="$PROJECT_DIR$/models/account_model.php" />
-      <change beforePath="$PROJECT_DIR$/template/home_student.php" afterPath="$PROJECT_DIR$/template/home_student.php" />
-      <change beforePath="$PROJECT_DIR$/template/home_supervisor.php" afterPath="$PROJECT_DIR$/template/home_supervisor.php" />
-      <change beforePath="$PROJECT_DIR$/template/view_profile.php" afterPath="$PROJECT_DIR$/template/view_profile.php" />
+      <change beforePath="$PROJECT_DIR$/models/student.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/template/account_change_password.php" afterPath="$PROJECT_DIR$/template/account_change_password.php" />
+      <change beforePath="$PROJECT_DIR$/template/js/spmfu.js" afterPath="$PROJECT_DIR$/template/js/spmfu.js" />
+      <change beforePath="$PROJECT_DIR$/template/view_profile.php" afterPath="$PROJECT_DIR$/template/account_view_profile.php" />
       <change beforePath="$PROJECT_DIR$/views/account_view.php" afterPath="$PROJECT_DIR$/views/account_view.php" />
+      <change beforePath="$PROJECT_DIR$/views/create_account.php" afterPath="$PROJECT_DIR$/template/admin_create_account.php" />
+      <change beforePath="$PROJECT_DIR$/views/request_account.php" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,83 +60,8 @@
       <file leaf-file-name="home_staff.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/home_staff.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="10" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home_student.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/home_student.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="49" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_view_account.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/admin_view_account.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="34" column="48" lean-forward="true" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_profile.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/template/view_profile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home_supervisor.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/home_supervisor.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="34" column="24" lean-forward="true" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/account_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="72" column="9" lean-forward="false" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-              <folding>
-                <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-                <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-                <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-                <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-                <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-                <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-                <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-                <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-                <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-                <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-                <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-                <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-                <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-                <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/account_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+            <state relative-caret-position="476">
+              <caret line="37" column="61" lean-forward="true" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -135,31 +70,58 @@
       <file leaf-file-name="account_controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/account_controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="92" column="12" lean-forward="false" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
+            <state relative-caret-position="2057">
+              <caret line="121" column="19" lean-forward="true" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
               <folding>
-                <marker date="1523992418090" expanded="true" signature="1331:1409" ph="..." />
-                <marker date="1523992418090" expanded="true" signature="2416:2604" ph="..." />
+                <marker date="1524035595468" expanded="true" signature="1338:1357" ph="..." />
+                <marker date="1524035595468" expanded="true" signature="1338:1375" ph="..." />
+                <marker date="1524035595468" expanded="true" signature="1338:1416" ph="..." />
+                <marker date="1524035595468" expanded="true" signature="2423:2598" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/test.php">
+      <file leaf-file-name="staff_controller.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/staff_controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="238">
+              <caret line="19" column="53" lean-forward="false" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="admin_create_account.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/admin_create_account.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#td#0;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#td#1;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account_edit_profile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/account_edit_profile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="staff_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/staff_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="19" column="69" lean-forward="true" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -196,21 +158,28 @@
         <option value="$PROJECT_DIR$/template/login.php" />
         <option value="$PROJECT_DIR$/template/view_account.php" />
         <option value="$PROJECT_DIR$/models/supervisor_model.php" />
-        <option value="$PROJECT_DIR$/controllers/staff_controller.php" />
         <option value="$PROJECT_DIR$/controllers/supervisor_controller.php" />
         <option value="$PROJECT_DIR$/models/staff_model.php" />
         <option value="$PROJECT_DIR$/template/change_password.php" />
         <option value="$PROJECT_DIR$/views/staff_view.php" />
         <option value="$PROJECT_DIR$/template/admin_view_account.php" />
-        <option value="$PROJECT_DIR$/template/home_staff.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/controllers/test.php" />
-        <option value="$PROJECT_DIR$/models/account_model.php" />
-        <option value="$PROJECT_DIR$/controllers/account_controller.php" />
-        <option value="$PROJECT_DIR$/views/account_view.php" />
-        <option value="$PROJECT_DIR$/template/home_student.php" />
         <option value="$PROJECT_DIR$/template/view_profile.php" />
+        <option value="$PROJECT_DIR$/models/student_model.php" />
+        <option value="$PROJECT_DIR$/controllers/student_controller.php" />
+        <option value="$PROJECT_DIR$/models/account_model.php" />
+        <option value="$PROJECT_DIR$/template/account_view_profile.php" />
+        <option value="$PROJECT_DIR$/template/account_edit_profile.php" />
+        <option value="$PROJECT_DIR$/template/home_staff.php" />
         <option value="$PROJECT_DIR$/template/home_supervisor.php" />
+        <option value="$PROJECT_DIR$/views/account_view.php" />
+        <option value="$PROJECT_DIR$/controllers/account_controller.php" />
+        <option value="$PROJECT_DIR$/template/account_change_password.php" />
+        <option value="$PROJECT_DIR$/template/home_student.php" />
+        <option value="$PROJECT_DIR$/template/js/spmfu.js" />
+        <option value="$PROJECT_DIR$/controllers/staff_controller.php" />
+        <option value="$PROJECT_DIR$/template/admin_create_account.php" />
       </list>
     </option>
   </component>
@@ -245,6 +214,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,14 +241,17 @@
             <path>
               <item name="SPM_Final" type="b2602c69:ProjectViewProjectNode" />
               <item name="SPM_Final" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="upload" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SPM_Final" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SPM_Final" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -288,15 +262,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\xampp\htdocs\SPM_Final" />
-      <recent name="F:\xampp\htdocs\SPM_Final\model" />
-      <recent name="F:\xampp\htdocs\SPM_Final\controller" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\xampp\htdocs\SPM_Final\template" />
       <recent name="F:\xampp\htdocs\SPM_Final" />
       <recent name="F:\xampp\htdocs\SPM_Final\model\common" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\xampp\htdocs\SPM_Final" />
+      <recent name="F:\xampp\htdocs\SPM_Final\model" />
+      <recent name="F:\xampp\htdocs\SPM_Final\controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -348,21 +322,24 @@
       <workItem from="1523712938892" duration="3628000" />
       <workItem from="1523763830070" duration="51578000" />
       <workItem from="1523887210141" duration="11378000" />
-      <workItem from="1523935253612" duration="26344000" />
+      <workItem from="1523935253612" duration="26586000" />
+      <workItem from="1524021756462" duration="24367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103420000" />
+    <option name="totallyTimeSpent" value="128029000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1288" y="-122" width="1296" height="1010" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16343042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17475729" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -374,7 +351,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -395,85 +371,23 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/models/account_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/home_staff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/home_student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/home_supervisor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.html" />
-    <entry file="file://$PROJECT_DIR$/models/DB_Driver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-          <folding>
-            <marker date="1523791359746" expanded="true" signature="1412:1499" ph="INSERT INTO ${$table}... " />
-            <marker date="1523791359746" expanded="true" signature="2175:2200" ph="DELETE FROM ${$table}... " />
-            <marker date="1523791359746" expanded="true" signature="2400:2423" ph="select &amp; fro... " />
-            <marker date="1523791359746" expanded="true" signature="2400:2424" ph="select &amp; fro... " />
-            <marker date="1523791359746" expanded="true" signature="2400:2440" ph="select * fro... ${$table}" />
-            <marker date="1523791359746" expanded="true" signature="2400:2442" ph="select &amp; fro... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/account_model.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
           <folding>
-            <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="861:918" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="1513:1560" ph="update account... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2212" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
           </folding>
         </state>
       </provider>
@@ -490,20 +404,20 @@
         <state relative-caret-position="255">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="861:918" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="1513:1560" ph="update account... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2212" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
           </folding>
         </state>
       </provider>
@@ -552,20 +466,20 @@
         <state relative-caret-position="119">
           <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
           <folding>
-            <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="861:918" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="1513:1560" ph="update account... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2212" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
           </folding>
         </state>
       </provider>
@@ -597,20 +511,20 @@
         <state relative-caret-position="357">
           <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding>
-            <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="861:918" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="1513:1560" ph="update account... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2212" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
           </folding>
         </state>
       </provider>
@@ -620,32 +534,25 @@
         <state relative-caret-position="340">
           <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding>
-            <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="861:918" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="1513:1560" ph="update account... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2212" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/view/header.php" />
-    <entry file="file://$PROJECT_DIR$/models/student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/DB_Drivẻ.php" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fa3b5baf-b966-45a5-aa21-7f65552db2d0/console.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -657,13 +564,6 @@
     <entry file="file://$PROJECT_DIR$/model/DB_bussiness.php" />
     <entry file="file://$PROJECT_DIR$/login.html" />
     <entry file="file://$PROJECT_DIR$/models/query_for_staff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/create_account.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -704,20 +604,20 @@
         <state relative-caret-position="255">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="861:918" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="1513:1560" ph="update account... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2212" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
           </folding>
         </state>
       </provider>
@@ -737,53 +637,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/supervisor_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/supervisor_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/staff_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <marker date="1523897328926" expanded="true" signature="289:303" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523897328926" expanded="true" signature="289:310" ph="select * fro... account" />
-            <marker date="1523897328926" expanded="true" signature="790:839" ph="select isadm... academic_staff" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/12438ef2/fa3b5baf-b966-45a5-aa21-7f65552db2d0/spmfu.account">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/staff_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="37" lean-forward="false" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/staff_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,18 +652,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/account_change_password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -819,84 +668,211 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/account_view.php">
+    <entry file="file://$PROJECT_DIR$/controllers/create_account.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/account_controller.php">
+    <entry file="file://$PROJECT_DIR$/controllers/request_account.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="92" column="12" lean-forward="false" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
+        <state relative-caret-position="272">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/supervisor_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/student_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="56" lean-forward="true" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/supervisor_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
           <folding>
-            <marker date="1523992418090" expanded="true" signature="1331:1409" ph="..." />
-            <marker date="1523992418090" expanded="true" signature="2416:2604" ph="..." />
+            <marker date="1523869188008" expanded="true" signature="298:354" ph="select issup... supervisor" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/home_staff.php">
+    <entry file="file://$PROJECT_DIR$/models/staff_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="10" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="493">
+          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="54" />
+          <folding>
+            <marker date="1523897328926" expanded="true" signature="289:303" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1523897328926" expanded="true" signature="289:310" ph="select * fro... account" />
+            <marker date="1523897328926" expanded="true" signature="790:839" ph="select isadm... academic_staff" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/account_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="72" column="9" lean-forward="false" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+        <state relative-caret-position="334">
+          <caret line="91" column="8" lean-forward="false" selection-start-line="91" selection-start-column="8" selection-end-line="97" selection-end-column="9" />
           <folding>
-            <marker date="1523992333209" expanded="true" signature="861:918" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
-            <marker date="1523992333209" expanded="true" signature="1513:1560" ph="update account... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2212" ph="select * fro... " />
-            <marker date="1523992333209" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
-            <marker date="1523992333209" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="861:918" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="861:919" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:932" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:933" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:942" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:948" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:958" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:959" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="861:960" ph="select * fro... ${$this-&gt;_table_name}" />
+            <marker date="1524028679064" expanded="true" signature="1513:1560" ph="update account... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2212" ph="select * fro... " />
+            <marker date="1524028679064" expanded="true" signature="2199:2213" ph="select * fro... ${$thí}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2249" ph="select * fro... ${$this-&gt;__table}" />
+            <marker date="1524028679064" expanded="true" signature="2199:2250" ph="select * fro... ${$this-&gt;__table}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/admin_view_account.php">
+    <entry file="file://$PROJECT_DIR$/template/account_view_profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="34" column="48" lean-forward="true" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/home_student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="49" selection-end-column="13" />
+        <state relative-caret-position="419">
+          <caret line="133" column="91" lean-forward="false" selection-start-line="133" selection-start-column="91" selection-end-line="133" selection-end-column="91" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/home_supervisor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="34" column="24" lean-forward="true" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+        <state relative-caret-position="493">
+          <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/view_profile.php">
+    <entry file="file://$PROJECT_DIR$/models/student_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding>
+            <marker date="1524025513687" expanded="true" signature="287:376" ph="select team.... team" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/account_change_password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/home_student.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/account_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="55" column="73" lean-forward="true" selection-start-line="55" selection-start-column="73" selection-end-line="55" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/admin_view_account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="34" column="48" lean-forward="false" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/home_staff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="37" column="61" lean-forward="true" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/js/spmfu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/staff_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="69" lean-forward="true" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/account_edit_profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/admin_create_account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#td#0;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#td#1;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/account_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2057">
+          <caret line="121" column="19" lean-forward="true" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="19" />
+          <folding>
+            <marker date="1524035595468" expanded="true" signature="1338:1357" ph="..." />
+            <marker date="1524035595468" expanded="true" signature="1338:1375" ph="..." />
+            <marker date="1524035595468" expanded="true" signature="1338:1416" ph="..." />
+            <marker date="1524035595468" expanded="true" signature="2423:2598" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/staff_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="53" lean-forward="false" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
           <folding />
         </state>
       </provider>
