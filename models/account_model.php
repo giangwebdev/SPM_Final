@@ -20,7 +20,7 @@ class account_model extends DB_Driver
     // Hàm Khởi Tạo
     function __construct() {
         if($this->_acc_id == null ){
-            $this->_acc_id= $_SESSION['acc_id'];
+//            $this->_acc_id= $_SESSION['acc_id'];
         }
         parent::connect();
     }

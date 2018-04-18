@@ -14,7 +14,7 @@ class account
         protected $_current_account_info = array();
         function __construct()
         {
-            $this->_acc_id = $_SESSION['acc_id'];
+//            $this->_acc_id = $_SESSION['acc_id'];
         }
 
         function __destruct()
@@ -55,14 +55,15 @@ class account
                     $this->_role = $this->_current_account_info["role_id"];
                     $site->Homepage($this->_role);
                 }
-            }else {
-                echo '<script type="text/javascript">
-                 alert("Wrong username or password! " +
-                  " Please try again!");
-                 window.location = "../views/account_view.php";
-                 </script>';
-
             }
+//            else {
+//                echo '<script type="text/javascript">
+//                 alert("Wrong username or password! " +
+//                  " Please try again!");
+//                 window.location = "../views/account_view.php";
+//                 </script>';
+
+//            }
         }
 
         function change_password(){
@@ -71,8 +72,6 @@ class account
             $account->change_password($new_password);
         }
 
-        function edit_profile(){
 
-        }
 }
 
