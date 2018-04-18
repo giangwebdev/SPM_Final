@@ -42,7 +42,17 @@ class account_view{
 
     function view_profile(){
         foreach ($this->_acc_detail as $detail){
-            require_once (SITE_ROOT."/template/view_profile.php");
+            require_once(SITE_ROOT . "/template/account_view_profile.php");
         }
+    }
+
+    function edit_profile(){
+        foreach ($this->_acc_detail as $detail){
+            require_once(SITE_ROOT . "/template/account_edit_profile.php");
+        }
+    }
+
+    function change_password(){
+        require_once (SITE_ROOT.'/template/account_change_password.php');
     }
 }
