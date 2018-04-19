@@ -38,10 +38,12 @@ class staff extends account {
             $password = $this->auto_gen_password();
             $role_id = $_POST['role'];
             $check = $staff->create_account($username,$password,$role_id);
+            require_once (SITE_ROOT.'/models/account_model.php');
+            $acc = new account_model();
+            $acc_id = $acc->get_acc_id($username);
+            $student_id = substr($username, 0, strpos($username, "SE"));
             if($check == true){
-                $acc = new account_view();
-                $acc->insert_profile();
-
+                $acc->insert_profile($acc_id, $student_id,$email, $role_id);
                 echo "Create account successful.";
             }else{
                 echo "Failed to create new account.";
@@ -49,5 +51,18 @@ class staff extends account {
         }
 
     }
+
+    function admin_edit_profile(){
+
+        require_once (SITE_ROOT.'/models/account_model.php');
+        $acc_id = $_POST['acc_id'];
+        $acc_role = $_POST['acc_role'];
+        $acc_info = new account_model();
+        $acc_info->get_profile_by_id($acc_id,$acc_role);
+        require_once (SITE_ROOT.'/views/staff_view.php');
+        $staff_view =  new staff_view();
+        $staff_view->view_account();
+    }
+
 
 }

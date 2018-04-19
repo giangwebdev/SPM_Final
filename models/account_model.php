@@ -66,9 +66,9 @@ class account_model extends DB_Driver
     function get_profile(){
         if($this->_role_id == "1" ){
             $this->__table = "student";
-        }elseif ($this->_role_id == "2"){
+        }elseif ($this->_role_id == "2" || $this->_role_id == "5"){
             $this->__table = "supervisor";
-        }elseif ($this->_role_id == "3"){
+        }elseif ($this->_role_id == "3" || $this->_role_id == "4"){
             $this->__table = "staff";
         }
         $sql = "select * from ". $this->__table ." where acc_id= ?";
@@ -88,19 +88,52 @@ class account_model extends DB_Driver
         }
     }
 
-    function edit_profile($phone,$link_profile){
-        if($this->_role_id == "1" ){
+    function get_profile_by_id($acc_id,$role_id){
+        if($role_id == "1" ){
             $this->__table = "student";
-        }elseif ($this->_role_id == "2"){
+        }elseif ($role_id == "2" || $role_id == "5"){
             $this->__table = "supervisor";
-        }elseif ($this->_role_id == "3"){
+        }elseif ($role_id == "3" || $role_id == "4"){
             $this->__table = "staff";
         }
-        $sql = "update ".$this->__table. "set phone=? , profile_picture=? where acc_id=?";
+        $sql = "select * from ". $this->__table ." where acc_id= ?";
+
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
-            mysqli_stmt_bind_param($stmt,"isi",$phone,$link_profile ,$this->_acc_id);
+            mysqli_stmt_bind_param($stmt,"i",$acc_id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data = array();
+            while($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+    }
+
+    function edit_profile($phone,$link_profile){
+        $avatar ="";
+        if($this->_role_id == "1" ){
+            $this->__table = "student";
+        }elseif ($this->_role_id == "2" || $this->_role_id == "5"){
+            $this->__table = "supervisor";
+        }elseif ($this->_role_id == "3" || $this->_role_id == "4"){
+            $this->__table = "staff";
+        }
+        if(isset($link_profile) && $link_profile !=null){
+            $avatar = ", profile_picture=?";
+        }
+        $sql = "update ".$this->__table. "set phone=?".$avatar ."  where acc_id=?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            if(isset($link_profile) && $link_profile !=null){
+                mysqli_stmt_bind_param($stmt,"isi",$phone,$link_profile ,$this->_acc_id);
+            }else{
+                mysqli_stmt_bind_param($stmt,"ii",$phone ,$this->_acc_id);
+            }
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
             return true;
@@ -108,33 +141,36 @@ class account_model extends DB_Driver
         return false;
     }
 
-//    function insert_profile($role_id){
-//        $sql = "insert into";
-//        if($role_id == "1" ){
-//            $this->__table = "student";
-//            $sql.= " ".$this->__table. " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-//        }elseif ($role_id == "2"){
-//            $this->__table = "supervisor";
-//            $sql.= " ".$this->__table. " values (?,?,?,?,?,?,?,?)";
-//        }elseif ($role_id == "3"){
-//            $this->__table = "staff";
-//            $sql.= " ".$this->__table. " values (?,?,?,?,?,?,?)";
-//        }
-//        $link= parent::get_conn();
-//        $stmt = mysqli_stmt_init($link);
-//        if(mysqli_stmt_prepare($stmt,$sql)){
-//            if($role_id == "1" ){
-//                mysqli_stmt_bind_param($stmt,"si",$new_password,$this->_acc_id);
-//            }elseif ($role_id == "2"){
-//                mysqli_stmt_bind_param($stmt,"si",$new_password,$this->_acc_id);
-//            }elseif ($role_id == "3"){
-//                mysqli_stmt_bind_param($stmt,"ississi",$acc_id,$full_name, );
-//            }
-//            mysqli_stmt_execute($stmt);
-//            mysqli_stmt_close($stmt);
-//            return true;
-//        }
-//        return false;
-//    }
+    function insert_profile($acc_id,$student_id, $email,$role_id){
+        $full_name = $gender = $phone = $major = $dob = $campus = $team_id = $profile_picture =null;
+        $is_teamleader = $isdaleader = $isdevleader = $isdocleader = $istestleader = 0;
+        $sql = "insert into";
+        if($role_id == "1" ){
+            $this->__table = "student";
+            $sql.= " ".$this->__table. " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        }elseif ($role_id == "2"|| $role_id == "5"){
+            $this->__table = "supervisor";
+            $sql.= " ".$this->__table. " values (?,?,?,?,?,?,?)";
+        }elseif ($role_id == "3" || $role_id == "4"){
+            $this->__table = "staff";
+            $sql.= " ".$this->__table. " values (?,?,?,?,?,?)";
+        }
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            if($role_id == "1" ){
+                mysqli_stmt_bind_param($stmt,"sisssisssisiiiii",$student_id,$acc_id,$full_name, $gender ,$dob, $phone, $email, $major, $campus, $team_id,
+                    $profile_picture, $is_teamleader,$isdocleader,$isdaleader, $isdevleader, $istestleader);
+            }elseif ($role_id == "2"){
+                mysqli_stmt_bind_param($stmt,"ississsi",$acc_id,$full_name, $gender ,$phone, $email, $major, $profile_picture);
+            }elseif ($role_id == "3"){
+                mysqli_stmt_bind_param($stmt,"ississi",$acc_id,$full_name, $gender ,$phone, $email, $profile_picture);
+            }
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            return true;
+        }
+        return false;
+    }
 
 }

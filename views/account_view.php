@@ -32,10 +32,10 @@ class account_view{
         if($role== 1){
             require_once (SITE_ROOT.'/template/home_student.php');
         }
-        if($role== 2){
+        if($role== 2 || $role == 5){
             require_once (SITE_ROOT.'/template/home_supervisor.php');
         }
-        if($role== 3){
+        if($role== 3 || $role == 4){
             require_once(SITE_ROOT . '/template/home_staff.php');
         }
     }

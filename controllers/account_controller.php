@@ -39,7 +39,7 @@ class account
         }
 
         function check_Session(){
-            if(!isset($_SESSION['username'])){
+            if(!isset($_SESSION['acc_id'])){
                 echo '<script type="text/javascript">
                  window.location = "../index.php";
                  </script>';
@@ -103,6 +103,20 @@ class account
                 $acc_view->__set($key,$detail);
             }
             $acc_view->edit_profile();
+            if(isset($_POST['edit']) && $_POST['edit'] !=null){
+                $phone = $_POST['phone'];
+                if(!isset($_POST['upload_avatar'])){
+                    $profile_pic = $_POST['upload_avatar'];
+                }else{
+                    $profile_pic = null;
+                }
+               $check = $account->edit_profile($phone,$profile_pic);
+                if($check == true){
+                    echo "Edit profile successful.";
+                }else{
+                    echo "Failed!";
+                }
+            }
         }
 
         function view_profile(){
