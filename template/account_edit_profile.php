@@ -3,7 +3,7 @@ require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/controllers/account_controller.php");
 $account = new account();
 $account->check_Session();
-
+$role = $_SESSION['role_id'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,7 +15,7 @@ $account->check_Session();
     <title>Document</title>
 </head>
 <body>
-<form>
+<form action="./index.php?action=edit_profile&controller=account" method="post">
 <table cellspacing="0" border="1">
     <tr>
                 <td> Profile
@@ -48,7 +48,7 @@ $account->check_Session();
                     </td>
                 </tr>
                 <?php
-                if($_SESSION['role_id']=="1"){
+                if($role=="1"){
                     ?>
                     <tr>
                         <td>Date of Birth:</td>
@@ -66,7 +66,7 @@ $account->check_Session();
                     <td><?php echo $detail['email']; ?></td>
                 </tr>
                 <?php
-                if($_SESSION['role_id']=="1"){
+                if($role=="1"){
                     ?>
                     <tr>
                         <td>Major:</td>
@@ -78,35 +78,21 @@ $account->check_Session();
                     </tr>
                     <?php
                 }
-                if($_SESSION['role_id']=="3"){
                     ?>
                     <tr>
                         <td>Role:</td>
-                        <td><?php echo $detail['isadmin']?"Administrator":"Academic Staff"; ?></td>
+                        <td><?php
+                            if($role == "1") echo "Student";
+                            if($role == "2") echo "Supervisor";
+                            if($role == "3") echo "Academic Staff";
+                            if($role == "4") echo "Administrator";
+                            if($role == "5") echo "Supervisor Head";
+                        ?></td>
                     </tr>
-                    <?php
-                }
-                if($_SESSION['role_id']=="2"){
-                    ?>
-                    <tr>
-                        <td>Role:</td>
-                        <td><?php echo $detail['issupervisorhead']?"Supervisor Head":"Supervisor"; ?></td>
-                    </tr>
-                    <?php
-                }
-                if($_SESSION['role_id']=="1"){
-                    ?>
-                    <tr>
-                        <td>Role:</td>
-                        <td>Student</td>
-                    </tr>
-                    <?php
-                }
-                ?>
             </table>
         </td>
         <?php
-        if($_SESSION['role_id']=="1") {
+        if($role=="1") {
             ?>
             <td>
                 <table>
@@ -131,7 +117,10 @@ $account->check_Session();
                             echo $detail['isdaleader']?"Design and Analysis Team Leader<br>":"";
                             echo $detail['isdevleader']?"Developing Team Leader<br>":"";
                             echo $detail['istestleader']?"Testing Team Leader<br>":"";
-                            echo "Team Member";
+                            if($detail['isteamleader']==0 && $detail['isdocleader']==0 &&$detail['isdaleader']==0
+                                &&$detail['isdevleader']==0 &&$detail['istestleader']==0){
+                                echo "Team Member";
+                            }
                             ?>
                         </td>
                     </tr>

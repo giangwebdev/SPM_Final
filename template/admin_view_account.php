@@ -1,9 +1,9 @@
 <?php
-//require_once __DIR__."/../config.php";
-//require_once (SITE_ROOT."/controllers/account_controller.php");
-//$account = new account();
-//$account->check_Session();
-//?>
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/controllers/account_controller.php");
+$account = new account();
+$account->check_Session();
+?>
 
 <!doctype html>
 <html lang="en">
@@ -23,8 +23,11 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="home_staff.php"><img src="./image/Logo-FU-01.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
+        <a class="navbar-brand" href="index.php"><img src="./image/Logo-FU-01.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -71,32 +74,33 @@
                     if($info['role_id']==1){
                         $role="Student";
                     }
-                    elseif ($info['role_id']==2){
-                        if($is_supervisor_head){
-                            $role="Supervisor Head";
-                        }else{
-                            $role="Supervisor";
-                        }
-
+                    if($info['role_id']==2){
+                        $role="Supervisor";
                     }
-                    elseif ($info['role_id']==3){
-                        if($is_admin){
-                            $role="Admin";
-                        }else{
-                            $role="Academic Staff";
-                        }
-
+                    if($info['role_id']==3){
+                        $role="Academic Staff";
                     }
-                    echo "<tr>";
-                    echo "<th>".$info['acc_id']."</th>";
-                    echo "<th>".$info['username']."</th>";
-                    echo "<th>".$role."</th>";
-                    echo $info['isactive']?"<th>Active</th>":"<th>Deactive</th>";
-                    echo $info['isactive']?"<th><button>Deactive</button></th>":"<th><button>Active</button></th>";
-                    echo "</tr>";
+                    if($info['role_id']==4){
+                        $role="Administrator";
+                    }
+                    if($info['role_id']==5){
+                        $role="Supervisor Head";
+                    }
+
+                ?>
+                <tr>
+                    <td> <?php echo $info['acc_id']; ?></td>
+                    <td><?php echo $info['username']; ?></td>
+                    <td><?php echo $role; ?></td>
+
+                    <td><?php echo $info['isactive']?"Active":"Inactive"; ?> </td>
+                    <td><button ><?php echo $info['isactive']?"Lock":"Unlock"; ?></button> </td>
+                    <td><button type="button" name="admin_edit_profile" onclick="window.location.href='./index.php?action=admin_edit_profile&controller=staff'">Edit</button></td>
+                    <td><button>Delete</button></td>
+                </tr>
+            <?php
                 }
             ?>
-
         </table>
 
 </body>
