@@ -5,6 +5,9 @@
 //$account->check_Session();
 
 ?>
+
+// Cứ trang trí như trang Edit profile là được, code t chưa viết xong nên tạm thời bị lỗi, cứ kệ nó đi
+
 <!doctype html>
 <html lang="en">
 <head>
