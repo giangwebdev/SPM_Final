@@ -11,7 +11,6 @@ class account_view{
     function __construct()
     {
 
-
     }
 
     function __destruct()

@@ -13,11 +13,11 @@ session_start();
 require_once __DIR__."/./config.php";
 
 
-if(!isset($_SESSION['acc_id']) || $_SESSION['acc_id'] ==null){
-    require_once (SITE_ROOT.'/views/account_view.php');
-    $access = new account_view();
-    $access->inputLogin();
-}else{
+//if(!isset($_SESSION['acc_id']) || $_SESSION['acc_id'] ==null){
+//    require_once (SITE_ROOT.'/views/account_view.php');
+//    $access = new account_view();
+//    $access->inputLogin();
+//}else{
     if(!isset($_GET['action']) || !isset($_GET['controller']) || $_GET['action'] ==null || $_GET['controller'] == null) {
         require_once(SITE_ROOT . '/controllers/account_controller.php');
         $site = new account();
@@ -29,4 +29,4 @@ if(!isset($_SESSION['acc_id']) || $_SESSION['acc_id'] ==null){
         $controller = new $controller();
         $controller->$action();
     }
-}
+//}

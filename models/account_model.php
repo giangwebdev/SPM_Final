@@ -32,12 +32,32 @@ class account_model extends DB_Driver
 
 
     //Check account
-    function get_account_info($username,$password){
-        $sql = "select acc_id,username,role_id,isactive,time_created from account where username= ? and password= ?";
+    function check_account($username,$password){
+        $sql = "select acc_id from account where username= ? and ( password= ? or password_temp=?)";
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
-            mysqli_stmt_bind_param($stmt,"ss",$username,$password);
+            mysqli_stmt_bind_param($stmt,"sss",$username,$password, $password);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            if(mysqli_fetch_assoc($result)) {
+                mysqli_stmt_close($stmt);
+                return true;
+            }else{
+                mysqli_stmt_close($stmt);
+                return false;
+            }
+        }
+    }
+
+
+
+    function get_account_info($username){
+        $sql = "select acc_id,username,role_id,isactive,time_created from account where username= ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"s",$username);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             $data = array();
