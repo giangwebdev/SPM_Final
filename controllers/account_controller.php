@@ -133,7 +133,7 @@ class account
             $this->_current_account_detail = $account->get_profile();
             require_once (SITE_ROOT."/views/account_view.php");
             $acc_view = new account_view();
-            foreach ($this->_current_account_detail as $key=>$detail){
+            foreach($this->_current_account_detail as $key=>$detail){
                 $acc_view->__set($key,$detail);
             }
             $acc_view->view_profile();
