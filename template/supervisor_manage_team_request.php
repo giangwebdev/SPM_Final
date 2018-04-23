@@ -15,9 +15,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/spmfu.css">
 </head>
-<body>
-        <h1>Manage new team creating request</h1>
+<?php //require_once(SITE_ROOT."/template/header.php"); ?>
+
+<body style="margin: 150px 0">
+<div class="main-login main-center">
+    <h2 class="text-center">MANAGE NEW TEAM CREATING REQUEST
+    </h2>
         <form>
             <table cellspacing="0" border="1">
                 <tr>
@@ -32,12 +37,12 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <button>Accept</button>
-                        <button>Reject</button>
+                        <button class="button">Accept</button>
+                        <button class="button">Reject</button>
                     </td>
                 </tr>
             </table>
 
-        </form>
+        </form></div>
 </body>
 </html>

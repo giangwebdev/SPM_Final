@@ -13,6 +13,7 @@ $role=$_SESSION['role_id'];
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/spmfu.css">
     <style>
         #keoxuong{
             padding-top: 20px;
@@ -24,8 +25,10 @@ $role=$_SESSION['role_id'];
         }
     </style>
 </head>
-<body>
-        <table cellspacing="0" border="1">
+<?php require_once(SITE_ROOT."/template/header.php"); ?>
+<body style="margin: 150px 0">
+<div class="main-login main-center">
+        <table cellspacing="0" border="1" >
             <tr>
                 <td align="center"> Profile
                     <table>
@@ -134,5 +137,5 @@ $role=$_SESSION['role_id'];
             </tr>
         </table>
         <button type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
-</body>
+</div></body>
 </html>
