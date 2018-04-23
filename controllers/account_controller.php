@@ -3,7 +3,7 @@
 
 require_once __DIR__."/../config.php";
 require_once SITE_ROOT . "/models/account_model.php";
-
+require_once(SITE_ROOT . '/views/account_view.php');
 
 class account
 {
@@ -28,9 +28,9 @@ class account
 
         function checkLogin(){
             if(!isset($_POST['username']) || !isset($_POST['password']) || $_POST['username'] ==null || $_POST['password'] == null){
-                require_once (SITE_ROOT.'/views/account_view.php');
-                $site = new account_view();
-                $site->inputLogin();
+                echo '<script type="text/javascript">
+                 window.location.href = "./login.php";
+                 </script>';
 
             }else{
                 $this->_username  = $_POST['username'];
@@ -41,35 +41,44 @@ class account
         function check_Session(){
             if(!isset($_SESSION['acc_id'])){
                 echo '<script type="text/javascript">
-                 window.location = "../index.php";
+                 window.location.href = "../index.php";
                  </script>';
             }
         }
 
-        function Login()
+        function login()
         {
+
             $account = new account_model();
             $this->checkLogin();
-            $this->_current_account_info = $account->get_account_info($this->_username, $this->_password);
-            if (isset($this->_current_account_info) && $this->_current_account_info != null) {
-                if ($this->_current_account_info['isactive'] == 1) {
-                    $_SESSION["acc_id"] = $this->_current_account_info["acc_id"];
-                    $_SESSION["username"] = $this->_current_account_info["username"];
-                    $_SESSION["role_id"] = $this->_current_account_info["role_id"];
-                    require_once(SITE_ROOT . '/views/account_view.php');
-                    $site = new account_view();
-                    $this->_role_id = $this->_current_account_info["role_id"];
-                    $site->homepage($this->_role_id);
+            $check_acc = $account->check_account($this->_username, $this->_password);
+            if($check_acc == true){
+                $this->_current_account_info = $account->get_account_info($this->_username);
+                if (isset($this->_current_account_info) && $this->_current_account_info != null) {
+                    if ($this->_current_account_info['isactive'] == 1) {
+                        $_SESSION["acc_id"] = $this->_current_account_info["acc_id"];
+                        $_SESSION["username"] = $this->_current_account_info["username"];
+                        $_SESSION["role_id"] = $this->_current_account_info["role_id"];
+                        $site = new account_view();
+                        $this->_role_id = $this->_current_account_info["role_id"];
+                        $site->homepage($this->_role_id);
+                    } else {
+                        echo '<script type="text/javascript">
+                 alert("Your account is locked!");
+                 window.location = "../index.php";
+                 </script>';
+                    }
                 }
-
-            } else {
+            }else{
                 echo '<script type="text/javascript">
                  alert("Wrong username or password! " +
                   " Please try again!");
                  window.location = "../index.php";
                  </script>';
             }
+
         }
+
 
         function homepage(){
             require_once (SITE_ROOT.'/views/account_view.php');
