@@ -32,6 +32,7 @@ $account->check_Session();
 
 <body>
 <!-- Navigation -->
+<?php require_once(SITE_ROOT."/template/header.php"); ?>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
         <a class="navbar-brand" href="home_supervisor.php"><img src="./image/Logo-FU-01.png"></a>

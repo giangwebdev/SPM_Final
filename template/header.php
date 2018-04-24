@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
 
-        <a class="navbar-brand" href="index.php"><img src="./image/Logo-FU-01.png"></a>
+        <a class="navbar-brand" href="#"><img src="./image/Logo-FU-01.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -57,13 +57,20 @@
                 }elseif($role ==4){
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">Admin</a>
+
+                        <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">View account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.php?action=create_account&controller=staff">Create account</a>
+
                     </li>
 
                     <?php
                 }
                 ?>
 <!--                //Chung-->
+
+
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php?action=view_profile&controller=account">View profile</a>
                 </li>
