@@ -2,10 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: Kevin Flynn
- * Date: 4/20/2018
- * Time: 2:00 PM
+ * Date: 4/24/2018
+ * Time: 4:57 PM
  */
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -17,11 +18,10 @@
     <title>Document</title>
 </head>
 <body>
-        <h1>Reset password</h1>
-        <form action="./index.php?action=reset_password&controller=account" method="post">
-            Type your username: <input type="text" name="reset_username" >
-            <br>
-            <button type="submit">Send</button>
+        <h1>Create team</h1>
+        <form action="" method="post">
+
+            <input >
         </form>
 </body>
 </html>

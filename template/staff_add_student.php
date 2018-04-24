@@ -19,20 +19,22 @@
 </head>
 <body>
     <h1>Import student</h1>
-<form>
-    <input type="file" name="filename">
+<form action="./index.php?action=add_student_list&controller=staff" method="post">
+    <p>Choose file to import (.xlsx)</p>
+    <input type="file" name="filename" onchange="">
     <h1> Student List</h1>
     <table cellspacing="0" border="1">
         <tr>
             <td>Student ID</td>
             <td>Name</td>
+            <td>DoB</td>
             <td>Gender</td>
             <td>Phone</td>
             <td>Email</td>
             <td>Major</td>
         </tr>
         <tr>
-            //Data of imported students shows here!!
+
         </tr>
     </table>
 </form>

@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="text-center p-t-90">
-                        <a class="txt1" href="/forget_password.php">
+                        <a class="txt1" href="./index.php?action=reset_password&controller=account">
                             Forgot Password?
                         </a>
                     </div>

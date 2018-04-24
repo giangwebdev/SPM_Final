@@ -44,7 +44,7 @@ $account->check_Session();
                     <a class="nav-link" href="../approve_pending_acc.php">Manage account request</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Create account</a>
+                    <a class="nav-link" href="./index.php?action=create_meeting_request&controller=supervisor">Create meeting request</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php?action=view_profile&controller=account">View profile</a>

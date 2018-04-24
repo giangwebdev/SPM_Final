@@ -26,6 +26,25 @@ class student_model extends account_model{
                 mysqli_stmt_close($stmt);
                 return $data;
             }
+    }
+
+    function add_request($team_id,$request_type, $content, $request_by){
+        $is_accepted_staff = $is_accepted_spv =0 ;
+        $sql = "insert into request(team_id, request_type, content, request_by, is_accepted_by_staff, is_accepted_by_supervisor) VALUES (?,?,?,?,?,?)";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"issiii",$team_id,
+                $request_type, $content, $request_by, $is_accepted_staff,$is_accepted_spv);
+            if(mysqli_stmt_execute($stmt)){
+                mysqli_stmt_close($stmt);
+                return true;
+            }else{
+                mysqli_stmt_close($stmt);
+                return false;
+            }
+
+        }
 
     }
 }

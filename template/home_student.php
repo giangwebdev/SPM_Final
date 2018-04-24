@@ -48,7 +48,7 @@ $account->check_Session();
                     <a class="nav-link" href="">Create account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Edit account</a>
+                    <a class="nav-link" href="./index.php?action=create_request&controller=student">Create request</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php?action=view_profile&controller=account">View profile</a>

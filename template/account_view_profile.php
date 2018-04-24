@@ -24,6 +24,7 @@ $role=$_SESSION['role_id'];
         }
     </style>
 </head>
+<?php require_once(SITE_ROOT."/template/header.php"); ?>
 <body>
         <table cellspacing="0" border="1">
             <tr>

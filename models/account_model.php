@@ -70,12 +70,12 @@ class account_model extends DB_Driver
 
     }
 
-    function change_password($new_password){
-        $sql = "update account set password = ? where acc_id= ?";
+    function change_password($acc_name,$new_password){
+        $sql = "update account set password = ?, password_temp = null where username= ?";
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
-            mysqli_stmt_bind_param($stmt,"si",$new_password,$this->_acc_id);
+            mysqli_stmt_bind_param($stmt,"ss",$new_password,$acc_name);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
             return true;
@@ -193,4 +193,17 @@ class account_model extends DB_Driver
         return false;
     }
 
+    function save_password_temp($acc_id,$password){
+        $sql = "update account set password_temp = ? where acc_id= ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"si",$password,$acc_id);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            return true;
+        }
+        mysqli_stmt_close($stmt);
+        return false;
+    }
 }

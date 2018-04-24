@@ -19,4 +19,7 @@ class staff_view{
     function create_account(){
         require_once (SITE_ROOT.'/template/admin_create_account.php');
     }
+    function add_student_list(){
+        require_once (SITE_ROOT."/template/staff_add_student.php");
+    }
 }

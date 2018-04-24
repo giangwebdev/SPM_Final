@@ -29,22 +29,21 @@
         <br>
         <div>Request type:
             <select>
-                <option selected>All requests</option>
-                <option>Meeting request</option>
-                <option>Change project name</option>
+                <option value="1" selected>All requests</option>
+                <option value="2">Meeting request</option>
+                <option value="3">Change project name</option>
             </select></div>
         <br>
         <table cellspacing="0" border="1">
             <tr>
-                <td>Request name</td>
                 <td>Request type</td>
-                <td>Request from</td>
+                <td>Request by</td>
                 <td>Team</td>
                 <td>Status</td>
             </tr>
             <tr>
                 <td>
-                    Data hiện ra ở đây
+
                 </td>
             </tr>
         </table>

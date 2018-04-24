@@ -81,18 +81,17 @@ class account
 
 
         function homepage(){
-            require_once (SITE_ROOT.'/views/account_view.php');
-            $site = new account_view();
-            $site->homepage($this->_role_id);
+            $acc_view = new account_view();
+            $acc_view->homepage($this->_role_id);
         }
         function change_password(){
-                require_once (SITE_ROOT.'/views/account_view.php');
                 $acc_view = new account_view();
                 $acc_view->change_password();
             if(isset($_POST['new_password']) && $_POST['new_password']!=null){
                 $new_password = $_POST['new_password'];
+                $acc_name = $_SESSION['username'];
                 $account = new account_model();
-                $is_succeed = $account->change_password($new_password);
+                $is_succeed = $account->change_password($acc_name ,$new_password);
                 if($is_succeed){
                     echo "Change password successful!";
                 }else{
@@ -106,7 +105,6 @@ class account
         function edit_profile(){
             $account = new account_model();
             $this->_current_account_detail = $account->get_profile();
-            require_once (SITE_ROOT."/views/account_view.php");
             $acc_view = new account_view();
             foreach ($this->_current_account_detail as $key=>$detail){
                 $acc_view->__set($key,$detail);
@@ -131,7 +129,6 @@ class account
         function view_profile(){
             $account = new account_model();
             $this->_current_account_detail = $account->get_profile();
-            require_once (SITE_ROOT."/views/account_view.php");
             $acc_view = new account_view();
             foreach($this->_current_account_detail as $key=>$detail){
                 $acc_view->__set($key,$detail);
@@ -148,10 +145,86 @@ class account
             return $password;
         }
 
+        function sendMail($email,$pass_temp){
+            $subject= "Auto email from SPMFU - Reset password";
+               $msg ='
+                <html>
+                <head>
+                  <title>Auto email from SPMFU</title>
+                </head>
+                <body>
+                  <p>Your temporary password is <span style="color: #0000FF; font-size: medium;">'. $pass_temp .'</span></p>              
+                  <p>Click <a href="google.com.vn">Here</a> to change your password.</p>
+                  <h3>Remember: Don\'t give password to anyone. This will lead you losing sensitive data when doing project</h3>
+                  <p>'.date("Y-m-d h:i:sa").'</p>
+                </body>
+                </html>
+                ';
+               $msg = wordwrap($msg, 70);
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+            $headers[] = 'From: SPMFU Auto mail system <vn15fps@gmail.com>';
+
+                if(mail($email,$subject,$msg,implode("\r\n",$headers))){
+                    return true;
+                }else{
+                    return false;
+                }
+        }
+
         function logout(){
             session_destroy();
             header('Location: index.php',true,301);
             exit();
+        }
+
+        function reset_password(){
+            $acc_view = new account_view();
+            $acc_view->reset_password();
+            if(isset($_POST['reset_username']) && $_POST['reset_username'] !=null){
+                $_reset_user = $_POST['reset_username'];
+                $account = new account_model();
+                $check_user = $account->get_account_info($_reset_user) ;
+            if(isset($check_user) && $check_user != null){
+                $password_temp = $this->auto_gen_password();
+                $acc_id = $check_user['acc_id'];
+                $role_id = $check_user['role_id'];
+                $user_detail = $account->get_profile_by_id($acc_id,$role_id);
+                $email = $user_detail[0]['email'];
+                if($account->save_password_temp($acc_id,$password_temp) && $this->sendMail($email,$password_temp)){
+                    echo "The backup password has been sent to your email.";
+                }else{
+                    echo "Fail to send password";
+                }
+            }else{
+                echo "This account does not exists. Please check again.";
+            }
+            }
+
+        }
+
+        function change_pass_nologin(){
+            $acc_view = new account_view();
+            $acc_view->change_password_nologin();
+            if(isset($_POST['password_temp']) && $_POST['password_temp']!=null){
+                $password_temp = $_POST['password_temp'];
+                $acc_name= $_POST['acc_name'];
+                $account = new account_model();
+                if($account->check_account($acc_name,$password_temp)){
+                    if(isset($_POST['password_new']) && $_POST['password_new']!=null){
+                        $is_succeed = $account->change_password($acc_name, $_POST['password_new']);
+                        if($is_succeed){
+                            echo "Change password successful!";
+                        }else{
+                            echo "Failed!";
+                        }
+                    }
+                }else{
+                    echo "Wrong temporary password. You should copy and paste it to avoid missing character. 
+                    \n Remember: Temporary password contains no space.";
+                }
+
+            }
         }
 }
 

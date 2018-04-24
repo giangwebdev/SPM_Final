@@ -9,6 +9,7 @@
 require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/models/staff_model.php");
 require_once (SITE_ROOT."/controllers/account_controller.php");
+require_once (SITE_ROOT."/vendor/autoload.php");
 
 class staff extends account {
 
@@ -64,5 +65,8 @@ class staff extends account {
         $staff_view->view_account();
     }
 
+    function add_student_list(){
+
+    }
 
 }

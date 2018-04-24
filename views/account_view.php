@@ -54,4 +54,12 @@ class account_view{
     function change_password(){
         require_once (SITE_ROOT.'/template/account_change_password.php');
     }
+
+    function reset_password(){
+        require_once (SITE_ROOT.'/template/account_reset_password.php');
+    }
+
+    function change_password_nologin(){
+        require_once (SITE_ROOT.'/template/account_change_pass_nologin.php');
+    }
 }
