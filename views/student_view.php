@@ -13,4 +13,9 @@ class student_view{
     function create_request(){
         require_once (SITE_ROOT."/template/teamleader_create_request.php");
     }
+
+    function view_task(){
+        require_once (SITE_ROOT."/template/student_view_task.php");
+    }
+
 }

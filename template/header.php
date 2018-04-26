@@ -26,7 +26,7 @@
 <!--                Rieng-->
                 <?php
                 if($role ==1){
-
+                    //STUDENT
                 ?>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">Student</a>
@@ -34,13 +34,18 @@
 
                 <?php
                 }elseif($role == 2){
+                    //SUPERVISOR
                     ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">Supervisor</a>
-                    </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="../approve_pending_acc.php">Manage account request</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.php?action=create_meeting_request&controller=supervisor">Create meeting request</a>
+                        </li>
                     <?php
                 }elseif ($role == 3){
+                    //STAFF
                     ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">Staff</a>
@@ -48,6 +53,7 @@
 
                     <?php
                 }elseif ($role == 5){
+                    //SUPERVISOR HEAD
                     ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">Supervisor Head</a>
@@ -55,6 +61,7 @@
 
                     <?php
                 }elseif($role ==4){
+                            //ADMIN
                     ?>
                     <li class="nav-item">
 

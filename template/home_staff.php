@@ -53,10 +53,5 @@ $account->check_Session();
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!--    <footer>-->
-<!--        <div id="container-fluid">-->
-<!--            <div id="copyright">Copyright SPMFU</div>-->
-<!--        </div>-->
-<!--    </footer>-->
 </body>
 </html>

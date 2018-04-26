@@ -31,7 +31,7 @@ $team_data = $super_model->get_my_team();
 <div class="main-login main-center">
     <h2 class="text-center">CREATING MEETING REQUEST
     </h2>
-    <form method="get">
+    <form action="" method="post">
         <table cellspacing="0" border="0">
             <tr>
                 <td>Team:</td>

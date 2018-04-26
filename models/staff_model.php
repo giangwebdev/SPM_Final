@@ -31,7 +31,7 @@ class staff_model extends account_model {
 
     function create_account($username,$password,$role){
         $is_active = "1";
-        $sql = "insert into account values (?,?,?,?)";
+        $sql = "insert into account(username, password, role_id, isactive) values (?,?,?,?)";
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){

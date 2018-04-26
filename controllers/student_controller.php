@@ -55,4 +55,27 @@ class student extends account{
         function create_team(){
 
         }
+
+        function create_default_task(){
+            $team_id = $_SESSION['team_id'];
+            $parent_task_id = null;
+            $description = "";
+            $task_name = array(
+                "default task 1" => "Report 1",
+                "default task 2" => "Report 2",
+                "default task 3" => "Report 3",
+                "default task 4" => "Report 4",
+                "default task 5" => "Report 5",
+                "default task 6" => "Report 6",
+            );
+            $student = new student_model();
+            foreach ($task_name as $key => $value){
+                $student->create_new_task($parent_task_id, $team_id, $value, $description);
+            }
+        }
+
+        function create_new_task(){
+
+        }
+
 }

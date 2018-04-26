@@ -59,6 +59,8 @@ class supervisor_model extends DB_Driver {
 
         }
 
+        
+
         function get_request(){
 
         }

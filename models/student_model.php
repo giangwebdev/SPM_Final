@@ -47,4 +47,67 @@ class student_model extends account_model{
         }
 
     }
+
+
+    function get_team_member($team_id){
+        $sql = "select acc_id, full_name from team, student
+                    where team.team_id = student.team_id and team.team_id = ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"i",$team_id);
+            mysqli_stmt_execute($stmt);
+            $data = array();
+            $result = mysqli_stmt_get_result($stmt);
+            if($result){
+                while ($row = mysqli_fetch_assoc($result)){
+                    $data = $row;
+                }
+                mysqli_stmt_close($stmt);
+                return $data;
+            }else{
+                die(mysqli_error($link));
+            }
+        }
+    }
+
+        function get_team_id($acc_id){
+            $sql = "select team_id from account, student where account.acc_id = student.acc_id and account.acc_id = ?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"i",$acc_id);
+                mysqli_stmt_execute($stmt);
+                $data ="";
+                $result = mysqli_stmt_get_result($stmt);
+                if($result){
+                    while ($row = mysqli_fetch_assoc($result)){
+                        $data = $row;
+                    }
+                    mysqli_stmt_close($stmt);
+                    return $data;
+                }else{
+                    die(mysqli_error($link));
+                }
+            }
+        }
+
+        function create_new_task($parent_task_id, $team_id, $task_name, $description,$created_by, $assign_by, $assign_to, $start_date, $deadline,$task_status_id,$priority){
+            $technique_check = $qa_check = 0;
+            $sql = "insert into task(parent_task_id, team_id, task_name, description,created_by, assign_by, assign_to,
+                      start_date, deadline, technique_check, qa_check, task_status_id, priority) 
+                    VALUES (?,?,?,?,?,?,?,?)";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"iissiiissiiis",$parent_task_id, $team_id, $task_name, $description,
+                $created_by, $assign_by, $assign_to, $start_date, $deadline, $technique_check, $qa_check, $task_status_id, $priority);
+                if(mysqli_stmt_execute($stmt)){
+                    mysqli_stmt_close($stmt);
+                    return true;
+                }else{
+                    die(mysqli_error($link));
+                }
+            }
+        }
 }
