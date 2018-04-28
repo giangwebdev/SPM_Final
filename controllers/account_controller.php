@@ -184,7 +184,7 @@ class account
             if(isset($_POST['reset_username']) && $_POST['reset_username'] !=null){
                 $_reset_user = $_POST['reset_username'];
                 $account = new account_model();
-                $check_user = $account->get_account_info($_reset_user) ;
+                $check_user = $account->get_account_info($_reset_user);
             if(isset($check_user) && $check_user != null){
                 $password_temp = $this->auto_gen_password();
                 $acc_id = $check_user['acc_id'];

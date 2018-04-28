@@ -110,4 +110,8 @@ class student_model extends account_model{
                 }
             }
         }
+
+        function get_task_data(){
+
+        }
 }

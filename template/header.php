@@ -48,7 +48,11 @@
                     //STAFF
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">Staff</a>
+                        <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">View account</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.php?action=add_student_list&controller=staff">Import student</a>
                     </li>
 
                     <?php
@@ -70,6 +74,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php?action=create_account&controller=staff">Create account</a>
 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.php?action=add_student_list&controller=staff">Import student</a>
                     </li>
 
                     <?php

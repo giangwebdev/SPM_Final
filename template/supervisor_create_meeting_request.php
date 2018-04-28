@@ -36,7 +36,7 @@ $team_data = $super_model->get_my_team();
             <tr>
                 <td>Team:</td>
                 <td>
-                    <select class="form-control">
+                    <select name="team" class="form-control">
                         <option>--Choose team--</option>
                         <?php
                         foreach ($team_data as $key => $data){
