@@ -20,31 +20,39 @@ $account = new account();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/spmfu.css">
 </head>
 <?php require_once(SITE_ROOT."/template/header.php"); ?>
-<body style="margin: 150px 0">
-<div class="main-login main-center">
-    <h2 class="text-center">CHANGE PASSWORD
-    </h2>
+<body>
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+        <div class="wrap-login100" style="color: white; width: auto">
+
+
+                <span class="login100-form-title p-b-34 p-t-27">
+						CHANGE PASSWORD
+					</span>
 <form action="./index.php?action=change_password&controller=account" method="post">
     <table>
         <tr>
-            <td>Current password: </td>
-            <td><input class="form-control" type="password" name="current_password"></td>
+            <td>Current password: </td><br>
+            <td><div class="wrap-input100"><input class="input100" type="password" name="current_password"></div></td>
         </tr>
         <tr>
             <td>New password:</td>
-            <td> <input class="form-control" type="password" name="new_password"></td>
+            <td><div class="wrap-input100"> <input class="input100" type="password" name="new_password"></div></td>
         </tr>
         <tr>
             <td>Confirm new password:</td>
-            <td><input class="form-control" type="password" name="new_password_re"></td>
+            <td><div class="wrap-input100"><input class="input100" type="password" name="new_password_re"></div></td>
         </tr>
 
-    </table>
-    <button class="button" type="submit" name="change_pass_btn">Change</button>
-    <button class="button" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
-</form></div>
+    </table><br>
+    <td><div class="container-login100-form-btn" >
+    <button class="login100-form-btn" type="submit" name="change_pass_btn">Change</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
+        </div>
+    </td>
+</form></div></div></div>
 </body>
 </html>

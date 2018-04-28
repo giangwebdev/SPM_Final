@@ -1,10 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Kevin Flynn
- * Date: 4/22/2018
- * Time: 5:06 PM
- */
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/controllers/account_controller.php");
+$account = new account();
+//$account->check_Session();
+
 ?>
 
 <!doctype html>
@@ -16,7 +15,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
+<?php require_once(SITE_ROOT."/template/header.php"); ?>
 <body>
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+        <div class="wrap-login100" style="color: white; width: auto">
+
+
+                <span class="login100-form-title p-b-34 p-t-27">
+						CHANGE PASSWORD
+					</span>
+
     <script>
         function see_pass(target,button) {
             var x = document.getElementById(target);
@@ -30,7 +41,7 @@
             }
         }
     </script>
-        <h1>Change password</h1>
+
 <form action="../index.php?action=change_pass_nologin&controller=account" method="post">
     <table>
         <tr>
@@ -59,5 +70,6 @@
         </tr>
     </table>
 </form>
+        </div></div></div>
 </body>
 </html>
