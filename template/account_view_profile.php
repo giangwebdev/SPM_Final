@@ -13,7 +13,6 @@ $role=$_SESSION['role_id'];
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/spmfu.css">
     <style>
         #keoxuong{
             padding-top: 20px;
@@ -27,8 +26,16 @@ $role=$_SESSION['role_id'];
 </head>
 <?php require_once(SITE_ROOT."/template/header.php"); ?>
 
-<body style="margin: 150px 0">
-<div class="main-login main-center">
+<body>
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+        <div class="wrap-login100" style="color: white; width: auto">
+
+
+                <span class="login100-form-title p-b-34 p-t-27">
+						CREATE ACCOUNT
+					</span>
         <table cellspacing="0" border="1" >
             <tr>
                 <td align="center"> Profile
@@ -136,7 +143,8 @@ $role=$_SESSION['role_id'];
                 }
                 ?>
             </tr>
-        </table>
-        <button type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
-</div></body>
+        </table><br>
+            <td><div class="container-login100-form-btn" >
+        <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
+                </div></td></div></div></div></body>
 </html>

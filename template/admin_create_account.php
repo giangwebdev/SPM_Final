@@ -16,31 +16,33 @@ $account->check_Session();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Document</title>
     <!--    <script src="./js/spmfu.js"></script>-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
-    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!--    <link rel="stylesheet" href="./css/spmfu.css">-->
-    <link href="./css/one-page-wonder.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/spmfu.css">
 </head>
 
 <?php require_once(SITE_ROOT."/template/header.php"); ?>
 
-<body style="margin: 150px 0">
-<div class="main-login main-center">
-    <h2 class="text-center">CREATE ACCOUNT
-    </h2>
+<body>
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+        <div class="wrap-login100">
+
+
+                <span class="login100-form-title p-b-34 p-t-27">
+						CREATE ACCOUNT
+					</span>
 
 
         <form action="./index.php?action=create_account&controller=staff" method="post">
             <br>
                 <br><tr>
-                    <td>Email: </td>
-                <td><input class="form-control" type="text" name="email" required></td>
+                    <h5 style="color: white; ">Email: </h5>
+                <td><div class="wrap-input100 validate-input" data-validate = "Enter Email">
+                        <input class="input100" type="text" name="email" placeholder="Email"></div></td>
                 </tr><br>
                 <br><tr>
-                    <td>Role:</td>
+                <h5 style="color: white; ">Role: </h5>
 
-                    <br><td><select class="role form-control" name="role" >
+                    <td><select class="role input100" name="role" >
                             <option  selected >- Choose role -</option>
                             <option  value="1">Student</option>
                             <option  value="2">Supervisor</option>
@@ -53,15 +55,43 @@ $account->check_Session();
                 <tr>
                     <td></td>
                     <td>
-                        <button class="button" type="submit" name="submit_btn"  >Create</button>
-                        <button class="button" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'" >Cancel</button>
+                        <div class="container-login100-form-btn" >
+                            <button class="login100-form-btn" type="submit" name="sumit_btn" style="color: red;">
+                                Create
+                            </button>
+                            <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'" >Cancel</button>
+                        </div>
+
                     </td>
                 </tr>
-            </table>
 
+
+<!--            </form>-->
             </form>
-            </form></div></div></div>
-
+        </div>
+    </div>
+</div>
+<!--<div id="dropDownSelect1"></div>-->
+<!--<!--===============================================================================================-->-->
+<!---->
+<!--<script src="./vendor/jquery/jquery-3.2.1.min.js"></script>-->
+<!--<!--===============================================================================================-->-->
+<!--<script src="./vendor/animsition/js/animsition.min.js"></script>-->
+<!--<!--===============================================================================================-->-->
+<!--<script src="./vendor/bootstrap/js/popper.js"></script>-->
+<!--<script src="./vendor/bootstrap/js/bootstrap.min.js"></script>-->
+<!--<!--===============================================================================================-->-->
+<!--<script src="./vendor/select2/select2.min.js"></script>-->
+<!--<!--===============================================================================================-->-->
+<!--<script src="./vendor/daterangepicker/moment.min.js"></script>-->
+<!--<script src="./vendor/daterangepicker/daterangepicker.js"></script>-->
+<!--<!--===============================================================================================-->-->
+<!--<script src="./vendor/countdowntime/countdowntime.js"></script>-->
+<!--<!--===============================================================================================-->-->
+<!--<script src="./js/main.js"></script>-->
+<!--<!-- Bootstrap core JavaScript -->-->
+<!--<script src="./vendor/jquery/jquery.min.js"></script>-->
+<!--<script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
 </body>
 
 </html>

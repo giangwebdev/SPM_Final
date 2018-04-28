@@ -13,13 +13,19 @@ $role = $_SESSION['role_id'];
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/spmfu.css">
+
 </head>
 <?php require_once(SITE_ROOT."/template/header.php"); ?>
-<body style="margin: 150px 0">
-<div class="main-login main-center">
-    <h2 class="text-center">EDIT ACCOUNT
-    </h2>
+<body>
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+        <div class="wrap-login100">
+
+
+                <span class="login100-form-title p-b-34 p-t-27">
+						EDIT ACCOUNT
+					</span>
 <form action="./index.php?action=edit_profile&controller=account" method="post">
 <table cellspacing="0" border="1">
     <tr>
@@ -35,7 +41,7 @@ $role = $_SESSION['role_id'];
                     </tr>
                     <tr>
                         <td>
-                            <button class="button" type="button" name="upload_avatar" value="" onclick="">Upload</button>
+                            <button class="login100-form-btn" type="button" name="upload_avatar" value="" onclick="">Upload</button>
                         </td>
                     </tr>
                 </table>
@@ -65,7 +71,7 @@ $role = $_SESSION['role_id'];
                 ?>
                 <tr>
                     <td>Phone: </td>
-                    <td><input class="form-control" type="text" name="phone" value="<?php echo $detail['phone']; ?>" ></td>
+                    <td><div class="wrap-input100"> <input class="input100" type="text" name="phone" value="<?php echo $detail['phone']; ?>" ></div></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
@@ -136,10 +142,13 @@ $role = $_SESSION['role_id'];
         }
         ?>
     </tr>
-</table>
-    <button class="button" type="submit" name="edit">Edit</button>
-    <button class="button" type="reset" name="reset">Reset</button>
-    <button class="button" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Cancel</button>
-</form></div>
+</table><br>
+    <td><div class="container-login100-form-btn" >
+    <button class="login100-form-btn" type="submit" name="edit">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="login100-form-btn" type="reset" name="reset">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Cancel</button>
+        </div>
+    </td>
+</form></div></div></div>
 </body>
 </html>
