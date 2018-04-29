@@ -55,7 +55,6 @@ class staff extends account {
     }
 
     function admin_edit_profile(){
-
         require_once (SITE_ROOT.'/models/account_model.php');
         $acc_id = $_POST['acc_id'];
         $acc_role = $_POST['acc_role'];
@@ -63,7 +62,9 @@ class staff extends account {
         $acc_info->get_profile_by_id($acc_id,$acc_role);
         require_once (SITE_ROOT.'/views/staff_view.php');
         $staff_view =  new staff_view();
-        $staff_view->view_account();
+        $staff= new staff_model();
+        $this->__acc_list = $staff->get_all_account_info();
+        $staff_view->view_account($this->__acc_list);
     }
 
     function add_student_list(){

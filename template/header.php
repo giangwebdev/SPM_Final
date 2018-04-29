@@ -58,13 +58,16 @@
                 ?>
                     <li class="menu-has-children"><a href="">Manage Request</a>
                     <ul>
-                        <li><a href="#">Create New</a></li>
-                        <li><a href="#">View Request</a></li>
+<!--                        Xong-->
+                        <li><a href="./index.php?action=create_request&controller=student">Create New Request</li>
+<!--                        Chưa Xong-->
+                        <li><a href="./index.php?action=view_request&controller=student">View Request</a></li>
                     </ul>
                     </li>
                     <li class="menu-has-children"><a href="">Manage Task</a>
                         <ul>
-                            <li><a href="#">View Task</a></li>
+<!--                            Chưa xong-->
+                            <li><a href="./index.php?action=view_task&controller=student">View Task</a></li>
                         </ul>
                     </li>
                 <?php
@@ -74,14 +77,17 @@
 
                     <li class="menu-has-children"><a href="">Manage Request</a>
                         <ul>
-                            <li><a href="#">View Request</a></li>
-                            <li><a href="#">Book Meeting Room</a></li>
+<!--                            Chưa xong-->
+                            <li><a href="./index.php?action=view_request_list&controller=supervisor">View Request</a></li>
+<!--                            Đã xong-->
+                            <li><a href="./index.php?actioncreate_meeting_request=&controller=supervisor">Book Meeting Room</a></li>
                         </ul>
                     </li>
                     <li class="menu-has-children"><a href="">Manage Task</a>
                         <ul>
-                            <li><a href="#">Team 1</a></li>
-                            <li><a href="#">Team 2</a></li>
+<!--                            Chưa code xong-->
+                            <li><a href="./index.php?action=&controller=">Team 1</a></li>
+                            <li><a href="./index.php?action=&controller=">Team 2</a></li>
                         </ul>
                     </li>
                     <?php
@@ -91,13 +97,14 @@
 
                     <li class="menu-has-children"><a href="">Manage Account</a>
                         <ul>
-                            <li><a href="#">View List Account</a></li>
-                            <li><a href="#">Import Students</a></li>
+                            <li><a href="./index.php?action=display_all_account_info&controller=staff">View List Account</a></li>
+                            <li><a href="./index.php?action=add_student_list&controller=staff">Import Students</a></li>
                         </ul>
                     </li>
                     <li class="menu-has-children"><a href="">Manage Request</a>
                         <ul>
-                            <li><a href="#">View Request</a></li>
+<!--                            //Chua fix xong-->
+                            <li><a href="./index.php?action=view_request&controller=staff">View Request</a></li>
                         </ul>
 
                     </li>
@@ -108,15 +115,17 @@
                     ?>
                     <li class="menu-has-children"><a href="">Manage Request</a>
                         <ul>
-                            <li><a href="#">Approve Team Pending</a></li>
-                            <li><a href="#">Create New</a></li>
-                            <li><a href="#">View Request</a></li>
+                            <li><a href="./index.php?action=approve_team_pending&controller=supervisor">Approve Team Pending</a></li>
+                            <li><a href="./index.php?action=create_meeting_request&controller=supervisor">Book Meeting Reqeuest</a></li>
+<!--                            Chưa code xong-->
+                            <li><a href="./index.php?action=view_request_list&controller=supervisor">View Request</a></li>
                         </ul>
                     </li>
                     <li class="menu-has-children"><a href="">Manage Task</a>
                         <ul>
-                            <li><a href="#">Team 1</a></li>
-                            <li><a href="#">Team 2</a></li>
+<!--                            //Chua code xong-->
+                            <li><a href="./index.php?action=&controller=">Team 1</a></li>
+                            <li><a href="./index.php?action=&controller=">Team 2</a></li>
                         </ul>
                     </li>
 
@@ -127,18 +136,17 @@
                     <li class="menu-has-children"><a href=""><span
                                     class="glyphicon glyphicon-user"></span>Manage Account</a>
                         <ul>
-                            <li><a href="#">Create New Account</a></li>
-                            <li><a href="#">View List Account</a></li>
-                            <li><a href="#">Import Students</a></li>
+<!--                            Đã xong-->
+                            <li><a href="./index.php?action=create_account&controller=staff">Create New Account</a></li>
+                            <li><a href="./index.php?action=display_all_account_info&controller=staff">View List Account</a></li>
+                            <li><a href="./index.php?action=add_student_list&controller=staff">Import Students</a></li>
                         </ul>
                     </li>
                     <li class="menu-has-children"><a href="">Manage Request</a>
                         <ul>
-                            <li><a href="#">View Request</a></li>
+<!--                            Chưa xong-->
+                            <li><a href="./index.php?action=&controller=staff">View Request</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.php?action=add_student_list&controller=staff">Import student</a>
                     </li>
 
                     <?php
