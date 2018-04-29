@@ -10,11 +10,14 @@ $account->check_Session();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Document</title>
-
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <!-- Navigation -->
 <?php require_once(SITE_ROOT."/template/header.php"); ?>
@@ -65,7 +68,7 @@ $account->check_Session();
 
                     <td><?php echo $info['isactive']?"Active":"Inactive"; ?> </td>
                     <td><div class="container-login100-form-btn"><button class="login100-form-btn" ><?php echo $info['isactive']?"Lock":"Unlock"; ?></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="login100-form-btn" type="button" name="admin_edit_profile" onclick="window.location.href='./index.php?action=admin_edit_profile&controller=staff'">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="login100-form-btn" type="button" name="admin_edit_profile" onclick="window.location.href='./index.php?action=admin_edit_profile&controller=staff'"><span class="glyphicon glyphicon-pencil"></span>Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
                             <button class="login100-form-btn">Delete</button></div></td>
                 </tr>
             <?php

@@ -24,7 +24,7 @@ $account->check_Session();
 <div class="limiter">
 
     <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
-        <div class="wrap-login100">
+        <div class="wrap-login100" style="width: 400px">
 
 
                 <span class="login100-form-title p-b-34 p-t-27">
