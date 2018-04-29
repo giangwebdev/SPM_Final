@@ -11,6 +11,7 @@ require_once (SITE_ROOT."/models/student_model.php");
 
 $account = new account();
 $account->check_Session();
+$role = $_SESSION['role_id'];
 ?>
 
 <!doctype html>
@@ -22,29 +23,43 @@ $account->check_Session();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<?php require_once(SITE_ROOT."/template/header.php"); ?>
+
 <body>
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+        <div class="wrap-login100" style="color: white; width: auto">
+
+
+                <span class="login100-form-title p-b-34 p-t-27">
+						CREATE CHANGE CAPSTONE PROJECT NAME REQUEST
+					</span>
         <form action="./index.php?action=create_request&controller=student" method="post">
-            <h1>Create change capstone project name request</h1>
+
             <table>
                 <tr>
                     <td>New name in English:</td>
-                    <td><textarea rows="2" cols="50" name="new_cpro_name_en"></textarea></td>
+                    <td><textarea rows="2" cols="50" name="new_cpro_name_en" class="form-control"></textarea></td>
                 </tr>
                 <tr>
                     <td>New name in Vietnamese:</td>
-                    <td><textarea rows="2" cols="50" name="new_cpro_name_vi"></textarea></td>
+                    <td><textarea rows="2" cols="50" name="new_cpro_name_vi" class="form-control"></textarea></td>
                 </tr>
                 <tr>
                     <td>Description (Optional):</td>
-                    <td><textarea rows="4" cols="50" name="description"></textarea></td>
+                    <td><textarea rows="4" cols="50" name="description" class="form-control"></textarea></td>
                 </tr>
                 <tr>
-                    <td><button type="submit" name="send_button" value="send">Send</button>
-                        <button type="button" name="cancel"
+                    <td></td>
+                    <td><div class="container-login100-form-btn" >
+                            <button class="login100-form-btn" type="submit" name="send_button" value="send">Send</button>
+                        <button class="login100-form-btn" type="button" name="cancel"
                                 onclick="window.location.href='./index.php?action=homepage&controller=account'">Cancel</button>
-                    </td>
+                        </div></td>
                 </tr>
             </table>
         </form>
+        </div></div></div>
 </body>
 </html>

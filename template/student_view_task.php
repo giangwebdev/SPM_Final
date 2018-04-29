@@ -8,7 +8,7 @@
 require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/models/student_model.php");
 require_once (SITE_ROOT."/views/student_view.php");
-
+$role = $_SESSION['role_id'];
 
 ?>
 

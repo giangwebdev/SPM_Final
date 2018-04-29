@@ -22,6 +22,7 @@ $role=$_SESSION['role_id'];
 
             vertical-align: top;
         }
+
     </style>
 </head>
 <?php require_once(SITE_ROOT."/template/header.php"); ?>
@@ -34,7 +35,7 @@ $role=$_SESSION['role_id'];
 
 
                 <span class="login100-form-title p-b-34 p-t-27">
-						CREATE ACCOUNT
+						PROFILE
 					</span>
         <table cellspacing="0" border="1" >
             <tr>
