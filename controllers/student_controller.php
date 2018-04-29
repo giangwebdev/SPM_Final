@@ -66,11 +66,44 @@ class student extends account{
                 "default task 3" => "Report 3",
                 "default task 4" => "Report 4",
                 "default task 5" => "Report 5",
-                "default task 6" => "Report 6",
+                "default task 6" => "Report 6"
             );
             $student = new student_model();
             foreach ($task_name as $key => $value){
                 $student->create_new_task($parent_task_id, $team_id, $value, $description);
+            }
+        }
+
+        function create_task(){
+            if(isset($_POST['task_type'])&& $_POST['task_type'] != null){
+                $priority = $_POST['priority'];
+                $task_name = $_POST['task_name'];
+                $description = $_POST['description'];
+                $created_by = $_SESSION['acc_id'];
+                $assign_by = $_POST['assign_by'];
+                $assign_to = $_POST['assign_to'];
+                $deadline = $_POST['deadline'];
+                $team_id = $_SESSION['team_id'];
+                $parent_task_id ="";
+
+                if($_POST['task_type'] == "new_main_task"){
+                    $parent_task_id = null;
+                }elseif ($_POST['task_type'] == "new_sub_task"){
+                    $parent_task_id = $_POST['task_id'];
+                }
+                $start_date = getdate();
+                if($assign_to !=null){
+                    $task_status_id = "2";
+                }else{
+                    $task_status_id = "1";
+                }
+
+                $student = new student_model();
+                $student->create_new_task($parent_task_id, $team_id, $task_name,
+                    $description,$created_by, $assign_by, $assign_to, $start_date,
+                    $deadline,$task_status_id,$priority);
+                $student_view = new student_view();
+                $student_view->view_task();
             }
         }
 

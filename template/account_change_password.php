@@ -8,8 +8,8 @@
 require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/controllers/account_controller.php");
 $account = new account();
-//$account->check_Session();
-
+$account->check_Session();
+$role = $_SESSION['role_id'];
 ?>
 
 <!doctype html>

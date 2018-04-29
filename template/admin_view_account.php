@@ -3,6 +3,8 @@ require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/controllers/account_controller.php");
 $account = new account();
 $account->check_Session();
+
+$role = $_SESSION['role_id'];
 ?>
 
 <!doctype html>
@@ -34,7 +36,7 @@ $account->check_Session();
     </script>
 </head>
 <!-- Navigation -->
-<body style="margin: 150px 0">
+<body>
 
 <?php require_once(SITE_ROOT."/template/header.php"); ?>
 
@@ -79,15 +81,11 @@ $account->check_Session();
                     <td><?php echo $role; ?></td>
 
                     <td><?php echo $info['isactive']?"Active":"Inactive"; ?> </td>
-<<<<<<< HEAD
-                    <td><button style="float: left;" ><?php echo $info['isactive']?"Lock":"Unlock"; ?></button>
-                    <button style="margin: 0px auto;" type="button" name="admin_edit_profile"  onclick="window.location.href='./index.php?action=admin_edit_profile&controller=staff'">Edit</button>
-                    <button style="float: right;">Delete</button></td>
-=======
+
                     <td><div class="container-login100-form-btn"><button class="login100-form-btn" ><?php echo $info['isactive']?"Lock":"Unlock"; ?></button>&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="login100-form-btn" type="button" name="admin_edit_profile" onclick="window.location.href='./index.php?action=admin_edit_profile&controller=staff'">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
                             <button class="login100-form-btn">Delete</button></div></td>
->>>>>>> 5e1e021d96bb1090bc7ef1072274175a64242af2
+
                 </tr>
             <?php
                 }

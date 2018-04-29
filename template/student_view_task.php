@@ -30,7 +30,7 @@ require_once (SITE_ROOT."/views/student_view.php");
 
 
     $( function() {
-    $( ".task" ).dialog({
+      $( ".task" ).dialog({
         draggable:false,
         width:"auto",
         resizable:false,
@@ -46,114 +46,39 @@ require_once (SITE_ROOT."/views/student_view.php");
         duration: 150
         }
     });
-        $( ".clickable-row" ).on( "click", function() {
-            $( "#task_detail" ).dialog( "open" );
+
+
+
+        $( "#create_main_task" ).button().on( "click", function() {
+            $( "#create_task" ).dialog({
+                title: "New Main Task"
+            }).dialog( "open" );
         });
 
         $( ".create_task_btn" ).on( "click", function() {
-            $( "#create_task" ).dialog( "open" );
+            $( "#create_task" ).dialog({
+                title: "New Subtask"
+            }).dialog( "open" );
         });
 
-        $( ".cancel-btn" ).on( "click", function() {
+        $( ".clickable" ).on( "click", function() {
+            $( "#task_detail" ).dialog({
+                title: "Task Detail"
+            }).dialog( "open" );
+        });
+
+        $( ".cancel-btn" ).button().on( "click", function() {
             $( "#task_detail" ).dialog( "close" );
             $( "#create_task" ).dialog( "close" );
         });
 
+
     } );
-
-    $(function () {
-        var priority= $('priority'),
-            taskname = $('taskname'),
-            description = $('description'),
-            created_by= $('created_by'),
-            assign_by = $('assign_by'),
-            assign_to= $('assign_to'),
-            deadline = $('deadline'),
-            start_date= $('start_date'),
-            finish_date= $('finish_date'),
-            technique_check= $('technique_check'),
-            qa_check= $('qa_check'),
-            status= $('status'),
-            dialog,form,
-            allFields = $([]).add(priority).add(taskname).add(description).add(created_by).add(assign_by).add(assign_to)
-                .add(start_date).add(deadline).add(finish_date).add(technique_check).add(qa_check).add(status)
-            ;
-
-        function create_task(){
-            $.ajax({
-                url: "../ajax_Handler.php",
-                type: 'POST',
-                data: {
-                    priority:priority.val(),
-                    taskname:taskname.val(),
-                    description:description.val(),
-                    created_by:created_by.val(),
-                    assign_by:assign_by.val(),
-                    assign_to:assign_to.val(),
-                    deadline:deadline.val(),
-                    start_date:start_date.val(),
-                    finish_date:finish_date.val(),
-                    technique_check:technique_check.val(),
-                    qa_check:qa_check.val(),
-                    status:status.val()
-                },
-                success: function(data) {
-                    $('#new').html(data);
-                    $( "#users").find("tbody" ).append( "<tr>"+
-                        "<td class='first-row'><img class='create_task_btn' src='../image/icons/plus_icon.png' width='20px' ></td>"+
-                        "<td class='clickable-row'>"+ +"</td>"+
-                        "<td class='clickable-row'>"+priority.val() +"</td>"+
-                        "<td class='clickable-row'>"+ taskname.val()+"</td>"+
-                        "<td class='clickable-row'>"+ assign_by.val()+"</td>"+
-                        "<td class='clickable-row'>"+assign_to.val() +"</td>"+
-                        "<td class='clickable-row'>"+ start_date.val()+"</td>"+
-                        "<td class='clickable-row'>"+ deadline.val()+"</td>"+
-                        "<td class='clickable-row'>"+finish_date.val() +"</td>"+
-                        "<td class='clickable-row'>"+ technique_check.val()+"</td>"+
-                        "<td class='clickable-row'>"+qa_check.val()+"</td>"+
-                        "<td class='clickable-row'>"+status.val() +"</td>"+ "</tr>");
-                    dialog.dialog( "close" );
-                },
-                error: function(error) {
-                    alert("Loi roi!" + error);
-                }
-            });
-        }
-
-        dialog = $( "#create-task" ).dialog({
-            autoOpen: false,
-            height: 400,
-            width: 350,
-            draggable: false,
-            modal: true,
-            buttons: {
-                "Create an account": create_task,
-                Cancel: function() {
-                    dialog.dialog( "close" );
-                }
-            },
-            close: function() {
-                form[ 0 ].reset();
-                allFields.removeClass( "ui-state-error" );
-            }
-        });
-
-        form = dialog.find( "form" ).on( "submit", function( event ) {
-            event.preventDefault();
-            create_task();
-        });
-
-        $( ".create-task-btn" ).button().on( "click", function() {
-            dialog.dialog( "open" );
-        });
-
-    });
-
 
     </script>
 
     <style>
-    table.table.table-striped.table-bordered tbody tr td.clickable-row {
+    table.table.table-striped.table-bordered tbody tr td.clickable {
         cursor: pointer;
     }
 
@@ -163,7 +88,7 @@ require_once (SITE_ROOT."/views/student_view.php");
     button:focus{
         outline: 0;
     }
-    .first-row{
+    .first-col{
         background-color: white;
         /*pointer-events: none;*/
     }
@@ -173,6 +98,7 @@ require_once (SITE_ROOT."/views/student_view.php");
     </style>
 </head>
 <body>
+<div><button type="button" id="create_main_task" name="create_main_task">Create new task</button></div>
 <div>
     <table id="task_table" class="table table-striped table-bordered">
         <thead>
@@ -191,27 +117,30 @@ require_once (SITE_ROOT."/views/student_view.php");
             <th>Status</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody >
+        <?php 
+
+        ?>
         <tr>
-            <td class="first-row"><img class="create_task_btn" src="../image/icons/plus_icon.png" width="20px" > </td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
-            <td class="clickable-row"></td>
+            <td class="first-col"><img class="create_task_btn" src="../image/icons/plus_icon.png" width="20px" > </td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
+            <td class="clickable"></td>
         </tr>
         </tbody>
     </table>
 </div>
 
 
-    <div id="task_detail" class="task" title="Task ">
+    <div id="task_detail" class="task" title="Task">
         <form>
             <table cellspacing="0" border="0">
 
@@ -273,15 +202,15 @@ require_once (SITE_ROOT."/views/student_view.php");
         </form>
     </div>
 
-        <div id="create_task" class="task" title="New Task">
+        <div id="create_task" class="task">
             <form>
                 <table cellspacing="0" border="0">
                     <tr>
                         <td>Priority</td>
-                        <td><select>
-                                <option>High</option>
-                                <option>Medium</option>
-                                <option>Low</option>
+                        <td><select name="priority">
+                                <option value="">High</option>
+                                <option value="">Medium</option>
+                                <option value="">Low</option>
                             </select></td>
                     </tr>
                     <tr>
@@ -305,7 +234,8 @@ require_once (SITE_ROOT."/views/student_view.php");
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button type="submit" name="edit">Create</button>
+                        <td><button type="button" name="create_task_btn" id="create_task_btn"
+                            onclick="window.location='./index.php?action=create_task&controller=student'">Create</button>
                             <button type="button" class="cancel-btn" >Cancel</button></td>
                     </tr>
                 </table>
