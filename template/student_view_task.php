@@ -5,6 +5,10 @@
  * Date: 4/25/2018
  * Time: 9:03 AM
  */
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/models/student_model.php");
+require_once (SITE_ROOT."/views/student_view.php");
+
 
 ?>
 
@@ -46,58 +50,68 @@
             $( "#task_detail" ).dialog( "open" );
         });
 
-        $( ".add_task" ).on( "click", function() {
-            $( "#new_task" ).dialog( "open" );
+        $( ".create_task_btn" ).on( "click", function() {
+            $( "#create_task" ).dialog( "open" );
         });
 
         $( ".cancel-btn" ).on( "click", function() {
             $( "#task_detail" ).dialog( "close" );
-            $( "#new_task" ).dialog( "close" );
+            $( "#create_task" ).dialog( "close" );
         });
 
     } );
 
     $(function () {
-        var priority= $('').val(),
-            taskname = $('').val(),
-            description = $('').val(),
-            created_by= $('').val(),
-            assign_by = $('').val(),
-            assign_to= $('').val(),
-            deadline = $('').val(),
-            start_date= $('').val(),
-            finish_date= $('').val(),
-            technique_check= $('').val(),
-            qa_check= $('').val(),
-            status= $('').val(),
-            dialog,form;
+        var priority= $('priority'),
+            taskname = $('taskname'),
+            description = $('description'),
+            created_by= $('created_by'),
+            assign_by = $('assign_by'),
+            assign_to= $('assign_to'),
+            deadline = $('deadline'),
+            start_date= $('start_date'),
+            finish_date= $('finish_date'),
+            technique_check= $('technique_check'),
+            qa_check= $('qa_check'),
+            status= $('status'),
+            dialog,form,
+            allFields = $([]).add(priority).add(taskname).add(description).add(created_by).add(assign_by).add(assign_to)
+                .add(start_date).add(deadline).add(finish_date).add(technique_check).add(qa_check).add(status)
+            ;
 
         function create_task(){
             $.ajax({
                 url: "../ajax_Handler.php",
                 type: 'POST',
                 data: {
-                    priority:priority,
-                    taskname:taskname,
-                    description:description,
-                    created_by:created_by,
-                    assign_by:assign_by,
-                    assign_to:assign_to,
-                    deadline:deadline,
-                    start_date:start_date,
-                    finish_date:finish_date,
-                    technique_check:technique_check,
-                    qa_check:qa_check,
-                    status:status
+                    priority:priority.val(),
+                    taskname:taskname.val(),
+                    description:description.val(),
+                    created_by:created_by.val(),
+                    assign_by:assign_by.val(),
+                    assign_to:assign_to.val(),
+                    deadline:deadline.val(),
+                    start_date:start_date.val(),
+                    finish_date:finish_date.val(),
+                    technique_check:technique_check.val(),
+                    qa_check:qa_check.val(),
+                    status:status.val()
                 },
                 success: function(data) {
                     $('#new').html(data);
-                    $( "#users").find("tbody" ).append( "<tr>" +
-                        "<td>" + name.val() + "</td>" +
-                        "<td>" + email.val() + "</td>" +
-                        "<td>" + password.val() + "</td>" +
-                        "</tr>" );
-
+                    $( "#users").find("tbody" ).append( "<tr>"+
+                        "<td class='first-row'><img class='create_task_btn' src='../image/icons/plus_icon.png' width='20px' ></td>"+
+                        "<td class='clickable-row'>"+ +"</td>"+
+                        "<td class='clickable-row'>"+priority.val() +"</td>"+
+                        "<td class='clickable-row'>"+ taskname.val()+"</td>"+
+                        "<td class='clickable-row'>"+ assign_by.val()+"</td>"+
+                        "<td class='clickable-row'>"+assign_to.val() +"</td>"+
+                        "<td class='clickable-row'>"+ start_date.val()+"</td>"+
+                        "<td class='clickable-row'>"+ deadline.val()+"</td>"+
+                        "<td class='clickable-row'>"+finish_date.val() +"</td>"+
+                        "<td class='clickable-row'>"+ technique_check.val()+"</td>"+
+                        "<td class='clickable-row'>"+qa_check.val()+"</td>"+
+                        "<td class='clickable-row'>"+status.val() +"</td>"+ "</tr>");
                     dialog.dialog( "close" );
                 },
                 error: function(error) {
@@ -153,7 +167,7 @@
         background-color: white;
         /*pointer-events: none;*/
     }
-        .add_task{
+        .create_task_btn{
             cursor: pointer;
         }
     </style>
@@ -180,7 +194,7 @@
         <tbody>
         <tr>
             <td class="first-row"><img class="create_task_btn" src="../image/icons/plus_icon.png" width="20px" > </td>
-            <td class="clickable-row" ></td>
+            <td class="clickable-row"></td>
             <td class="clickable-row"></td>
             <td class="clickable-row"></td>
             <td class="clickable-row"></td>

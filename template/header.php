@@ -88,6 +88,7 @@
                 }elseif ($role == 3){
                     //STAFF
                     ?>
+
                     <li class="menu-has-children"><a href="">Manage Account</a>
                         <ul>
                             <li><a href="#">View List Account</a></li>
@@ -98,6 +99,7 @@
                         <ul>
                             <li><a href="#">View Request</a></li>
                         </ul>
+
                     </li>
 
                     <?php
@@ -134,6 +136,9 @@
                         <ul>
                             <li><a href="#">View Request</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.php?action=add_student_list&controller=staff">Import student</a>
                     </li>
 
                     <?php

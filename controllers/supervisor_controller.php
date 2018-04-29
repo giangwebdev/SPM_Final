@@ -29,7 +29,7 @@ class supervisor extends account {
             $super_view->create_meeting_request();
             if(isset($_POST['send_button']) && $_POST['send_button'] !=null){
                 $account = new supervisor_model();
-                $team_id = $_POST['team'];
+                $team_id = $_POST['team'];  
                 $request_type = "meeting";
                 $content = array(
                     "slot" => $_POST['slot'],

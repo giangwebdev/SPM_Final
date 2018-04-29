@@ -10,6 +10,7 @@ require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/models/staff_model.php");
 require_once (SITE_ROOT."/controllers/account_controller.php");
 require_once (SITE_ROOT."/vendor/autoload.php");
+require_once (SITE_ROOT."/views/staff_view.php");
 
 class staff extends account {
 
@@ -66,28 +67,31 @@ class staff extends account {
     }
 
     function add_student_list(){
-        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
-        $reader->setReadDataOnly(TRUE);
-        $spreadsheet = $reader->load("../upload/student_list.xlsx");
+//        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
+//        $reader->setReadDataOnly(TRUE);
+//        $spreadsheet = $reader->load("../upload/student_list.xlsx");
+//
+//        $worksheet = $spreadsheet->getActiveSheet();
+//
+//        echo '<table>' . PHP_EOL;
+//        foreach ($worksheet->getRowIterator() as $row) {
+//            echo '<tr>' . PHP_EOL;
+//            $cellIterator = $row->getCellIterator();
+//            $cellIterator->setIterateOnlyExistingCells(FALSE); // This loops through all cells,
+////    even if a cell value is not set.
+//// By default, only cells that have a value
+////    set will be iterated.
+//            foreach ($cellIterator as $cell) {
+//                echo '<td>' .
+//                    $cell->getValue() .
+//                    '</td>' . PHP_EOL;
+//            }
+//            echo '</tr>' . PHP_EOL;
+//        }
+//        echo '</table>' . PHP_EOL;
 
-        $worksheet = $spreadsheet->getActiveSheet();
-
-        echo '<table>' . PHP_EOL;
-        foreach ($worksheet->getRowIterator() as $row) {
-            echo '<tr>' . PHP_EOL;
-            $cellIterator = $row->getCellIterator();
-            $cellIterator->setIterateOnlyExistingCells(FALSE); // This loops through all cells,
-//    even if a cell value is not set.
-// By default, only cells that have a value
-//    set will be iterated.
-            foreach ($cellIterator as $cell) {
-                echo '<td>' .
-                    $cell->getValue() .
-                    '</td>' . PHP_EOL;
-            }
-            echo '</tr>' . PHP_EOL;
-        }
-        echo '</table>' . PHP_EOL;
+        $staff = new staff_view();
+        $staff->add_student_list();
     }
 
 }

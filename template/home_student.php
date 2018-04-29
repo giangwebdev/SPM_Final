@@ -42,10 +42,10 @@ $account->check_Session();
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">View account</a>
+                    <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Create account</a>
+                    <a class="nav-link" href="./index.php?action=view_task&controller=student">View task</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php?action=create_request&controller=student">Create request</a>

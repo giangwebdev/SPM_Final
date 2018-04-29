@@ -74,8 +74,9 @@ class student extends account{
             }
         }
 
-        function create_new_task(){
-
+        function view_task(){
+                $student = new student_view();
+                $student->view_task();
         }
 
 }

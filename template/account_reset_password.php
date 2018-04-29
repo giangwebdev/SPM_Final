@@ -23,9 +23,10 @@
 <body>
         <h1>Reset password</h1>
         <form action="./index.php?action=reset_password&controller=account" method="post">
-            Type your username: <input type="text" name="reset_username" >
+            Type your username: <input type="text" name="reset_username" required>
             <br>
             <button type="submit">Send</button>
+            <button type="button" onclick="window.location='./login.php'">Back</button>
         </form>
 </body>
 </html>
