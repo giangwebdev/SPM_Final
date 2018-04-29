@@ -56,7 +56,7 @@
                 if($role ==1){
                     //Team Leader
                 ?>
-                    <li class="menu-has-children"><a href="">Manage Request</a>
+                    <li class="menu-has-children"><a href="#">Manage Request</a>
                     <ul>
 <!--                        Xong-->
                         <li><a href="./index.php?action=create_request&controller=student">Create New Request</li>
@@ -75,7 +75,7 @@
                     //SUPERVISOR
                     ?>
 
-                    <li class="menu-has-children"><a href="">Manage Request</a>
+                    <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
 <!--                            Chưa xong-->
                             <li><a href="./index.php?action=view_request_list&controller=supervisor">View Request</a></li>
@@ -83,7 +83,7 @@
                             <li><a href="./index.php?actioncreate_meeting_request=&controller=supervisor">Book Meeting Room</a></li>
                         </ul>
                     </li>
-                    <li class="menu-has-children"><a href="">Manage Task</a>
+                    <li class="menu-has-children"><a href="#">Manage Task</a>
                         <ul>
 <!--                            Chưa code xong-->
                             <li><a href="./index.php?action=&controller=">Team 1</a></li>
@@ -95,13 +95,13 @@
                     //STAFF
                     ?>
 
-                    <li class="menu-has-children"><a href="">Manage Account</a>
+                    <li class="menu-has-children"><a href="#">Manage Account</a>
                         <ul>
                             <li><a href="./index.php?action=display_all_account_info&controller=staff">View List Account</a></li>
                             <li><a href="./index.php?action=add_student_list&controller=staff">Import Students</a></li>
                         </ul>
                     </li>
-                    <li class="menu-has-children"><a href="">Manage Request</a>
+                    <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
 <!--                            //Chua fix xong-->
                             <li><a href="./index.php?action=view_request&controller=staff">View Request</a></li>
@@ -113,7 +113,7 @@
                 }elseif ($role == 5){
                     //SUPERVISOR HEAD
                     ?>
-                    <li class="menu-has-children"><a href="">Manage Request</a>
+                    <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
                             <li><a href="./index.php?action=approve_team_pending&controller=supervisor">Approve Team Pending</a></li>
                             <li><a href="./index.php?action=create_meeting_request&controller=supervisor">Book Meeting Reqeuest</a></li>
@@ -121,7 +121,7 @@
                             <li><a href="./index.php?action=view_request_list&controller=supervisor">View Request</a></li>
                         </ul>
                     </li>
-                    <li class="menu-has-children"><a href="">Manage Task</a>
+                    <li class="menu-has-children"><a href="#">Manage Task</a>
                         <ul>
 <!--                            //Chua code xong-->
                             <li><a href="./index.php?action=&controller=">Team 1</a></li>
@@ -133,7 +133,7 @@
                 }elseif($role ==4){
                             //ADMIN
                     ?>
-                    <li class="menu-has-children"><a href=""><span
+                    <li class="menu-has-children"><a href="#"><span
                                     class="glyphicon glyphicon-user"></span>Manage Account</a>
                         <ul>
 <!--                            Đã xong-->
@@ -142,7 +142,7 @@
                             <li><a href="./index.php?action=add_student_list&controller=staff">Import Students</a></li>
                         </ul>
                     </li>
-                    <li class="menu-has-children"><a href="">Manage Request</a>
+                    <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
 <!--                            Chưa xong-->
                             <li><a href="./index.php?action=&controller=staff">View Request</a></li>

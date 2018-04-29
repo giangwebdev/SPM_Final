@@ -50,9 +50,18 @@ require_once (SITE_ROOT."/views/student_view.php");
 
 
         $( "#create_main_task" ).button().on( "click", function() {
+            $( ".create_task_btn" ).attr();
             $( "#create_task" ).dialog({
                 title: "New Main Task"
             }).dialog( "open" );
+        });
+
+        $( ".create_subtask_btn" ).on( "click", function() {
+            $( ".create_task_btn" )
+            $( "#create_task" ).dialog({
+                title: "New Subtask"
+            }).dialog( "open" );
+
         });
 
         $( ".create_task_btn" ).on( "click", function() {
@@ -82,7 +91,7 @@ require_once (SITE_ROOT."/views/student_view.php");
         cursor: pointer;
     }
 
-    table.table.table-striped.table-bordered tbody tr td.first-row {
+    table.table.table-striped.table-bordered tbody tr td.first-col{
         border-bottom-color: white !important;
     }
     button:focus{
@@ -92,7 +101,7 @@ require_once (SITE_ROOT."/views/student_view.php");
         background-color: white;
         /*pointer-events: none;*/
     }
-        .create_task_btn{
+        .create_subtask_btn{
             cursor: pointer;
         }
     </style>
@@ -122,7 +131,7 @@ require_once (SITE_ROOT."/views/student_view.php");
 
         ?>
         <tr>
-            <td class="first-col"><img class="create_task_btn" src="../image/icons/plus_icon.png" width="20px" > </td>
+            <td class="first-col"><img class="create_subtask_btn" src="../image/icons/plus_icon.png" width="20px" > </td>
             <td class="clickable"></td>
             <td class="clickable"></td>
             <td class="clickable"></td>

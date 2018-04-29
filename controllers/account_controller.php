@@ -61,7 +61,7 @@ class account
                         $_SESSION["role_id"] = $this->_current_account_info["role_id"];
                         $site = new account_view();
                         $this->_role_id = $this->_current_account_info["role_id"];
-                        $site->homepage($this->_role_id);
+                        $site->homepage();
                     } else {
                         echo '<script type="text/javascript">
                  alert("Your account is locked!");

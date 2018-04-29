@@ -27,16 +27,8 @@ class account_view{
         require_once(SITE_ROOT . "/login.php");
     }
 
-    function homepage($role){
-        if($role== 1){
-            require_once (SITE_ROOT.'/template/home_student.php');
-        }
-        if($role== 2 || $role == 5){
-            require_once (SITE_ROOT.'/template/home_supervisor.php');
-        }
-        if($role== 3 || $role == 4){
-            require_once(SITE_ROOT . '/template/home_staff.php');
-        }
+    function homepage(){
+        require_once (SITE_ROOT."/template/homepage.php");
     }
 
     function view_profile(){
