@@ -13,6 +13,7 @@ $account = new account();
 $account->check_Session();
 $super_model = new supervisor_model();
 $team_data = $super_model->get_my_team();
+$role = $_SESSION['role_id'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,15 +23,21 @@ $team_data = $super_model->get_my_team();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/spmfu.css">
+
 </head>
 
-<?php //require_once(SITE_ROOT."/template/header.php"); ?>
+<?php require_once(SITE_ROOT."/template/header.php"); ?>
 
-<body style="margin: 150px 0">
-<div class="main-login main-center">
-    <h2 class="text-center">CREATING MEETING REQUEST
-    </h2>
+<body>
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+        <div class="wrap-login100" style="color: white; width: auto">
+
+
+                <span class="login100-form-title p-b-34 p-t-27">
+						CREATE MEETING REQUEST
+					</span>
     <form action="" method="post">
         <table cellspacing="0" border="0">
             <tr>
@@ -53,7 +60,7 @@ $team_data = $super_model->get_my_team();
             <tr>
                 <td>Slot:</td>
                 <td>
-                    <select name="slot">
+                    <select name="slot" class="form-control">
                         <?php
                         for($i=1;$i <=8;$i++){
                             echo "<option value='$i' >$i</option>";
@@ -65,19 +72,22 @@ $team_data = $super_model->get_my_team();
 
             <tr>
                 <td>Date:</td>
-                <td><input type="date" name="date"></td>
+                <td><input type="date" name="date" class="form-control"></td>
             </tr>
             <tr>
                 <td>Description</td>
-                <td><textarea rows="5" cols="40" name="description"></textarea></td>
+                <td><textarea rows="5" cols="40" name="description" class="form-control" ></textarea></td>
             </tr>
             <tr>
                 <td></td>
-                <td><button type="submit" name="send_button" value="send">Send</button>
-                    <button type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button></td>
-
+                <td>
+                <div class="container-login100-form-btn" >
+                    <button class="login100-form-btn" type="submit" name="send_button" value="send" style="float: left">Send</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
+                </div>
+                </td>
             </tr>
         </table>
-    </form></div>
+    </form></div></div></div>
 </body>
 </html>
