@@ -45,7 +45,7 @@
     <div class="container-fluid">
 
         <div id="logo" class="pull-left">
-            <a href="#intro" class="scrollto"><img src="./image/Logo-FU-01.png"></a>
+            <a href="#" class="scrollto"><img src="./image/Logo-FU-01.png"></a>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
         </div>
@@ -153,8 +153,8 @@
                 }
                 ?>
 <!--                //Chung-->
-                <li class="menu-has-children"><a href="#"><img src="./image/icon-user.png" style="max-width: 30px;"></a>
-                <ul  style="width: 150px">
+                <li class="menu-has-children">Welcome,<?php echo $_SESSION['username']; ?><a href="#"><img src="./image/icon-user.png" style="max-width: 30px;"></a>
+                <ul>
                     <li><a href="./index.php?action=view_profile&controller=account" >View Profile</a></li>
                     <li><a href="./index.php?action=edit_profile&controller=account">Edit profile</a></li>
                     <li><a href="./index.php?action=change_password&controller=account">Change password</a></li>

@@ -18,7 +18,7 @@
 }
 body {
   background: #fff;
-  color: #666666;
+  color: #18d26e;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #header {
   background-color: rgba(0,0,0,.7);
-  padding: 30px 0;
+  padding: 15px 0;
   height: 95px;
   position: fixed;
   left: 0;
@@ -88,11 +88,16 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   transition: all 0.5s;
   z-index: 997;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
 }
 
 #header.header-scrolled {
   background: rgba(0, 0, 0, 0.9);
-  padding: 30px 0;
+  padding: 15px 0;
   height: 95px;
   transition: all 0.5s;
 }
@@ -340,7 +345,8 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 1024px) {
   #nav-menu-container {
-    padding-right: 60px;
+    padding-right: 70px;
+    padding-top: 15px;
   }
 }
 
@@ -358,7 +364,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 15px;
   text-transform: uppercase;
   outline: none;
 }
@@ -376,7 +382,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   background: #fff;
-  max-width: 200px;
+  /*max-width: 200px;*/
 }
 
 .nav-menu ul li {
@@ -388,7 +394,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #333;
   transition: 0.3s;
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   text-transform: none;
 }
 

@@ -20,34 +20,19 @@ $role = $_SESSION['role_id'];
 <div class="limiter">
 
     <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
-        <div class="wrap-login100">
-
-
-                <span class="login100-form-title p-b-34 p-t-27">
-						EDIT ACCOUNT
-					</span>
+        <div class="wrap-login100" style="color: white; width: 400px;margin-top: 90px;">
+            <form class="login100-form">
+                <form action="./index.php?action=edit_profile&controller=account" method="post">
+                <span class="login100-form-logo" style="width: 150px">
+                    <img src="<?php echo $detail['profile_picture']; ?>" width="250px"/>
+                </span>
+                <span><button class="login100-form-btn" type="button" name="upload_avatar" value="" onclick="" style="margin: 0 auto;">Upload</button></span>
 <form action="./index.php?action=edit_profile&controller=account" method="post">
-<table cellspacing="0" border="1">
+<table cellspacing="0" border="0" style="margin: 0 auto;">
     <tr>
-                <td> Profile
-                <table>
-                    <tr>
-                        <td>
-                            <img src="<?php
-                                echo $detail['profile_picture'];
-                                ?>" width="250px">
-                        </td>
 
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="login100-form-btn" type="button" name="upload_avatar" value="" onclick="">Upload</button>
-                        </td>
-                    </tr>
-                </table>
-                </td>
         <td>
-            <table>
+
                 <tr>
                     <td>Fullname: </td>
                     <td><?php echo $detail['full_name']; ?></td>
@@ -71,7 +56,7 @@ $role = $_SESSION['role_id'];
                 ?>
                 <tr>
                     <td>Phone: </td>
-                    <td><div class="wrap-input100"> <input class="input100" type="text" name="phone" value="<?php echo $detail['phone']; ?>" ></div></td>
+                    <td> <input class="form-control" type="text" name="phone" value="<?php echo $detail['phone']; ?>" ></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
@@ -101,13 +86,12 @@ $role = $_SESSION['role_id'];
                             if($role == "5") echo "Supervisor Head";
                         ?></td>
                     </tr>
-            </table>
-        </td>
-        <?php
-        if($role=="1") {
-            ?>
-            <td>
-                <table>
+                </td>
+                <?php
+                if($role=="1") {
+                ?>
+                <td>
+
                     <tr>
                         <td>Team:</td>
                         <td><?php
@@ -136,7 +120,7 @@ $role = $_SESSION['role_id'];
                             ?>
                         </td>
                     </tr>
-                </table>
+
             </td>
             <?php
         }

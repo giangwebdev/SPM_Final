@@ -40,16 +40,19 @@ $role = $_SESSION['role_id'];
             padding-top: 60px;
             color: white;
             text-shadow: 1px 1px 50px #000;
+            text-align: center;
         }
         #account-list_filter{
             padding-top: 60px;
             color: white;
             text-shadow: 1px 1px 50px #000;
+            text-align: center;
 
         }
         #account-list_info{
             color: white;
             text-shadow: 1px 1px 50px #000;
+            text-align: center;
         }
     </style>
 </head>
@@ -61,7 +64,7 @@ $role = $_SESSION['role_id'];
 <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">>
     <span class="login100-form-title p-b-34 p-t-27">
     </span>
-        <table id="account-list" class="table table-striped table-bordered" cellspacing="10px" style="background: rgba(6, 0, 255, 0.54);color: white;">
+        <table id="account-list" class="table table-striped table-bordered" cellspacing="0px" style="background: rgba(6, 0, 255, 0.54);color: white; text-align: center; width: 60rem; margin: 0px auto;">
             <thead>
             <tr>
                 <th>ID&nbsp;&nbsp;&nbsp;&nbsp;</th>

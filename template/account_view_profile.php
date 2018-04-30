@@ -32,22 +32,13 @@ $role=$_SESSION['role_id'];
 
     <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
         <div class="wrap-login100" style="color: white; width: auto">
-
-
-                <span class="login100-form-title p-b-34 p-t-27">
-						PROFILE
-					</span>
+            <form class="login100-form">
+                <span class="login100-form-logo" style="width: 150px">
+                    <img src="<?php echo $detail['profile_picture']; ?>" width="250px"/>
+                </span>
+                <span></span>
         <table cellspacing="0" border="1" >
             <tr>
-                <td align="center"> Profile
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="<?php echo $detail['profile_picture']; ?>" width="250px"/>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
                 <td id="keoxuong">
                     <table>
                         <tr>
