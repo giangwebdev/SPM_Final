@@ -7,8 +7,21 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/bootstrap/css" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bootstrap/js" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fonts/Linearicons-Free-v1.0.0" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fonts/font-awesome-4.7.0" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fonts/iconic" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fonts/montserrat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpoffice/phpspreadsheet" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/animate" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/animsition" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/countdowntime" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/css-hamburgers" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/daterangepicker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/jquery" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/perfect-scrollbar" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/select2" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -16,7 +16,7 @@ $role = $_SESSION['role_id'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Staff Home Page</title>
+    <title>Home Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

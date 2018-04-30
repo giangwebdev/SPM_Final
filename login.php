@@ -56,15 +56,15 @@
 
         <div class="container-login100" style="background-image: url('image/bg-01.jpg');">
             <div class="wrap-login100" style="width: 400px;">
-                <form class="login100-form validate-form" style="background-image: url('image/logo.png');">
+                <form class="login100-form validate-form">
 					<span class="login100-form-logo" style="background-image: url('image/logo.png');">
 
-						<i class="zmdi zmdi-landscape"></i>
+
 					</span>
 
-                    <span class="login100-form-title p-b-34 p-t-27">
-						Log in
-					</span>
+                    <h1><span class="login100-form-title p-b-34 p-t-27">
+						LOGIN
+					</span></h1>
 
                     <div class="wrap-input100 validate-input" data-validate = "Enter username">
                         <input class="input100" type="text" name="username" placeholder="Username">

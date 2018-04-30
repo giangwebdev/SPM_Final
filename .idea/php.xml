@@ -9,6 +9,19 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/animsition/js" />
       <path value="$PROJECT_DIR$/vendor/animsition/css" />
+      <path value="$PROJECT_DIR$/vendor/fonts/iconic" />
+      <path value="$PROJECT_DIR$/vendor/fonts/font-awesome-4.7.0" />
+      <path value="$PROJECT_DIR$/vendor/fonts/montserrat" />
+      <path value="$PROJECT_DIR$/vendor/fonts/Linearicons-Free-v1.0.0" />
+      <path value="$PROJECT_DIR$/vendor/vendor/perfect-scrollbar" />
+      <path value="$PROJECT_DIR$/vendor/vendor/select2" />
+      <path value="$PROJECT_DIR$/vendor/vendor/animsition" />
+      <path value="$PROJECT_DIR$/vendor/vendor/css-hamburgers" />
+      <path value="$PROJECT_DIR$/vendor/vendor/daterangepicker" />
+      <path value="$PROJECT_DIR$/vendor/vendor/countdowntime" />
+      <path value="$PROJECT_DIR$/vendor/vendor/bootstrap" />
+      <path value="$PROJECT_DIR$/vendor/vendor/animate" />
+      <path value="$PROJECT_DIR$/vendor/vendor/jquery" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

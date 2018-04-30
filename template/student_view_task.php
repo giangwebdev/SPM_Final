@@ -20,12 +20,14 @@ $role = $_SESSION['role_id'];
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <?php require_once(SITE_ROOT."/template/header.php"); ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="/css/spmfu.css">
     <script>
 
 
@@ -50,14 +52,12 @@ $role = $_SESSION['role_id'];
 
 
         $( "#create_main_task" ).button().on( "click", function() {
-            $( ".create_task_btn" ).attr();
             $( "#create_task" ).dialog({
                 title: "New Main Task"
             }).dialog( "open" );
         });
 
         $( ".create_subtask_btn" ).on( "click", function() {
-            $( ".create_task_btn" )
             $( "#create_task" ).dialog({
                 title: "New Subtask"
             }).dialog( "open" );
@@ -104,12 +104,60 @@ $role = $_SESSION['role_id'];
         .create_subtask_btn{
             cursor: pointer;
         }
+    background-image: url('./image/bg-01.jpg');
+        #task_table{
+
+        }
+    #create_main_task{
+        background: -moz-linear-gradient(bottom, #7579ff, #b224ef);
+        background-color: rgba(0, 0, 0, 0);
+        background-image: -moz-linear-gradient(center bottom , rgb(117, 121, 255), rgb(178, 36, 239));
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-clip: border-box;
+        background-origin: padding-box;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-size: auto auto;
+        color: white;
+    }
+ .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front{
+    background: -moz-linear-gradient(bottom, #7579ff, #b224ef);
+    background-color: rgba(0, 0, 0, 0);
+    background-image: -moz-linear-gradient(center bottom , rgb(117, 121, 255), rgb(178, 36, 239));
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto auto;
+    top: 150px;
+}
+
+    .ui-widget input, .ui-widget select, .ui-widget textarea{
+        font-size: 0.8em;
+        top: 100px;
+    }
+    .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front{
+        top: 100px;
+    }
     </style>
+
 </head>
+
+
 <body>
-<div><button type="button" id="create_main_task" name="create_main_task">Create new task</button></div>
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+
 <div>
-    <table id="task_table" class="table table-striped table-bordered">
+    <table>
+    <button type="button" id="create_main_task" name="create_main_task">Create new task</button>
+        </table></div>
+<div>
+    <table id="task_table" class="table table-striped table-bordered" style="background: rgba(6, 0, 255, 0.54);color: white;">
         <thead>
         <tr>
             <th></th>
@@ -149,13 +197,13 @@ $role = $_SESSION['role_id'];
 </div>
 
 
-    <div id="task_detail" class="task" title="Task">
+    <div id="task_detail" class="task" title="Task"">
         <form>
             <table cellspacing="0" border="0">
 
                 <tr>
                     <td>Priority</td>
-                    <td><select>
+                    <td><select class="form-control">
                             <option>High</option>
                             <option>Medium</option>
                             <option>Low</option>
@@ -163,7 +211,7 @@ $role = $_SESSION['role_id'];
                 </tr>
                 <tr>
                     <td>Task name</td>
-                    <td><input type="text" name="taskname"></td>
+                    <td><input type="text" name="taskname" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Description</td>
@@ -171,31 +219,31 @@ $role = $_SESSION['role_id'];
                 </tr>
                 <tr>
                     <td>Assign by</td>
-                    <td><input type="text" name="assign_by"></td>
+                    <td><input type="text" name="assign_by" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Assign to</td>
-                    <td><input type="text" name="assign_to"></td>
+                    <td><input type="text" name="assign_to" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Start date</td>
-                    <td><input type="date" name="start_date"></td>
+                    <td><input type="date" name="start_date" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Deadline</td>
-                    <td><input type="date" name="deadline" value=""></td>
+                    <td><input type="date" name="deadline" value="" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Finish date</td>
-                    <td><input type="date" name="finish_date"></td>
+                    <td><input type="date" name="finish_date" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Technique check</td>
-                    <td><input type="date" name="tech_check"></td>
+                    <td><input type="date" name="tech_check" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>QA check</td>
-                    <td><input type="date" name="qa_check"></td>
+                    <td><input type="date" name="qa_check" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Status</td>
@@ -203,8 +251,8 @@ $role = $_SESSION['role_id'];
                 </tr>
                 <tr>
                     <td></td>
-                    <td><button type="submit" name="edit">Edit</button>
-                        <button type="reset" >Reset</button>
+                    <td><button class="button" type="submit" name="edit">Edit</button>
+                        <button class="button" type="reset" >Reset</button>
                         <button type="button" class="cancel-btn" name="cancel-btn" >Cancel</button></td>
                 </tr>
             </table>
@@ -216,7 +264,7 @@ $role = $_SESSION['role_id'];
                 <table cellspacing="0" border="0">
                     <tr>
                         <td>Priority</td>
-                        <td><select name="priority">
+                        <td><select name="priority" class="form-control">
                                 <option value="">High</option>
                                 <option value="">Medium</option>
                                 <option value="">Low</option>
@@ -224,31 +272,34 @@ $role = $_SESSION['role_id'];
                     </tr>
                     <tr>
                         <td>Task name</td>
-                        <td><input type="text" name="taskname" class="text ui-widget-content ui-corner-all"></td>
+                        <td><input type="text" name="taskname" class="text ui-widget-content ui-corner-all form-control"></td>
                     </tr>
                     <tr>
                         <td>Description</td>
-                        <td><textarea rows="5" cols="50" name="description" class="text ui-widget-content ui-corner-all"></textarea></td>
+                        <td><textarea rows="5" cols="50" name="description" class="text ui-widget-content ui-corner-all form-control"></textarea></td>
                     </tr>
                     <tr>
-                        <td><input type="hidden" name="assign_by" class="text ui-widget-content ui-corner-all"></td>
+                        <td><input type="hidden" name="assign_by" class="text ui-widget-content ui-corner-all form-control"></td>
                     </tr>
                     <tr>
                         <td>Assign to</td>
-                        <td><input type="text" name="assign_to" class="text ui-widget-content ui-corner-all"></td>
+                        <td><input type="text" name="assign_to" class="text ui-widget-content ui-corner-all form-control"></td>
                     </tr>
                     <tr>
                         <td>Deadline</td>
-                        <td><input type="date" name="deadline" class="text ui-widget-content ui-corner-all"></td>
+                        <td><input type="date" name="deadline" class="text ui-widget-content ui-corner-all form-control"></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button type="button" name="create_task_btn" id="create_task_btn"
+                        <td><button class="create_subtask_btn button" type="button" name="create_task_btn" id="create_task_btn"
                             onclick="window.location='./index.php?action=create_task&controller=student'">Create</button>
-                            <button type="button" class="cancel-btn" >Cancel</button></td>
+                            <button type="button" class="cancel-btn login-button" >Cancel</button></td>
                     </tr>
                 </table>
             </form>
         </div>
+    </div>
+</div>
+
 </body>
 </html>
