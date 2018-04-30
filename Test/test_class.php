@@ -9,7 +9,7 @@
 require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/models/account_model.php");
 
-class test_class extends account_model {
+class test_class {
 
     function add($username,$password){
         $role = "5";
@@ -36,6 +36,24 @@ class test_class extends account_model {
 
         }
     }
+
+    function test_Array(){
+        $data = array(
+            "One" => "1",
+            "Two" => "2",
+            "Three" => "3"
+        );
+
+        foreach ($data as $key => $value){
+            echo $key ." ". $value ."<br>";
+            if($data[$key]=="1"){
+                echo "ONE ONE ONE ";
+            }else{
+                echo "THE OTHERS";
+            }
+        }
+    }
 }
 
-
+$test_class = new test_class();
+$test_class->test_Array();

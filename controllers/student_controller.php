@@ -60,6 +60,11 @@ class student extends account{
             $team_id = $_SESSION['team_id'];
             $parent_task_id = null;
             $description = "";
+            $created_by = "System";
+            $assign_by = $assign_to = $deadline = null;
+            $task_status_id = "2";
+            $priority = "High";
+            $start_date = getdate();
             $task_name = array(
                 "default task 1" => "Report 1",
                 "default task 2" => "Report 2",
@@ -70,7 +75,9 @@ class student extends account{
             );
             $student = new student_model();
             foreach ($task_name as $key => $value){
-                $student->create_new_task($parent_task_id, $team_id, $value, $description);
+                $student->create_new_task($parent_task_id, $team_id, $task_name,
+                    $description,$created_by, $assign_by, $assign_to, $start_date,
+                    $deadline,$task_status_id,$priority);
             }
         }
 
@@ -86,9 +93,9 @@ class student extends account{
                 $team_id = $_SESSION['team_id'];
                 $parent_task_id ="";
 
-                if($_POST['task_type'] == "new_main_task"){
+                if($_POST['create_task_btn'] == "new_maintask"){
                     $parent_task_id = null;
-                }elseif ($_POST['task_type'] == "new_sub_task"){
+                }elseif ($_POST['create_task_btn'] == "new_subtask"){
                     $parent_task_id = $_POST['task_id'];
                 }
                 $start_date = getdate();

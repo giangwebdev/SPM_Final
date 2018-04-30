@@ -9,7 +9,9 @@ require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/models/student_model.php");
 require_once (SITE_ROOT."/views/student_view.php");
 $role = $_SESSION['role_id'];
-
+$team_id = $_SESSION['team_id'];
+$student= new student_model();
+$task_data = $student->get_task_data($team_id);
 ?>
 
 <!doctype html>
@@ -47,27 +49,24 @@ $role = $_SESSION['role_id'];
         }
     });
 
-
+        $( "#create_task_btn" ).button();
 
         $( "#create_main_task" ).button().on( "click", function() {
-            $( ".create_task_btn" ).attr();
+            $( "#create_task_btn" ).val("new_maintask");
             $( "#create_task" ).dialog({
                 title: "New Main Task"
             }).dialog( "open" );
         });
 
         $( ".create_subtask_btn" ).on( "click", function() {
-            $( ".create_task_btn" )
+            var $task_id = $(this).parent().next();
+            var task_id_value = $task_id.data("value");
+            $("#task_id").val(task_id_value);
+            $( "#create_task_btn" ).val("new_subtask");
             $( "#create_task" ).dialog({
                 title: "New Subtask"
             }).dialog( "open" );
 
-        });
-
-        $( ".create_task_btn" ).on( "click", function() {
-            $( "#create_task" ).dialog({
-                title: "New Subtask"
-            }).dialog( "open" );
         });
 
         $( ".clickable" ).on( "click", function() {
@@ -81,6 +80,16 @@ $role = $_SESSION['role_id'];
             $( "#create_task" ).dialog( "close" );
         });
 
+        $("#detail_priority").on("load",function (){
+            var task_prio = $(this).data("value");
+            if(task_prio === "High"){
+
+            }else if(task_prio === "Medium"){
+
+            }else if(task_prio === "Low"){
+
+            }
+        });
 
     } );
 
@@ -128,22 +137,36 @@ $role = $_SESSION['role_id'];
         </thead>
         <tbody >
         <?php 
-
+        foreach ($task_data as $data){
         ?>
         <tr>
-            <td class="first-col"><img class="create_subtask_btn" src="../image/icons/plus_icon.png" width="20px" > </td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
-            <td class="clickable"></td>
+            <td class="first-col"><img class="create_subtask_btn" src="../image/icons/plus_icon.png" width="20px"> </td>
+            <td class="clickable" data-value="<?php echo $data['task_id']; ?>"><?php echo $data['task_id']; ?></td>
+            <td class="clickable"><?php echo $data['priority']; ?></td>
+            <td class="clickable"><?php echo $data['task_name']; ?></td>
+            <td class="clickable"><?php echo $data['assign_by']; ?></td>
+            <td class="clickable"><?php echo $data['assign_to']; ?></td>
+            <td class="clickable"><?php echo $data['start_date']; ?></td>
+            <td class="clickable"><?php echo $data['deadline']; ?></td>
+            <td class="clickable"><?php echo $data['finish_date']; ?></td>
+            <td class="clickable"><?php echo $data['technique_check_date']; ?></td>
+            <td class="clickable"><?php echo $data['qa_check_date']; ?></td>
+            <?php if($data['task_status_id']=="1") {
+                $status = "Open";
+                }elseif ($data['task_status_id'] =="2"){
+                $status = "In progress";
+            }elseif ($data['task_status_id'] == "3"){
+                $status = "Solved";
+            }elseif ($data['task_status_id'] =="4"){
+                $status = "Close";
+            }
+                ?>
+            <td class="clickable"><?php echo $status;?></td>
         </tr>
+        <?php
+
+        }
+        ?>
         </tbody>
     </table>
 </div>
@@ -155,7 +178,7 @@ $role = $_SESSION['role_id'];
 
                 <tr>
                     <td>Priority</td>
-                    <td><select>
+                    <td><select id="detail_priority" data-value="<?php echo $data['priority']; ?>">
                             <option>High</option>
                             <option>Medium</option>
                             <option>Low</option>
@@ -163,39 +186,39 @@ $role = $_SESSION['role_id'];
                 </tr>
                 <tr>
                     <td>Task name</td>
-                    <td><input type="text" name="taskname"></td>
+                    <td><input type="text" name="taskname" value="<?php echo $data['priority']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Description</td>
-                    <td><textarea rows="5" cols="50" name="description"></textarea></td>
+                    <td><textarea rows="5" cols="50" name="description"><?php echo $data['priority']; ?></textarea></td>
                 </tr>
                 <tr>
                     <td>Assign by</td>
-                    <td><input type="text" name="assign_by"></td>
+                    <td><input type="text" name="assign_by" value="<?php echo $data['priority']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Assign to</td>
-                    <td><input type="text" name="assign_to"></td>
+                    <td><input type="text" name="assign_to" value="<?php echo $data['priority']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Start date</td>
-                    <td><input type="date" name="start_date"></td>
+                    <td><input type="date" name="start_date" value="<?php echo $data['priority']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Deadline</td>
-                    <td><input type="date" name="deadline" value=""></td>
+                    <td><input type="date" name="deadline" value="<?php echo $data['priority']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Finish date</td>
-                    <td><input type="date" name="finish_date"></td>
+                    <td><input type="date" name="finish_date" value="<?php echo $data['priority']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Technique check</td>
-                    <td><input type="date" name="tech_check"></td>
+                    <td><input type="date" name="tech_check" value="<?php echo $data['priority']; ?>"></td>
                 </tr>
                 <tr>
                     <td>QA check</td>
-                    <td><input type="date" name="qa_check"></td>
+                    <td><input type="date" name="qa_check" value="<?php echo $data['priority']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Status</td>
@@ -217,10 +240,11 @@ $role = $_SESSION['role_id'];
                     <tr>
                         <td>Priority</td>
                         <td><select name="priority">
-                                <option value="">High</option>
-                                <option value="">Medium</option>
-                                <option value="">Low</option>
-                            </select></td>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Task name</td>
@@ -231,15 +255,15 @@ $role = $_SESSION['role_id'];
                         <td><textarea rows="5" cols="50" name="description" class="text ui-widget-content ui-corner-all"></textarea></td>
                     </tr>
                     <tr>
-                        <td><input type="hidden" name="assign_by" class="text ui-widget-content ui-corner-all"></td>
-                    </tr>
-                    <tr>
                         <td>Assign to</td>
                         <td><input type="text" name="assign_to" class="text ui-widget-content ui-corner-all"></td>
                     </tr>
                     <tr>
                         <td>Deadline</td>
                         <td><input type="date" name="deadline" class="text ui-widget-content ui-corner-all"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="hidden" id="task_id" name="task_id"></td>
                     </tr>
                     <tr>
                         <td></td>
