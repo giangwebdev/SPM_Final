@@ -100,4 +100,9 @@ class staff extends account {
         $staff->add_student_list();
     }
 
+    function edit_request(){
+
+    }
+
+
 }

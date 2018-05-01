@@ -57,20 +57,18 @@ $role = $_SESSION['role_id'];
     </style>
 </head>
 <!-- Navigation -->
-<body>
+<body style="background-image: url('./image/bg-01.jpg');">
 
-
-
-<div class="container-login100" style="background-image: url('./image/bg-01.jpg');">>
+<div class="container-login100" >
     <span class="login100-form-title p-b-34 p-t-27">
     </span>
         <table id="account-list" class="table table-striped table-bordered" cellspacing="0px" style="background: rgba(6, 0, 255, 0.54);color: white; text-align: center; width: 60rem; margin: 0px auto;">
             <thead>
             <tr>
-                <th>ID&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>Username&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>Role&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>Status&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Status</th>
                 <th> Action</th>
             </tr>
             </thead>

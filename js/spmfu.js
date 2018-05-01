@@ -19,6 +19,7 @@ $( function() {
     $( "#create_task_btn" ).button();
     $(".reset-btn").button();
     $(".edit-btn").button();
+    $(".button").button();
 
     $( "#create_main_task" ).button().on( "click", function() {
 
@@ -101,8 +102,8 @@ $( function() {
             }
         });
     });
-
-    $("thead").find("th").removeClass("sorting");
+    $("thead").find("tr th").removeClass("sorting_asc");
+    $("thead").find("tr th").removeClass("sorting");
 } );
 
 

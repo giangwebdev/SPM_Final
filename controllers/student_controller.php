@@ -140,4 +140,16 @@ class student extends account{
             $student_view = new student_view();
             $student_view->view_bug();
         }
+
+        function edit_bug(){
+
+        }
+
+        function add_bug(){
+
+        }
+
+        function upload_file($file_name, $file_link){
+
+        }
 }

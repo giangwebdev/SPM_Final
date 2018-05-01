@@ -55,4 +55,12 @@ class supervisor extends account {
          $super_view = new supervisor_view();
         $super_view->view_task();
 }
+    function comment(){
+
+    }
+
+    function manage_team_pending(){
+        $super_view = new supervisor_view();
+        $super_view->manage_team_pending();
+    }
 }

@@ -18,6 +18,7 @@ $task_data = $student->get_task_data($team_id);
 ?>
 
 <!doctype html>
+<!--suppress CssUnknownTarget -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,27 +37,25 @@ $task_data = $student->get_task_data($team_id);
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="./css/spmfu.css">
-    <script src="./js/spmfu.js">  </script>
+    <script src="./js/spmfu.js"></script>
 
 
 
 </head>
 
 
-<body>
+<body style="background-image: url('./image/bg-01.jpg');">
+
 <div class="limiter">
-
-    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
-
-<div>
-    <table>
-    <button type="button" id="create_main_task" name="create_main_task">Create new task</button>
-        </table></div>
-<div>
-    <table id="task_table" class="table table-striped table-bordered" style="background: rgba(6, 0, 255, 0.54);color: white;">
+    <div class="row-1">
+        <button type="button" id="create_main_task" name="create_main_task">Create new task</button>
+    </div>
+    <div class="container-login100" >
+<div class="row-2">
+    <table id="task_table" class="table table-striped table-bordered" style="color: white;">
         <thead>
         <tr>
-            <th></th>
+            <th> </th>
             <th>Task ID</th>
             <th>Priority</th>
             <th>Task name</th>
@@ -220,7 +219,7 @@ $task_data = $student->get_task_data($team_id);
                         <td></td>
                         <td><button class="create_subtask_btn button" type="button" name="create_task_btn" id="create_task_btn"
                             onclick="window.location='./index.php?action=create_task&controller=student'">Create</button>
-                            <button type="button" class="cancel-btn login-button button" >Cancel</button></td>
+                            <button type="button" class="cancel-btn button" >Cancel</button></td>
                     </tr>
                 </table>
             </form>

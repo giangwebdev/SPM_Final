@@ -131,4 +131,46 @@ class student_model extends account_model{
                 }
             }
         }
+
+        function edit_task_data($parent_task_id, $team_id, $task_name, $description,
+                               $created_by, $assign_by, $assign_to, $start_date, $deadline, $technique_check, $qa_check, $task_status_id, $priority){
+
+        }
+
+        function delete_task($task_id,$team_id){
+
+        }
+
+        function get_request(){
+
+        }
+
+        function get_bug(){
+
+        }
+
+        function edit_bug(){
+
+        }
+
+        function add_bug(){
+
+        }
+
+        function upload_file($file_name, $file_link){
+
+        }
+
+        function get_file($task_id){
+
+        }
+
+        function add_comment(){
+
+        }
+
+        function delete_comment(){
+
+        }
+
 }

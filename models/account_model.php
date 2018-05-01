@@ -18,11 +18,12 @@ class account_model extends DB_Driver
     private  $account_status='';
     // Hàm Khởi Tạo
     function __construct() {
+
+        parent::connect();
         if($this->_acc_id == null && isset($_SESSION['acc_id']) && $_SESSION['acc_id'] != null){
             $this->_acc_id = $_SESSION['acc_id'];
             $this->_role_id = $_SESSION['role_id'];
         }
-        parent::connect();
     }
 
     // Hàm ngắt kết nối

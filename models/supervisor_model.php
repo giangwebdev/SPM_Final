@@ -9,7 +9,7 @@
 require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/models/DB_Driver.php");
 
-class supervisor_model extends DB_Driver {
+class supervisor_model extends account_model {
 
         private $__supervisor_id='';
         function __construct()
@@ -64,4 +64,21 @@ class supervisor_model extends DB_Driver {
         function get_request(){
 
         }
+
+        function get_team_pending(){
+
+        }
+
+        function create_team(){
+
+        }
+
+        function add_comment(){
+
+        }
+
+        function delete_comment(){
+
+        }
+
 }

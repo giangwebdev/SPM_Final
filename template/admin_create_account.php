@@ -15,15 +15,17 @@ $role = $_SESSION['role_id'];
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Document</title>
-    <!--    <script src="./js/spmfu.js"></script>-->
+    <?php require_once(SITE_ROOT."/template/header.php"); ?>
+        <link rel="stylesheet" href="./css/spmfu.css"/>
+        <script src="./js/spmfu.js"></script>
 </head>
 
-<?php require_once(SITE_ROOT."/template/header.php"); ?>
 
-<body>
+
+<body style="background-image: url('./image/bg-01.jpg');" >
 <div class="limiter">
 
-    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+    <div class="container-login100">
         <div class="wrap-login100" style="width: 400px">
 
 
@@ -56,7 +58,7 @@ $role = $_SESSION['role_id'];
                     <td></td>
                     <td>
                         <div class="container-login100-form-btn" >
-                            <button class="login100-form-btn" type="submit" name="sumit_btn" style="color: red;">
+                            <button class="login100-form-btn create-btn" type="submit" name="sumit_btn" style="color: red;">
                                 Create
                             </button>
                             <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'" >Cancel</button>
@@ -71,27 +73,7 @@ $role = $_SESSION['role_id'];
         </div>
     </div>
 </div>
-<!--<div id="dropDownSelect1"></div>-->
-<!--<!--===============================================================================================-->-->
-<!---->
-<!--<script src="./vendor/jquery/jquery-3.2.1.min.js"></script>-->
-<!--<!--===============================================================================================-->-->
-<!--<script src="./vendor/animsition/js/animsition.min.js"></script>-->
-<!--<!--===============================================================================================-->-->
-<!--<script src="./vendor/bootstrap/js/popper.js"></script>-->
-<!--<script src="./vendor/bootstrap/js/bootstrap.min.js"></script>-->
-<!--<!--===============================================================================================-->-->
-<!--<script src="./vendor/select2/select2.min.js"></script>-->
-<!--<!--===============================================================================================-->-->
-<!--<script src="./vendor/daterangepicker/moment.min.js"></script>-->
-<!--<script src="./vendor/daterangepicker/daterangepicker.js"></script>-->
-<!--<!--===============================================================================================-->-->
-<!--<script src="./vendor/countdowntime/countdowntime.js"></script>-->
-<!--<!--===============================================================================================-->-->
-<!--<script src="./js/main.js"></script>-->
-<!--<!-- Bootstrap core JavaScript -->-->
-<!--<script src="./vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+
 </body>
 
 </html>
