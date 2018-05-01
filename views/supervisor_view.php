@@ -19,4 +19,7 @@ class supervisor_view{
     function view_task(){
         require_once (SITE_ROOT."/template/student_view_task.php");
     }
+    function manage_team_request(){
+        require_once (SITE_ROOT."/template/supervisor_manage_team_request.php");
+    }
 }
