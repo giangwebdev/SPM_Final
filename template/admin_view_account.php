@@ -54,6 +54,9 @@ $role = $_SESSION['role_id'];
             text-shadow: 1px 1px 50px #000;
             text-align: center;
         }
+        /*#header{*/
+            /*position: static;*/
+        /*}*/
     </style>
 </head>
 <!-- Navigation -->
@@ -62,6 +65,7 @@ $role = $_SESSION['role_id'];
 <div class="container-login100" >
     <span class="login100-form-title p-b-34 p-t-27">
     </span>
+    <h1 class="text-center" style="color: white;text-shadow: 1px 1px 50px #000;margin-top: 100px;">VIEW ACCOUNT</h1>
         <table id="account-list" class="table table-striped table-bordered" cellspacing="0px" style="background: rgba(6, 0, 255, 0.54);color: white; text-align: center; width: 60rem; margin: 0px auto;">
             <thead>
             <tr>
@@ -101,9 +105,9 @@ $role = $_SESSION['role_id'];
 
                     <td><?php echo $info['isactive']?"Active":"Inactive"; ?> </td>
 
-                    <td><div class="container-login100-form-btn"><button class="login100-form-btn" ><?php echo $info['isactive']?"<img src=\"./image/lock.png\" style=\"width: 50px; height: 40px\">":"<img src=\"./image/unlock.png\" style=\"width: 40px; height: 40px\">"; ?></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="login100-form-btn" type="button" name="admin_edit_profile" onclick="window.location.href='./index.php?action=admin_edit_profile&controller=staff'" style="width: 50px"><img src="./image/pencil.png" style="width: 50px"></button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="login100-form-btn"><img src="./image/delete.png" style="width: 30px"></button></div></td>
+                    <td><div class="container-login100-form-btn"><button class="login100-form-btn" style="width: 50px;" ><?php echo $info['isactive']?"<img src=\"./image/lock.png\" style=\"width: 20px; height: 20px\">":"<img src=\"./image/unlock.png\" style=\"width: 20px; height: 20px\">"; ?></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="login100-form-btn" type="button" name="admin_edit_profile" onclick="window.location.href='./index.php?action=admin_edit_profile&controller=staff'" style="width: 50px"><img src="./image/pencil.png" style="width: 20px;height: 20px;"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="login100-form-btn" style="width: 50px;"><img src="./image/delete.png" style="width: 20px;height: 20px;"></button></div></td>
 
                 </tr>
             <?php
@@ -111,7 +115,7 @@ $role = $_SESSION['role_id'];
             ?>
             </tbody>
         </table>
-    <button class="login100-form-btn" type="button" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
+    <button class="login100-form-btn" type="button" onclick="window.location.href='./index.php?action=homepage&controller=account'" style="margin: 0 auto">Back</button>
 </div>
     </div></div>
 </body>

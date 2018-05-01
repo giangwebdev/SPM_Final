@@ -11,6 +11,7 @@ body, html{
     background-size: cover;
 }
 
+/*noinspection ALL*/
 .body-bg{
     background: url('./image/bg-01.jpg');
 }
@@ -121,12 +122,8 @@ input, textarea {
 
 
 #header{
-    /*width: 100%;*/
-    /*top:0;*/
-    /*position: absolute;*/
+    position: static;
 }
-
-
 
 
 
@@ -140,14 +137,6 @@ input, textarea {
 
 /*///Used in student view task */
 
-
-img.pointer_btn{
-    margin-top: 15px;
-}
-.row-1{
-    margin-top: 10em;
-    margin-left: 20em;
-}
 
 
 table thead{
@@ -176,16 +165,35 @@ li {
 li a:hover {
     color: #0000FF;
 }
-table.table.table-striped.table-bordered{
+
+table.table.table-striped.table-bordered.dataTable.no-footer{
+
+    background: rgba(6, 0, 255, 0.54);
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 50px #000;
     text-align: center;
+    color: white;
+    margin-top: 50px;
 }
 
-table.table.table-striped.table-bordered th:not(:first-child), table.table.table-striped.table-bordered td:not(:first-child){
+.dataTables_length{
+    color: white;
+    text-shadow: 1px 1px 50px #000;
+}
+.dataTables_filter{
+    color: white;
+    text-shadow: 1px 1px 50px #000;
+}
+.dataTables_info{
+    color: white;
+    text-shadow: 1px 1px 50px #000;
+}
+.dataTables_wrapper{
+    max-width: 1000px;
+}
+table.table.table-striped.table-bordered th,  table.table.table-striped.table-bordered td{
     padding-top: 0.5em;
-    padding-left: 0.5em;
-    width: 80px;
-    background: rgba(6, 0, 255, 0.54);
-
 }
 table tbody tr{
     position: relative;

@@ -73,7 +73,6 @@ $role = $_SESSION['role_id'];
         </div>
     </div>
 </div>
-
 </body>
 
 </html>

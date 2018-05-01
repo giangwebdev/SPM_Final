@@ -115,10 +115,10 @@
                     ?>
                     <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
-                            <li><a href="./index.php?action=approve_team_pending&controller=supervisor">Approve Team Pending</a></li>
+                            <li><a href="./index.php?action=manage_team_request&controller=supervisor">Approve Team Pending</a></li>
                             <li><a href="./index.php?action=create_meeting_request&controller=supervisor">Book Meeting Reqeuest</a></li>
 <!--                            Chưa code xong-->
-                            <li><a href="./index.php?action=view_request_list&controller=supervisor">View Request</a></li>
+                            <li><a href="./index.php?action=view_request&controller=supervisor">View Request</a></li>
                         </ul>
                     </li>
                     <li class="menu-has-children"><a href="#">Manage Task</a>
