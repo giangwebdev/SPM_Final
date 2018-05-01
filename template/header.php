@@ -63,11 +63,11 @@
                         <li><a href="./index.php?action=view_request&controller=student">View Request</a></li>
                     </ul>
                     </li>
-                    <li class="menu-has-children"><a href="">Manage Task</a>
+                    <li class="menu-has-children"><a href="#">Manage Task</a>
                         <ul>
 <!--                            Chưa xong-->
                             <li><a href="./index.php?action=view_task&controller=student">View Task</a></li>
-                            <li><a href="#">View Bug List</a></li>
+                            <li><a href="./index.php?action=view_bug&controller=student">View Bug List</a></li>
                         </ul>
                     </li>
                 <?php
@@ -86,8 +86,8 @@
                     <li class="menu-has-children"><a href="#">Manage Task</a>
                         <ul>
 <!--                            Chưa code xong-->
-                            <li><a href="./index.php?action=&controller=">Team 1</a></li>
-                            <li><a href="./index.php?action=&controller=">Team 2</a></li>
+                            <li><a href="./index.php?action=view_task&controller=student">Team 1</a></li>
+                            <li><a href="./index.php?action=view_bug&controller=student">Team 2</a></li>
                         </ul>
                     </li>
                     <?php
@@ -124,8 +124,8 @@
                     <li class="menu-has-children"><a href="#">Manage Task</a>
                         <ul>
 <!--                            //Chua code xong-->
-                            <li><a href="./index.php?action=&controller=">Team 1</a></li>
-                            <li><a href="./index.php?action=&controller=">Team 2</a></li>
+                            <li><a href="./index.php?action=view_task&controller=student">Team 1</a></li>
+                            <li><a href="./index.php?action=view_bug&controller=student">Team 2</a></li>
                         </ul>
                     </li>
 

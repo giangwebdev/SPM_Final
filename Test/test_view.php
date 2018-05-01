@@ -88,36 +88,54 @@
             });
             var task_id_value;
             var pointer_btn = $(".pointer_btn");
-
+            var menu_task =$(".menu-task");
 
             $( ".cancel-btn" ).button().on( "click", function() {
                 $( "#create_task" ).dialog( "close" );
             });
-            $(".menu-task").hide();
-
-            $("img").blur(function () {
-                $("td").removeClass("blur-animated");
-            });
+            menu_task.hide();
 
 
-            pointer_btn.on("click",function() {
+            pointer_btn.on("click",function(e) {
+
+                //get task_id
                 var $task_id = $(this).parent().next();
                 task_id_value = $task_id.data("value");
                 $("#task_id_send").val(task_id_value);
-                $(".menu-task").toggle("fade", 100);
-
-                if( $(this).parent().nextAll().hasClass("blur-animated")){
-                    $(this).parent().nextAll().removeClass("blur-animated");
-                }else{
+                //show task menu
+                var top = $(this).offset().top;
+                var left = $(this).offset().left;
+                if(menu_task.css("display","none")){
                     $(this).parent().nextAll().addClass("blur-animated");
+                    menu_task.fadeIn(100);
+                    menu_task.css("top",top + 41).css("left",left);
+                }else{
+                    $(this).parent().nextAll().removeClass("blur-animated");
+                    menu_task.fadeOut(100);
                 }
-                $(".create-subtask-btn").on("click", function () {
+
+
+                $(this).parent().parent().prevAll().find("td").removeClass("blur-animated");
+                $(this).parent().parent().nextAll().find("td").removeClass("blur-animated");
+
+
+                $("#create-subtask-btn").on("click", function () {
+                    $(".menu-task").hide();
+                    $("tbody").find("td").removeClass("blur-animated");
                     $("#create_task").dialog({
                         title: "New Task"
                     }).dialog("open");
                 });
 
+                $(document).on("click", function (e) {
+                    if ($(e.target).is(".menu-task")===false&&$(e.target).is( pointer_btn)===false) {
+                        $(".menu-task").hide();
+                        $("tbody").find("td").removeClass("blur-animated");
+                    }
+                });
             });
+
+
         });
     </script>
 </head>
@@ -156,6 +174,19 @@
                 <img class="pointer_btn" src="../image/icons/plus_icon.png" width="20px">
             </td>
             <td data-value="20">20</td>
+            <td>ASSSSSS</td>
+            <td>ASSSSSS</td>
+            <td>ASSSSSS</td>
+            <td>ASSSSSS</td>
+            <td>ASSSSSS</td>
+            <td>ASSSSSS</td>
+            <td>ASSSSSS</td>
+        </tr>
+        <tr class="container">
+            <td class="first-col">
+                <img class="pointer_btn" src="../image/icons/plus_icon.png" width="20px">
+            </td>
+            <td data-value="60">60</td>
             <td>ASSSSSS</td>
             <td>ASSSSSS</td>
             <td>ASSSSSS</td>

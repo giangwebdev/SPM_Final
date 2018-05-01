@@ -52,10 +52,6 @@ class student extends account{
         }
 
 
-        function create_team(){
-
-        }
-
         function create_default_task(){
             $team_id = $_SESSION['team_id'];
             $parent_task_id = null;
@@ -119,4 +115,24 @@ class student extends account{
                 $student->view_task();
         }
 
+        function delete_task(){
+            $task_id = $_POST['task_id'];
+            $student = new student_model();
+            if($student->delete_task($task_id)){
+                $student_view = new student_view();
+                $student_view->view_task();
+            }else{
+                echo "Error! Cant delete task!";
+            }
+        }
+
+        function view_request(){
+            $student_view = new student_view();
+            $student_view->view_request();
+        }
+
+        function create_team(){
+            $student_view = new student_view();
+            $student_view->create_team();
+        }
 }

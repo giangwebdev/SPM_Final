@@ -19,4 +19,15 @@ class student_view{
         require_once (SITE_ROOT."/template/student_view_task.php");
     }
 
+    function view_bug(){
+        require_once (SITE_ROOT."/template/student_bug_list.php");
+    }
+
+    function view_request(){
+        require_once (SITE_ROOT."/template/teamleader_view_request.php");
+    }
+
+    function create_team(){
+        require_once (SITE_ROOT."/template/student_create_team.php");
+    }
 }

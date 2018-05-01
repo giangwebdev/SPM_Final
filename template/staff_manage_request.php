@@ -18,7 +18,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/spmfu.css">
 </head>
-<?php //require_once(SITE_ROOT."/template/header.php"); ?>
+<?php require_once(SITE_ROOT."/template/header.php"); ?>
 
 <body style="margin: 150px 0">
 <div class="main-login main-center">
