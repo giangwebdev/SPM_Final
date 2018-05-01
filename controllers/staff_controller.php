@@ -67,6 +67,11 @@ class staff extends account {
         $staff_view->view_account($this->__acc_list);
     }
 
+    function view_request(){
+        $staff_view =  new staff_view();
+        $staff_view->view_request();
+    }
+
     function add_student_list(){
 //        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
 //        $reader->setReadDataOnly(TRUE);

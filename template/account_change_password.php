@@ -36,15 +36,15 @@ $role = $_SESSION['role_id'];
     <table>
         <tr>
             <td>Current password: </td><br>
-            <td><div class="wrap-input100"><input class="input100" type="password" name="current_password"></div></td>
+            <td><div class="wrap-input100"><input class="input100" type="password" name="current_password" autocomplete="off"></div></td>
         </tr>
         <tr>
             <td>New password:</td>
-            <td><div class="wrap-input100"> <input class="input100" type="password" name="new_password"></div></td>
+            <td><div class="wrap-input100"> <input class="input100" type="password" name="new_password" autocomplete="off"></div></td>
         </tr>
         <tr>
             <td>Confirm new password:</td>
-            <td><div class="wrap-input100"><input class="input100" type="password" name="new_password_re"></div></td>
+            <td><div class="wrap-input100"><input class="input100" type="password" name="new_password_re" autocomplete="off"></div></td>
         </tr>
 
     </table><br>

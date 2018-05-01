@@ -135,4 +135,9 @@ class student extends account{
             $student_view = new student_view();
             $student_view->create_team();
         }
+
+        function view_bug(){
+            $student_view = new student_view();
+            $student_view->view_bug();
+        }
 }

@@ -5,6 +5,12 @@
  * Date: 4/20/2018
  * Time: 1:57 PM
  */
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/controllers/account_controller.php");
+$account = new account();
+$account->check_Session();
+$role = $_SESSION['role_id'];
+
 ?>
 
 
@@ -16,9 +22,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/spmfu.css">
+    <?php require_once(SITE_ROOT."/template/header.php"); ?>
+    <link rel="stylesheet" href="./css/spmfu.css">
 </head>
-<?php require_once(SITE_ROOT."/template/header.php"); ?>
+
 
 <body style="margin: 150px 0">
 <div class="main-login main-center">
@@ -48,9 +55,10 @@
                 <td>Status</td>
             </tr>
             <tr>
-                <td>
-
-                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         </table>
     </form></div>

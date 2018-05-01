@@ -136,7 +136,12 @@ $role=$_SESSION['role_id'];
                 ?>
             </tr>
         </table><br>
-            <td><div class="container-login100-form-btn" >
-        <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
-                </div></td></div></div></div></body>
+           <div class="container-login100-form-btn" >
+                    <button class="login100-form-btn" type="button" name="edit" onclick="window.location.href='./index.php?action=edit_profile&controller=account'">Edit</button>
+                    <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
 </html>
