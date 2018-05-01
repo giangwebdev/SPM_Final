@@ -153,7 +153,7 @@
                 }
                 ?>
 <!--                //Chung-->
-                <li class="menu-has-children">Welcome,<?php echo $_SESSION['username']; ?><a href="#"><img src="./image/icon-user.png" style="max-width: 30px;"></a>
+                <li class="menu-has-children">Welcome, <?php echo $_SESSION['username']; ?><a href="#"><img src="./image/icon-user.png" style="max-width: 30px;"></a>
                 <ul>
                     <li><a href="./index.php?action=view_profile&controller=account" >View Profile</a></li>
                     <li><a href="./index.php?action=edit_profile&controller=account">Edit profile</a></li>

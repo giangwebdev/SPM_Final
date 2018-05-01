@@ -31,7 +31,7 @@ $role = $_SESSION['role_id'];
 <body>
 <div class="limiter">
 
-    <div class="container-login100" style="background-image: url('/image/bg-01.jpg');">
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
         <div class="wrap-login100" style="color: white; min-width: 600px">
 
 
@@ -58,8 +58,9 @@ $role = $_SESSION['role_id'];
         <tr>
 
         </tr>
-    </table>
-    <button class="login100-form-btn" id="back_btn" type="button" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
+    </table> <br>
+    <br>
+    <button class="login100-form-btn" id="back_btn" type="button" onclick="window.location.href='./index.php?action=homepage&controller=account'" style="margin: 0 auto;">Back</button>
 </form>
         </div>
     </div>
