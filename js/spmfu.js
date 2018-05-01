@@ -101,6 +101,8 @@ $( function() {
             }
         });
     });
+
+    $("thead").find("th").removeClass("sorting");
 } );
 
 

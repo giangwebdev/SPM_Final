@@ -22,4 +22,8 @@ class staff_view{
     function add_student_list(){
         require_once (SITE_ROOT."/template/staff_add_student.php");
     }
+
+    function view_request(){
+        require_once(SITE_ROOT . "/template/staff_view_request.php");
+    }
 }
