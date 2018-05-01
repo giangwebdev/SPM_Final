@@ -1,10 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Kevin Flynn
- * Date: 4/20/2018
- * Time: 3:28 PM
- */
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/models/student_model.php");
+require_once (SITE_ROOT."/views/student_view.php");
+require_once (SITE_ROOT."/controllers/account_controller.php");
+$account = new account();
+$account->check_Session();
+$role = $_SESSION['role_id'];
 ?>
 
 <!doctype html>
@@ -17,32 +18,36 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/spmfu.css">
 </head>
-<?php //require_once(SITE_ROOT."/template/header.php"); ?>
+<?php require_once(SITE_ROOT."/template/header.php"); ?>
 
-<body style="margin: 150px 0">
-<div class="main-login main-center">
-    <h2 class="text-center">MANAGE NEW TEAM CREATING REQUEST
-    </h2>
+<body >
+<div class="limiter">
+
+    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+
+        <div class="wrap-login100">
+    <h1 class="text-center">MANAGE NEW TEAM CREATING REQUEST
+    </h1>
         <form>
-            <table cellspacing="0" border="1">
+            <table cellspacing="0" border="1" style="margin: 0 auto">
                 <tr>
                     <th>Team name</th>
                     <th>Project name</th>
                     <th>Supervisor</th>
                     <th>Number of member</th>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button class="button">Accept</button>
-                        <button class="button">Reject</button>
-                    </td>
-                </tr>
             </table>
 
-        </form></div>
+                <tr>
+
+                    <td>
+                        <div class="container-login100-form-btn" >
+                        <button class="login100-form-btn">Accept</button>
+                        <button class="login100-form-btn">Reject</button>
+                    </td>
+                </tr>
+
+
+        </form></div></div></div>
 </body>
 </html>

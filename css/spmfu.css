@@ -136,7 +136,9 @@ input, textarea {
 
 /*///Used in student view task */
 
-
+#header{
+    position: static;
+}
 table thead{
     pointer-events: none;
 }
@@ -159,10 +161,32 @@ li {
 li a:hover {
     color: #0000FF;
 }
-table.table.table-striped.table-bordered{
-    width: 100%;
+table.table.table-striped.table-bordered.dataTable.no-footer{
+
+    background: rgba(6, 0, 255, 0.54);
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 50px #000;
+    text-align: center;
+    color: white;
+    margin-top: 50px;
 }
 
+.dataTables_length{
+    color: white;
+    text-shadow: 1px 1px 50px #000;
+}
+.dataTables_filter{
+    color: white;
+    text-shadow: 1px 1px 50px #000;
+}
+.dataTables_info{
+    color: white;
+    text-shadow: 1px 1px 50px #000;
+}
+.dataTables_wrapper{
+    max-width: 1000px;
+}
 table.table.table-striped.table-bordered th,  table.table.table-striped.table-bordered td{
     padding-top: 0.5em;
 }

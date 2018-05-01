@@ -26,12 +26,14 @@ $role = $_SESSION['role_id'];
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="../css/spmfu.css">
     <script src="../js/spmfu.js">  </script>
+    <style>
+        #header{
+            position: static;
+        }
+    </style>
 </head>
-<body>
-
-<div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
-    <span class="login100-form-title p-b-34 p-t-27">
-    </span>
+<body style="background-image: url('./image/bg-01.jpg');background-repeat: no-repeat;background-size: 100% 100%;">
+<h1 class="text-center" style="color: white;text-shadow: 1px 1px 50px #000;margin-top: 50px;">VIEW REQUEST</h1>
 <!--<h1>View request</h1>-->
 <table id="teamleader_view_request" class="table table-striped table-bordered" style="background: rgba(6, 0, 255, 0.54);color: white; text-align: center; width: 60rem; margin: 0px auto;">
     <thead>
@@ -44,10 +46,10 @@ $role = $_SESSION['role_id'];
     </thead>
     <tbody>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Change Project Name</td>
+        <td>123456</td>
+        <td>23/01/2018</td>
+        <td>Done</td>
     </tr>
     </tbody>
 </table>

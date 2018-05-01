@@ -44,14 +44,14 @@ $task_data = $student->get_task_data($team_id);
 
 
 <body>
-<div class="limiter">
+<div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+<!--    <span class="login100-form-title p-b-34 p-t-27 text-center" style="color: white;text-shadow: 1px 1px 50px #000;margin-top: 100px;">-->
+<!--    VIEW TASK-->
+<!--    </span>-->
+<!--    <h1 class="text-center" style="color: white;text-shadow: 1px 1px 50px #000;margin-top: 100px;">VIEW TASK</h1>-->
 
-    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
-
-<div>
-    <table>
     <button type="button" id="create_main_task" name="create_main_task">Create new task</button>
-        </table></div>
+
 <div>
     <table id="task_table" class="table table-striped table-bordered" style="background: rgba(6, 0, 255, 0.54);color: white;">
         <thead>
@@ -226,7 +226,7 @@ $task_data = $student->get_task_data($team_id);
             </form>
         </div>
     </div>
-</div>
+
 <div class="menu-task">
     <ul>
         <li><a href="#" id="create-subtask-btn">Create subtask</a></li>
