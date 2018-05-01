@@ -46,5 +46,13 @@ class supervisor extends account {
                 }
             }
         }
+    function view_request(){
+        $super_view = new supervisor_view();
+        $super_view->view_request();
+    }
 
+    function view_task(){
+         $super_view = new supervisor_view();
+        $super_view->view_task();
+}
 }

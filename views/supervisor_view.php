@@ -13,4 +13,10 @@ class supervisor_view{
     function create_meeting_request(){
         require_once (SITE_ROOT."/template/supervisor_create_meeting_request.php");
     }
+    function view_request(){
+        require_once (SITE_ROOT."/template/supervisor_view_request.php");
+    }
+    function view_task(){
+        require_once (SITE_ROOT."/template/student_view_task.php");
+    }
 }
