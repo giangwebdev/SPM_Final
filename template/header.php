@@ -80,14 +80,14 @@
 <!--                            Chưa xong-->
                             <li><a href="./index.php?action=view_request&controller=supervisor">View Request</a></li>
 <!--                            Đã xong-->
-                            <li><a href="./index.php?actioncreate_meeting_request=&controller=supervisor">Book Meeting Room</a></li>
+                            <li><a href="./index.php?action=create_meeting_request&controller=supervisor">Book Meeting Room</a></li>
                         </ul>
                     </li>
                     <li class="menu-has-children"><a href="#">Manage Task</a>
                         <ul>
 <!--                            Chưa code xong-->
                             <li><a href="./index.php?action=view_task&controller=student">Team 1</a></li>
-                            <li><a href="./index.php?action=view_bug&controller=student">Team 2</a></li>
+                            <li><a href="./index.php?action=view_task&controller=student">Team 2</a></li>
                         </ul>
                     </li>
                     <?php
@@ -125,7 +125,7 @@
                         <ul>
 <!--                            //Chua code xong-->
                             <li><a href="./index.php?action=view_task&controller=student">Team 1</a></li>
-                            <li><a href="./index.php?action=view_bug&controller=student">Team 2</a></li>
+                            <li><a href="./index.php?action=view_task&controller=student">Team 2</a></li>
                         </ul>
                     </li>
 
