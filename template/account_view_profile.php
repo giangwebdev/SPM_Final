@@ -31,13 +31,13 @@ $role=$_SESSION['role_id'];
 <div class="limiter">
 
     <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
-        <div class="wrap-login100" style="color: white; width: auto">
+        <div class="wrap-login100" style="color: white; width: 400px;margin-top: 90px;">
             <form class="login100-form">
                 <span class="login100-form-logo" style="width: 150px">
                     <img src="<?php echo $detail['profile_picture']; ?>" width="250px"/>
                 </span>
                 <span></span>
-        <table cellspacing="0" border="1" >
+        <table cellspacing="0" border="0" style="margin: 0 auto;" >
             <tr>
                 <td id="keoxuong">
                     <table>
@@ -94,13 +94,13 @@ $role=$_SESSION['role_id'];
                                     ?></td>
                             </tr>
 
-                    </table>
+
                 </td>
                 <?php
                 if($role=="1") {
                     ?>
                     <td id="keoxuong">
-                        <table>
+
                             <tr>
                                 <td>Team:</td>
                                 <td><?php
@@ -136,10 +136,12 @@ $role=$_SESSION['role_id'];
                 ?>
             </tr>
         </table><br>
-           <div class="container-login100-form-btn" >
-                    <button class="login100-form-btn" type="button" name="edit" onclick="window.location.href='./index.php?action=edit_profile&controller=account'">Edit</button>
+           <td><div class="container-login100-form-btn" >
+                    <button class="login100-form-btn" type="button" name="edit" onclick="window.location.href='./index.php?action=edit_profile&controller=account'">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
-                </div>
+                </div></td>
+
+            </form>
             </div>
         </div>
 </div>

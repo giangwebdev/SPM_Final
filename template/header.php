@@ -78,7 +78,7 @@
                     <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
 <!--                            Chưa xong-->
-                            <li><a href="./index.php?action=view_request_list&controller=supervisor">View Request</a></li>
+                            <li><a href="./index.php?action=view_request&controller=supervisor">View Request</a></li>
 <!--                            Đã xong-->
                             <li><a href="./index.php?actioncreate_meeting_request=&controller=supervisor">Book Meeting Room</a></li>
                         </ul>
@@ -118,7 +118,7 @@
                             <li><a href="./index.php?action=approve_team_pending&controller=supervisor">Approve Team Pending</a></li>
                             <li><a href="./index.php?action=create_meeting_request&controller=supervisor">Book Meeting Reqeuest</a></li>
 <!--                            Chưa code xong-->
-                            <li><a href="./index.php?action=view_request_list&controller=supervisor">View Request</a></li>
+                            <li><a href="./index.php?action=view_request&controller=supervisor">View Request</a></li>
                         </ul>
                     </li>
                     <li class="menu-has-children"><a href="#">Manage Task</a>
