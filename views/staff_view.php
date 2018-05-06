@@ -29,7 +29,7 @@ class staff_view{
         require_once (SITE_ROOT."/template/staff_add_student.php");
     }
 
-    function view_request(){
+    function view_request($request_data){
         require_once(SITE_ROOT . "/template/staff_view_request.php");
     }
 

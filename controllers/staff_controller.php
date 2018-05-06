@@ -175,8 +175,10 @@ class staff extends account {
     }
 
     function view_request(){
+        $staff_model = new staff_model();
+        $request_data = $staff_model->get_all_request();
         $staff_view =  new staff_view();
-        $staff_view->view_request();
+        $staff_view->view_request($request_data);
     }
     function edit_request(){
 

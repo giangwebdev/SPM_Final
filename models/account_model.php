@@ -232,4 +232,45 @@ class account_model extends DB_Driver
         }
     }
 
+    function get_role_by_id($acc_id){
+        $sql = "select role_id from account where acc_id =?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"i",$acc_id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data="";
+            while($row = mysqli_fetch_assoc($result)) {
+                $data = $row['role_id'];
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+    }
+    function get_name_by_id($acc_id){
+        $acc_role = $this->get_role_by_id($acc_id);
+        if($acc_role == "1" ){
+            $table = "student";
+        }elseif ($acc_role == "2" || $acc_role == "5"){
+            $table = "supervisor";
+        }elseif ($acc_role == "3" || $acc_role == "4"){
+            $table = "staff";
+        }
+        $sql = "select full_name from ". $table ." where acc_id= ?";
+
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"i",$acc_id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data="";
+            while($row = mysqli_fetch_assoc($result)) {
+                $data = $row['full_name'];
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+    }
 }

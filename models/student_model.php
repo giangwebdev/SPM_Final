@@ -149,6 +149,24 @@ class student_model extends account_model{
             }
         }
 
+        function get_team_name_by_team_id($team_id){
+            $sql = "select team_name from team where team_id=?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"i",$team_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                $data = "";
+                while($row = mysqli_fetch_assoc($result)) {
+                    $data = $row['team_name'];
+                }
+                mysqli_stmt_close($stmt);
+                return $data;
+            }
+        }
+
+
         function edit_task_data($parent_task_id, $team_id, $task_name, $description,
                                $created_by, $assign_by, $assign_to, $start_date, $deadline, $technique_check, $qa_check, $task_status_id, $priority){
 

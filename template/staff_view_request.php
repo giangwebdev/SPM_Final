@@ -7,6 +7,9 @@
  */
 require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/controllers/account_controller.php");
+require_once (SITE_ROOT."/models/student_model.php");
+require_once (SITE_ROOT . "/models/account_model.php");
+
 $account = new account();
 $account->check_Session();
 $role = $_SESSION['role_id'];
@@ -56,18 +59,42 @@ $role = $_SESSION['role_id'];
                 <th>Team</th>
                 <th>Status</th>
             </tr>
+            <?php
+            foreach ($request_data as $data){
+                $account_model = new account_model();
+                $student_model = new student_model();
+                $request_by =  $account_model->get_name_by_id($data['request_by']);
+                $team = $student_model->get_team_name_by_team_id($data['team_id']);
+                if($data['request_type'] == "BMR" && $data['approve_by_staff'] == "1" ){
+                    $status = "Accepted";
+                }elseif($data['request_type'] == "BMR" && $data['reject_by_staff'] == "1" ){
+                    $status = "Rejected";
+                }elseif ($data['request_type'] == "BMR" && $data['reject_by_staff'] == "0" &&  $data['approve_by_staff'] == "0" ){
+                    $status = "Pending";
+                }
+                if($data['request_type'] == "CPN" && $data['approve_by_staff'] == "1" && $data['approve_by_supervisor'] == "1"){
+                    $status = "Accepted";
+                }elseif($data['request_type'] == "CPN" && ($data['reject_by_staff'] == "1" || $data['reject_by_supervisor'] == "1")){
+                    $status = "Rejected";
+                }else{
+                    $status = "Pending";
+                }
+                if( $data['request_type'] == "CPN"){
+                    $request_type = "Change Project Name";
+                }else{
+                    $request_type = "Book Meeting Room";
+                }
+
+            ?>
             <tr>
-                <td>Change Project Name</td>
-                <td>Hoang Thanh Hai</td>
-                <td>Team 2</td>
-                <td>Accepted</td>
+                <td><?php echo $request_type;?></td>
+                <td><?php echo $request_by;?></td>
+                <td><?php echo $team;?></td>
+                <td><?php echo $status;?></td>
             </tr>
-            <tr>
-                <td>Book Meeting Room</td>
-                <td>Mr A</td>
-                <td>Team 1</td>
-                <td>In Process</td>
-            </tr>
+            <?php
+            }
+            ?>
 
         </table>
         <button class="login100-form-btn" id="back_btn" type="button" onclick="window.location.href='./index.php?action=homepage&controller=account'" style="margin: 0 auto;">Back</button>
@@ -163,7 +190,7 @@ $role = $_SESSION['role_id'];
 
         $( function() {
             $( ".bmr-dialog-confirm" ).dialog({
-                autoOpen:true,
+                autoOpen:false,
                 draggable: false,
                 resizable: false,
                 height: "auto",
