@@ -3,9 +3,8 @@ require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/controllers/account_controller.php");
 $account = new account();
 $account->check_Session();
-
+$role=$_SESSION['role_id'];
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,177 +13,166 @@ $account->check_Session();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+    <script src="./js/spmfu.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
     <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!--    <link rel="stylesheet" href="./css/spmfu.css">-->
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="./css/one-page-wonder.min.css" rel="stylesheet">
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/one-page-wonder.min.css" rel="stylesheet">
+    <?php require_once(SITE_ROOT."/template/header.php"); ?>
 </head>
-<nav class=".navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-    <div class="container">
 
-        <a class="navbar-brand" href="index.php"><img src="./image/Logo-FU-01.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100" style="color: white; width: 400px;margin-top: -1em;">
+            <form class="login100-form" action="./index.php?action=admin_edit_profile&controller=staff" method="post">
+                <span class="login100-form-logo" style="width: 150px">
+                    <img src="<?php echo $detail['profile_picture']; ?>" width="250px"/>
+                </span>
+                        <table cellspacing="0" border="0" style="margin: 0 auto;">
+                            <tr>
 
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=display_all_account_info&controller=staff">View account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=create_account&controller=staff">Create account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=view_profile&controller=account">View profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=edit_profile&controller=account">Edit profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=change_password&controller=account">Change password</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.php?action=logout&controller=account">Logout</a>
-                </li>
-            </ul>
+                                <td>
+                                    <?php
+                                    if($acc_role == "1"){
+                                    ?>
+                            <tr>
+                                <td>Student ID: </td>
+                                <td><input type="text" name="student_id" value="<?php echo $detail['student_id']; ?>"></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                            <tr>
+                                <td>Fullname: </td>
+                                <td><input type="text" name="full_name" value="<?php echo $detail['full_name']; ?>"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Gender: </td>
+                                <td><input type="radio" name="gender" value="male" <?php if($detail['gender']=="male") echo 'checked="checked"';?>/>Male
+                                    <input type="radio"  name="gender" value="female"<?php if($detail['gender']=="female") echo 'checked="checked"';?>/>Female
+                                </td>
+                            </tr>
+                            <?php
+                            if($acc_role=="1"){
+                                ?>
+                                <tr>
+                                    <td>Date of Birth:</td>
+                                    <td><input type="date" name="dob" value="<?php echo $detail['dob']; ?>"></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            <tr>
+                                <td>Phone: </td>
+                                <td><input type="text" name="phone" value="<?php echo $detail['phone']; ?> "></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input type="text" name="email" value="<?php echo $detail['email']; ?>"></td>
+                            </tr>
+                            <?php
+                            if($acc_role=="1"){
+                                ?>
+                                <tr>
+                                    <td>Major:</td>
+                                    <td><input type="text" name="major" value="<?php echo $detail['major']; ?>"></td>
+                                </tr>
+                                <tr>
+                                    <td>Campus:</td>
+                                    <td><input type="text" name="campus" value="<?php echo $detail['campus']; ?>"></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            <tr>
+                                <td>Role:</td>
+                                <td>
+                                    <select name="role">
+                                        <option <?php if($acc_role == "1") echo "selected"; ?> value="1">Student</option>
+                                        <option <?php if($acc_role == "2") echo "selected"; ?> value="2">Supervisor</option>
+                                        <option <?php if($acc_role == "3") echo "selected"; ?> value="3">Academic Staff</option>
+                                        <option <?php if($acc_role == "4") echo "selected"; ?> value="4">Administrator</option>
+                                        <option <?php if($acc_role == "5") echo "selected"; ?> value="5">Supervisor Head</option>
+                                    </select>
+
+
+
+                                </td>
+                            </tr>
+                            </td>
+                            <?php
+                            if($acc_role=="1") {
+                                ?>
+                                <td>
+
+                                    <tr>
+                                        <td>Team:</td>
+                                        <td><?php
+                                            require_once (SITE_ROOT."/models/student_model.php");
+                                            $team = new student_model();
+                                            $team_info = $team->get_team_info_by_id($detail['acc_id']);
+                                            foreach ($team_info as $info){
+                                                if($info['team_name'] != null){
+                                                    echo $info['team_name'];
+                                                }else{
+                                                    echo "<span style=\"color:yellow\">This user isn't in any team. </span>";
+                                                }
+
+                                            }
+
+
+                                            ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Role in team:</td>
+                                        <td>
+                                            <?php
+                                            echo $detail['isteamleader']?"Team Leader<br>":"";
+                                            echo $detail['isdocleader']?"Document Team Leader<br>":"";
+                                            echo $detail['isdaleader']?"Design and Analysis Team Leader<br>":"";
+                                            echo $detail['isdevleader']?"Developing Team Leader<br>":"";
+                                            echo $detail['istestleader']?"Testing Team Leader<br>":"";
+                                            if($detail['isteamleader']==0 && $detail['isdocleader']==0 &&$detail['isdaleader']==0
+                                                &&$detail['isdevleader']==0 &&$detail['istestleader']==0){
+                                                echo "Team Member";
+                                            }
+                                            ?>
+                                        </td>
+                                    </tr>
+
+                                </td>
+                                <?php
+                            }
+                            ?>
+                            </tr>
+                        </table><br>
+                        <td><div class="container-login100-form-btn" >
+                                <input type="hidden" name="acc_id" value="<?php echo $detail['acc_id']; ?>">
+                                <input type="hidden" name="acc_role" value=" <?php echo $acc_role; ?>">
+                                <button class="login100-form-btn" type="submit" name="edit" value="edit">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="login100-form-btn" type="reset" name="reset">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=display_all_account_info&controller=staff'">Cancel</button>
+                            </div>
+                        </td>
+                    </form>
         </div>
     </div>
-</nav>
-<body style="margin: 150px 0">
-<div class="main-login main-center">
-<form>
-    <table cellspacing="0" border="1">
-        <tr>
-            <td><h2 class="text-center">PROFILE
-                </h2>
-                <table>
-                    <tr>
-                        <td>
-                            <img src="<?php
-                            echo $detail['profile_picture'];
-                            ?>" width="250px">
-                        </td>
+</div>
 
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" name="upload_avatar" value="" onclick="">Upload</button>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tr>
-                        <td>Fullname: </td>
-                        <td><?php echo $detail['full_name']; ?></td>
-                    </tr>
-                    <tr>
-                        <td>Gender: </td>
-                        <td><input type="radio" name="gender" value="male" disabled<?php if($detail['gender']=="male") echo 'checked="checked"';?>/>Male
-                            <input type="radio" name="gender" value="female" disabled<?php if($detail['gender']=="female") echo 'checked="checked"';?>/>Female
-                        </td>
-                    </tr>
-                    <?php
-                    if($_SESSION['role_id']=="1"){
-                        ?>
-                        <tr>
-                            <td>Date of Birth:</td>
-                            <td><?php echo $detail['dob']; ?></td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                    <tr>
-                        <td>Phone: </td>
-                        <td><input type="text" name="phone" value="<?php echo $detail['phone']; ?>" ></td>
-                    </tr>
-                    <tr>
-                        <td>Email:</td>
-                        <td><?php echo $detail['email']; ?></td>
-                    </tr>
-                    <?php
-                    if($_SESSION['role_id']=="1"){
-                        ?>
-                        <tr>
-                            <td>Major:</td>
-                            <td><?php echo $detail['major']; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Campus:</td>
-                            <td><?php echo $detail['campus']; ?></td>
-                        </tr>
-                        <?php
-                    }
-                    if($_SESSION['role_id']=="3"){
-                        ?>
-                        <tr>
-                            <td>Role:</td>
-                            <td><?php echo $detail['isadmin']?"Administrator":"Academic Staff"; ?></td>
-                        </tr>
-                        <?php
-                    }
-                    if($_SESSION['role_id']=="2"){
-                        ?>
-                        <tr>
-                            <td>Role:</td>
-                            <td><?php echo $detail['issupervisorhead']?"Supervisor Head":"Supervisor"; ?></td>
-                        </tr>
-                        <?php
-                    }
-                    if($_SESSION['role_id']=="1"){
-                        ?>
-                        <tr>
-                            <td>Role:</td>
-                            <td>Student</td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                </table>
-            </td>
-            <?php
-            if($_SESSION['role_id']=="1") {
-                ?>
-                <td>
-                    <table>
-                        <tr>
-                            <td>Team:</td>
-                            <td><?php
-                                require_once (SITE_ROOT."/models/student_model.php");
-                                $team = new student_model();
-                                $team_info = $team->get_team_info();
-                                foreach ($team_info as $info){
-                                    echo $info['team_name'];
-                                }
 
-                                ?></td>
-                        </tr>
-                        <tr>
-                            <td>Role in team:</td>
-                            <td>
-                                <?php
-                                echo $detail['isteamleader']?"Team Leader<br>":"";
-                                echo $detail['isdocleader']?"Document Team Leader<br>":"";
-                                echo $detail['isdaleader']?"Design and Analysis Team Leader<br>":"";
-                                echo $detail['isdevleader']?"Developing Team Leader<br>":"";
-                                echo $detail['istestleader']?"Testing Team Leader<br>":"";
-                                echo "Team Member";
-                                ?>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <?php
-            }
-            ?>
-        </tr>
-    </table>
-    <button type="submit" name="edit">Edit</button>
-    <button type="reset" name="reset">Reset</button>
-    <button type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Cancel</button>
-</form></div>
 </body>
+
 </html>

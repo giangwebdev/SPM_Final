@@ -29,8 +29,7 @@ $role = $_SESSION['role_id'];
     <link href="./css/one-page-wonder.min.css" rel="stylesheet">
 
 </head>
-<body>
-<div></div>
+<body id="homepage_bg">
 <?php require_once(SITE_ROOT."/template/header.php"); ?>
 <header class="masthead text-center text-white">
     <div class="masthead-content">
@@ -43,7 +42,7 @@ $role = $_SESSION['role_id'];
 
 </header>
 
-<footer class="py-5 bg-black">
+<footer class="bg-black">
     <div class="container">
         <p class="m-0 text-center text-white small">Copyright &copy; Không Cháy Website 2018</p>
     </div>

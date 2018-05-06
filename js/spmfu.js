@@ -1,4 +1,4 @@
-$( function() {
+$(window).on("load", function() {
     $( ".task" ).dialog({
         draggable:false,
         width:"auto",
@@ -32,7 +32,7 @@ $( function() {
 
 
 
-    $( ".clickable" ).on( "click", function() {
+    $( "#view_detail" ).on( "click", function() {
         $( "#task_detail" ).dialog({
             title: "Task Detail"
         }).dialog( "open" );
@@ -58,6 +58,7 @@ $( function() {
     $('#bug_table').DataTable();
     $('#supervisor_view_request').DataTable();
     $('#teamleader_view_request').DataTable();
+    $('#team_pending_table').DataTable();
 
     var task_id_value;
     var pointer_btn = $(".pointer_btn");
@@ -102,8 +103,8 @@ $( function() {
             }
         });
     });
-    $("thead").find("tr th").removeClass("sorting_asc");
-    $("thead").find("tr th").removeClass("sorting");
+    $("thead").find("tr th").removeClass("sorting_asc").removeClass("sorting");
+
 } );
 
 

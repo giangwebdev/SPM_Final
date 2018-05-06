@@ -7,7 +7,7 @@
  */
 
 require_once __DIR__."/../config.php";
-require_once (SITE_ROOT."/models/DB_Driver.php");
+require_once (SITE_ROOT."/models/account_model.php");
 
 class supervisor_model extends account_model {
 

@@ -18,7 +18,7 @@
 }
 body {
   background: #fff;
-  color: #18d26e;
+  color: #18d26e !important;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -82,7 +82,6 @@ h1, h2, h3, h4, h5, h6 {
   background-color: rgba(0,0,0,.7);
   padding: 15px 0;
   height: 95px;
-  position: fixed;
   left: 0;
   top: 0;
   right: 0;
@@ -90,8 +89,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
   width: 100%;
 }
 

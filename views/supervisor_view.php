@@ -21,6 +21,6 @@ class supervisor_view{
     }
 
     function manage_team_pending(){
-        require_once (SITE_ROOT."/template/supervisor_manage_team_request.php");
+        require_once(SITE_ROOT . "/template/supervisor_manage_team_pending.php");
     }
 }

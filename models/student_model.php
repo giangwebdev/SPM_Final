@@ -28,6 +28,23 @@ class student_model extends account_model{
             }
     }
 
+    function get_team_info_by_id($acc_id){
+        $sql = "select team.* from team,student where team.team_id = student.team_id and student.acc_id=?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"i",$acc_id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data = array();
+            while($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+    }
+
     function add_request($team_id,$request_type, $content, $request_by){
         $is_accepted_staff = $is_accepted_spv =0 ;
         $sql = "insert into request(team_id, request_type, content, request_by, is_accepted_by_staff, is_accepted_by_supervisor) VALUES (?,?,?,?,?,?)";

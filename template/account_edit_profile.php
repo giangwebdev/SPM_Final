@@ -13,26 +13,42 @@ $role = $_SESSION['role_id'];
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="./js/spmfu.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="./css/one-page-wonder.min.css" rel="stylesheet">
+    <?php require_once(SITE_ROOT."/template/header.php"); ?>
 </head>
-<?php require_once(SITE_ROOT."/template/header.php"); ?>
+
 <body>
 <div class="limiter">
 
-    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
-        <div class="wrap-login100" style="color: white; width: 400px;margin-top: 90px;">
-            <form class="login100-form">
-                <form action="./index.php?action=edit_profile&controller=account" method="post">
+    <div class="container-login100">
+        <div class="wrap-login100" style="color: white; width: 400px;margin-top: -1em;">
+            <form class="login100-form" action="./index.php?action=edit_profile&controller=account" method="post">
                 <span class="login100-form-logo" style="width: 150px">
                     <img src="<?php echo $detail['profile_picture']; ?>" width="250px"/>
                 </span>
                 <span><button class="login100-form-btn" type="button" name="upload_avatar" value="" onclick="" style="margin: 0 auto;">Upload</button></span>
-<form action="./index.php?action=edit_profile&controller=account" method="post">
+
 <table cellspacing="0" border="0" style="margin: 0 auto;">
     <tr>
 
         <td>
-
+            <?php
+            if($role == "1"){
+                        ?>
+                <tr>
+                    <td>Student ID: </td>
+                    <td><?php echo $detail['student_id']; ?></td>
+                </tr>
+                <?php
+                }
+                ?>
                 <tr>
                     <td>Fullname: </td>
                     <td><?php echo $detail['full_name']; ?></td>
@@ -40,8 +56,8 @@ $role = $_SESSION['role_id'];
 
                 <tr>
                     <td>Gender: </td>
-                    <td><input type="radio" name="gender" value="male" disabled<?php if($detail['gender']=="male") echo 'checked="checked"';?>/>Male
-                        <input type="radio" name="gender" value="female" disabled<?php if($detail['gender']=="female") echo 'checked="checked"';?>/>Female
+                    <td><input type="radio" class="no-click-event" name="gender" value="male" <?php if($detail['gender']=="male") echo 'checked="checked"';?>/>Male
+                        <input type="radio" class="no-click-event" name="gender" value="female"<?php if($detail['gender']=="female") echo 'checked="checked"';?>/>Female
                     </td>
                 </tr>
                 <?php
@@ -134,5 +150,12 @@ $role = $_SESSION['role_id'];
         </div>
     </td>
 </form></div></div></div>
+
+<footer class="bg-black">
+    <div class="container">
+        <p class="m-0 text-center text-white small">Copyright &copy; Không Cháy Website 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>
 </body>
 </html>

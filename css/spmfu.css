@@ -3,17 +3,46 @@
     overflow: hidden !important;
     -webkit-overflow-scrolling: touch;
 }
-body, html{
-    /*height: 100%;*/
-    background-repeat: no-repeat;
-    background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
-    font-family: 'Oxygen', sans-serif;
+
+
+body,html{
+    height: 100%;
+    background: url("../image/bg-01.jpg") no-repeat fixed center;
     background-size: cover;
+    font-family: 'Oxygen', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    position: relative;
 }
 
-/*noinspection ALL*/
-.body-bg{
-    background: url('./image/bg-01.jpg');
+label{
+    color: black;
+    text-shadow: #343a40;
+}
+
+footer{
+    z-index: 10;
+    width:100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1.5em 0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white !important;
+}
+
+#homepage_bg{
+    height: 100%;
+    min-height: 100%;
+    background: url("../image/hoalac.jpg") no-repeat fixed center;
+    background-size: cover;
+    font-family: 'Oxygen', sans-serif;
+    position: relative;
+    margin: 0;
 }
 
 .main{
@@ -88,7 +117,6 @@ input::-webkit-input-placeholder {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
 }
 .main-center{
-    margin-top: 30px;
     margin: 0 auto;
     max-width: 600px;
     padding: 10px 40px;
@@ -118,17 +146,18 @@ input, textarea {
     max-width: 100%;
 }
 
-/*----------------------HEADER------------------------------*/
-
-
-#header{
-    position: static;
+/*Profile*/
+.no-click-event{
+    pointer-events: none;
 }
 
+.view-btn-reposition{
+}
+/*----------------------HEADER------------------------------*/
 
-
-
-
+.fixed-top{
+    position: initial !important;
+}
 
 
 /*----------------------HEADER------------------------------*/
@@ -143,38 +172,40 @@ table thead{
     pointer-events: none;
 }
 
-nav ul li a{
-    z-index: 99;
+/*nav ul li a{*/
+    /*z-index: 99;*/
+/*}*/
+img.pointer_btn{
+    padding-top: 1.2em;
 }
-ul {
+
+.menu-task ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
-li a {
+.menu-task li a {
     display: inline-block;
     color: black;
     text-align: center;
     padding: 6px 16px;
     text-decoration: none;
 }
-li {
+.menu-task li {
     float: left;
 }
-li a:hover {
+.menu-task li a:hover {
     color: #0000FF;
 }
 
 table.table.table-striped.table-bordered.dataTable.no-footer{
-
     background: rgba(6, 0, 255, 0.54);
     max-width: 1000px;
-    margin: 0 auto;
     box-shadow: 1px 1px 50px #000;
     text-align: center;
     color: white;
-    margin-top: 50px;
+    margin: 50px auto 0;
 }
 
 .dataTables_length{
@@ -192,14 +223,14 @@ table.table.table-striped.table-bordered.dataTable.no-footer{
 .dataTables_wrapper{
     max-width: 1000px;
 }
-table.table.table-striped.table-bordered th,  table.table.table-striped.table-bordered td{
+table#task_table.table.table-striped.table-bordered th,  table#task_table.table.table-striped.table-bordered td{
     padding-top: 0.5em;
 }
 table tbody tr{
     position: relative;
 }
 
-table.dataTable{
+table#task_table.dataTable{
     border-collapse: collapse !important;
     border-top: none;
     border-bottom: none;
@@ -208,7 +239,7 @@ table.dataTable{
 }
 
 .menu-task{
-    margin-top: -3.1em;
+    margin-top: -1.9em;
     margin-left: 5em;
     position: absolute;
     background-color: #00FF7F;
@@ -231,7 +262,7 @@ table.dataTable{
     }
 }
 
-table.table.table-striped.table-bordered th:first-child ,table.table.table-striped.table-bordered td:first-child{
+table#task_table.table.table-striped.table-bordered th:first-child ,table#task_table.table.table-striped.table-bordered td:first-child{
     background-color: transparent;
     border-top: none;
     border-bottom: none ;
@@ -249,11 +280,7 @@ button:focus{
 
 
 #create_main_task{
-    background: -moz-linear-gradient(bottom, #7579ff, #b224ef);
-    background-color: rgba(0, 0, 0, 0);
-    background-image: -moz-linear-gradient(center bottom , rgb(117, 121, 255), rgb(178, 36, 239));
-    background-repeat: repeat;
-    background-attachment: scroll;
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center bottom, rgb(117, 121, 255), rgb(178, 36, 239)) repeat scroll;
     background-clip: border-box;
     background-origin: padding-box;
     background-position-x: 0%;
@@ -262,11 +289,7 @@ button:focus{
     color: white;
 }
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front{
-    background: -moz-linear-gradient(bottom, #7579ff, #b224ef);
-    background-color: rgba(0, 0, 0, 0);
-    background-image: -moz-linear-gradient(center bottom , rgb(117, 121, 255), rgb(178, 36, 239));
-    background-repeat: repeat;
-    background-attachment: scroll;
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center bottom, rgb(117, 121, 255), rgb(178, 36, 239)) repeat scroll;
     background-clip: border-box;
     background-origin: padding-box;
     background-position-x: 0%;

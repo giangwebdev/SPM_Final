@@ -37,7 +37,7 @@ $role = $_SESSION['role_id'];
             <thead>
             <tr>
                 <th>Request type</th>
-                <th>Description</th>
+                <th>Team</th>
                 <th>Time</th>
                 <th>Status</th>
             </tr>
@@ -45,11 +45,18 @@ $role = $_SESSION['role_id'];
             <tbody>
             <tr>
                 <td>Change Project Name</td>
-                <td>123456</td>
-                <td>23/01/2018</td>
+                <td>Team 2</td>
+                <td>27/04/2018</td>
                 <td>Done</td>
+            </tr>
+            <tr>
+                <td>Book Meeting Room</td>
+                <td>Team 1</td>
+                <td>22/04/2018</td>
+                <td>In Process</td>
             </tr>
             </tbody>
         </table>
+        <button class="login100-form-btn" id="back_btn" type="button" onclick="window.location.href='./index.php?action=homepage&controller=account'" style="margin: 0 auto;">Back</button>
 </body>
 </html>

@@ -36,22 +36,61 @@ $task_data = $student->get_task_data($team_id);
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="./css/spmfu.css">
     <script src="./js/spmfu.js"></script>
-
-
-
+    <link rel="stylesheet" href="./css/main.css">
 </head>
+<style>
+    #create_main_task,#myProgress{
+        display: inline-block;
+    }
+    span{
+        color: black;
+    }
+    #myProgress {
+        width: 64.4%;
+        background-color: #ddd;
+    }
 
+    #myBar {
+        width: 1%;
+        height: 8px;
+        background-color: #34ACDC;
+    }
+    #create_bar{
+        z-index: 99999999999999;
+        margin-bottom: -4em;
+        margin-left: 15em;
+    }
+</style>
+<script>
+    $(function () {
+        var elem = document.getElementById("myBar");
+        var width = 1;
+        var id = setInterval(frame, 10);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width = width + '%';
+            }
+        }
+    });
+</script>
 
 <body>
-<div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
-<!--    <span class="login100-form-title p-b-34 p-t-27 text-center" style="color: white;text-shadow: 1px 1px 50px #000;margin-top: 100px;">-->
-<!--    VIEW TASK-->
-<!--    </span>-->
-<!--    <h1 class="text-center" style="color: white;text-shadow: 1px 1px 50px #000;margin-top: 100px;">VIEW TASK</h1>-->
-
+<div><h1 class="text-center" style="color: white;text-shadow: 1px 1px 50px #000;margin-top: 10px;">VIEW TASK</h1>
+</div>
+<div id="create_bar">
     <button type="button" id="create_main_task" name="create_main_task">Create new task</button>
+    <span>Progress bar:</span>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+</div>
+<div class="container-login100" >
+
+
 
 <div>
     <table id="task_table" class="table table-striped table-bordered" style="background: rgba(6, 0, 255, 0.54);color: white;">
@@ -109,6 +148,13 @@ $task_data = $student->get_task_data($team_id);
 
 
     <div id="task_detail" class="task" title="Task"">
+    <div id="create_bar">
+        <button type="button" id="create_main_task" name="create_main_task">Create new task</button>
+        <span>Progress bar:</span>
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div>
+    </div>
         <form>
             <table cellspacing="0" border="0">
 
@@ -131,7 +177,7 @@ $task_data = $student->get_task_data($team_id);
                 </tr>
                 <tr>
                     <td>Assign by</td>
-                    <td><input type="text" class="form-control" name="assign_by" value="<?php echo $data['assign_by']; ?>"></td>
+                    <td><input type="text" class="form-control no-click-event" name="assign_by" value="<?php echo $data['assign_by']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Assign to</td>
@@ -139,7 +185,7 @@ $task_data = $student->get_task_data($team_id);
                 </tr>
                 <tr>
                     <td>Start date</td>
-                    <td><input type="date" class="form-control" name="start_date" value="<?php echo $data['start_date']; ?>"></td>
+                    <td><input type="date" class="form-control no-click-event" name="start_date" value="<?php echo $data['start_date']; ?>"></td>
                 </tr>
                 <tr>
                     <td>Deadline</td>
@@ -151,11 +197,15 @@ $task_data = $student->get_task_data($team_id);
                 </tr>
                 <tr>
                     <td>Technique check</td>
-                    <td><input type="date" class="form-control" name="tech_check" value="<?php echo $data['technique_check_date']; ?>"></td>
+                    <td><input type="date" class="form-control no-click-event" name="tech_check" value="<?php echo $data['technique_check_date']; ?>">
+                        Checked<input type="checkbox" name="technique_check" value="checked">
+                    </td>
                 </tr>
                 <tr>
                     <td>QA check</td>
-                    <td><input type="date" class="form-control" name="qa_check" value="<?php echo $data['qa_check_date']; ?>"></td>
+                    <td><input type="date" class="form-control no-click-event" name="qa_check"  value="<?php echo $data['qa_check_date']; ?>">
+                        Checked<input type="checkbox" name="qa_check" value="checked">
+                    </td>
 
                 </tr>
                 <tr>
@@ -211,6 +261,10 @@ $task_data = $student->get_task_data($team_id);
                         <td><input type="text" name="assign_to" class="text ui-widget-content ui-corner-all form-control"></td>
                     </tr>
                     <tr>
+                        <td>Start date</td>
+                        <td><input type="date" name="start_date" class="text ui-widget-content ui-corner-all form-control"></td>
+                    </tr>
+                    <tr>
                         <td>Deadline</td>
                         <td><input type="date" name="deadline" class="text ui-widget-content ui-corner-all form-control"></td>
                     </tr>
@@ -231,7 +285,7 @@ $task_data = $student->get_task_data($team_id);
 <div class="menu-task">
     <ul>
         <li><a href="#" id="create-subtask-btn">Create subtask</a></li>
-        <li><a href="#" id="view_detail">View</a></li>
+        <li><a href="#" id="view_detail">View Detail</a></li>
         <li><a href="#" >Delete</a></li>
     </ul>
 </div>

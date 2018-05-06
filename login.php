@@ -36,6 +36,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/one-page-wonder.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/spmfu.css">
 </head>
 <body>
 <!-- Navigation -->
@@ -54,7 +55,7 @@
 <form action="index.php?action=login&controller=account" method="post">
     <div class="limiter">
 
-        <div class="container-login100" style="background-image: url('image/bg-01.jpg');">
+        <div class="container-login100">
             <div class="wrap-login100" style="width: 400px;">
                 <form class="login100-form validate-form">
 					<span class="login100-form-logo" style="background-image: url('image/logo.png');">
@@ -92,9 +93,10 @@
                 </form>
             </div>
         </div>
+
     </div>
 
-    <footer class="py-5 bg-black">
+    <footer class="bg-black">
         <div class="container">
             <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
         </div>

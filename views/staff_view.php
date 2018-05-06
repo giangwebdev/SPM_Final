@@ -19,11 +19,24 @@ class staff_view{
     function create_account(){
         require_once (SITE_ROOT.'/template/admin_create_account.php');
     }
-    function add_student_list(){
+    function add_student_list($worksheet){
+        require_once (SITE_ROOT."/template/staff_add_student.php");
+    }
+    function add_student(){
+        require_once (SITE_ROOT."/template/staff_add_student.php");
+    }
+    function add_student_result($rows){
         require_once (SITE_ROOT."/template/staff_add_student.php");
     }
 
     function view_request(){
         require_once(SITE_ROOT . "/template/staff_view_request.php");
+    }
+
+    function admin_edit_profile($details,$acc_role){
+        foreach ( $details as $detail){
+            require_once(SITE_ROOT . "/template/admin_edit_profile.php");
+        }
+
     }
 }

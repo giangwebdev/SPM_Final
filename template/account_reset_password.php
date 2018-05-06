@@ -45,6 +45,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/one-page-wonder.min.css" rel="stylesheet">
+
+    <link href="css/spmfu.css" rel="stylesheet">
 </head>
 
 
@@ -80,7 +82,7 @@
             </div>
         </form>
         </div></div></div>
-<footer class="py-5 bg-black">
+<footer class="bg-black">
     <div class="container">
         <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
     </div>

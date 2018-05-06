@@ -39,6 +39,8 @@
 
     <!-- Custom styles for this template -->
     <link href="./css/style.css" rel="stylesheet">
+
+    <link href="./css/spmfu.css" rel="stylesheet">
 </head>
 <body>
 <header id="header">
@@ -116,7 +118,7 @@
                     <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
                             <li><a href="./index.php?action=manage_team_request&controller=supervisor">Approve Team Pending</a></li>
-                            <li><a href="./index.php?action=create_meeting_request&controller=supervisor">Book Meeting Reqeuest</a></li>
+                            <li><a href="./index.php?action=create_meeting_request&controller=supervisor">Book Meeting Request</a></li>
 <!--                            Chưa code xong-->
                             <li><a href="./index.php?action=view_request&controller=supervisor">View Request</a></li>
                         </ul>
@@ -145,7 +147,7 @@
                     <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
 <!--                            Chưa xong-->
-                            <li><a href="./index.php?action=&controller=staff">View Request</a></li>
+                            <li><a href="./index.php?action=view_request&controller=staff">View Request</a></li>
                         </ul>
                     </li>
 

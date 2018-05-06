@@ -16,13 +16,21 @@ $role = $_SESSION['role_id'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Document</title>
     <?php require_once(SITE_ROOT."/template/header.php"); ?>
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/one-page-wonder.min.css" rel="stylesheet">
         <link rel="stylesheet" href="./css/spmfu.css"/>
         <script src="./js/spmfu.js"></script>
 </head>
 
 
 
-<body style="background-image: url('./image/bg-01.jpg');" >
+<body >
 <div class="limiter">
 
     <div class="container-login100">
@@ -73,6 +81,12 @@ $role = $_SESSION['role_id'];
         </div>
     </div>
 </div>
+<footer class="bg-black">
+    <div class="container">
+        <p class="m-0 text-center text-white small">Copyright &copy; Không Cháy Website 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>
 </body>
 
 </html>

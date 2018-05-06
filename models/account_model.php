@@ -146,7 +146,7 @@ class account_model extends DB_Driver
         if(isset($link_profile) && $link_profile !=null){
             $avatar = ", profile_picture=?";
         }
-        $sql = "update ".$this->__table. "set phone=?".$avatar ."  where acc_id=?";
+        $sql = "update ".$this->__table. "set phone=?" .$avatar ."  where acc_id=?";
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
@@ -208,5 +208,28 @@ class account_model extends DB_Driver
         return false;
     }
 
+    function check_username($username){
+        $sql = "select acc_id from account where username= ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"s",$username);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            if(isset($result)){
+                if(mysqli_fetch_assoc($result)){
+                    mysqli_stmt_close($stmt);
+                    return true;
+                }else{
+                    mysqli_stmt_close($stmt);
+                    return false;
+                }
+
+            }else{
+                mysqli_stmt_close($stmt);
+                return false;
+            }
+        }
+    }
 
 }

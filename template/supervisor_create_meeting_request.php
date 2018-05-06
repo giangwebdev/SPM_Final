@@ -82,8 +82,8 @@ $role = $_SESSION['role_id'];
                 <td></td>
                 <td>
                 <div class="container-login100-form-btn" >
-                    <button class="login100-form-btn" type="submit" name="send_button" value="send" style="float: left">Send</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
+                    <button class="login100-form-btn" type="submit" name="send_button" value="send" style="float: left; margin-right: 40px">Send</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="login100-form-btn" type="button" name="cancel" style="float: left; margin-right: 40px" onclick="window.location.href='./index.php?action=homepage&controller=account'">Back</button>
                 </div>
                 </td>
             </tr>

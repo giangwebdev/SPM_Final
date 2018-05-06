@@ -30,8 +30,9 @@ $role = $_SESSION['role_id'];
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="./css/spmfu.css">
     <script src="./js/spmfu.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
-<<body style="background-image: url('./image/bg-01.jpg');background-repeat: no-repeat;background-size: 100% 100%;">
+<body style="background-image: url('./image/bg-01.jpg');background-repeat: no-repeat;background-size: 100% 100%;">
 <h1 class="text-center" style="color: white;text-shadow: 1px 1px 50px #000;margin-top: 50px;">BUG LIST</h1>
 <div style="width: 1000px;margin: 0 auto;">
     <table id="bug_table" class="table table-striped table-bordered">
@@ -50,12 +51,12 @@ $role = $_SESSION['role_id'];
 //        foreach ($buglist as $list){
 //        ?>
         <tr>
-<!--                <td>--><?php //echo $list[''];?><!--</td>-->
-<!--                <td>--><?php //echo $list[''];?><!--</td>-->
-<!--                <td>--><?php //echo $list[''];?><!--</td>-->
-<!--                <td>--><?php //echo $list[''];?><!--</td>-->
-<!--                <td>--><?php //echo $list[''];?><!--</td>-->
-<!--                <td>--><?php //echo $list[''];?><!--</td>-->
+                <td>1</td>
+                <td>Bug document analysis</td>
+                <td>Confict data between 2 documents</td>
+                <td>Nguyen Hoai An</td>
+                <td>In process</td>
+                <td>Not yet</td>
             </tr>
 <!--        --><?php
 //        }

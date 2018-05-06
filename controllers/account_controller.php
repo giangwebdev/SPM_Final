@@ -145,21 +145,8 @@ class account
             return $password;
         }
 
-        function sendMail($email,$pass_temp){
+        function sendMail($email,$msg){
             $subject= "Auto email from SPMFU - Reset password";
-               $msg ='
-                <html>
-                <head>
-                  <title>Auto email from SPMFU</title>
-                </head>
-                <body>
-                  <p>Your temporary password is <span style="color: #0000FF; font-size: medium;">'. $pass_temp .'</span></p>              
-                  <p>Click <a href="google.com.vn">Here</a> to change your password.</p>
-                  <h3>Remember: Don\'t give password to anyone. This will lead you losing sensitive data when doing project</h3>
-                  <p>'.date("Y-m-d h:i:sa").'</p>
-                </body>
-                </html>
-                ';
                $msg = wordwrap($msg, 70);
             $headers[] = 'MIME-Version: 1.0';
             $headers[] = 'Content-type: text/html; charset=iso-8859-1';
@@ -191,7 +178,21 @@ class account
                 $role_id = $check_user['role_id'];
                 $user_detail = $account->get_profile_by_id($acc_id,$role_id);
                 $email = $user_detail[0]['email'];
-                if($account->save_password_temp($acc_id,$password_temp) && $this->sendMail($email,$password_temp)){
+                //email messenge
+                $msg ='
+                <html>
+                <head>
+                  <title>Auto email from SPMFU</title>
+                </head>
+                <body>
+                  <p>Your temporary password is <span style="color: #0000FF; font-size: medium;">'. $password_temp .'</span></p>              
+                  <p>Click <a href="google.com.vn">Here</a> to change your password.</p>
+                  <h3>Remember: Don\'t give password to anyone. This will lead you losing sensitive data when doing project</h3>
+                  <p>'.date("Y-m-d h:i:sa").'</p>
+                </body>
+                </html>
+                ';
+                if($account->save_password_temp($acc_id,$password_temp) && $this->sendMail($email,$msg)){
                     echo "The backup password has been sent to your email.";
                 }else{
                     echo "Fail to send password";
@@ -220,7 +221,7 @@ class account
                         }
                     }
                 }else{
-                    echo "Wrong temporary password. You should copy and paste it to avoid missing character. 
+                    echo "Wrong temporary password. You should copy and paste it to avoid missing characters. 
                     \n Remember: Temporary password contains no space.";
                 }
 
