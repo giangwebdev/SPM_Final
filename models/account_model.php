@@ -273,4 +273,22 @@ class account_model extends DB_Driver
             return $data;
         }
     }
+
+    function get_team_id_by_name($team_name){
+        $sql = "select team_id from team where team_name= ?";
+
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"s",$team_name);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data="";
+            while($row = mysqli_fetch_assoc($result)) {
+                $data = $row['team_id'];
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+    }
 }

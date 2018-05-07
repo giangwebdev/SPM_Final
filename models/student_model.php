@@ -46,13 +46,13 @@ class student_model extends account_model{
     }
 
     function add_request($team_id,$request_type, $content, $request_by){
-        $is_accepted_staff = $is_accepted_spv =0 ;
-        $sql = "insert into request(team_id, request_type, content, request_by, is_accepted_by_staff, is_accepted_by_supervisor) VALUES (?,?,?,?,?,?)";
+        $approve_by_staff=$approve_by_supervisor=$reject_by_staff=$reject_by_supervisor = 0;
+        $sql = "insert into request(team_id, request_type, content, request_by,approve_by_staff,approve_by_supervisor,reject_by_staff,reject_by_supervisor) VALUES (?,?,?,?)";
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
-            mysqli_stmt_bind_param($stmt,"issiii",$team_id,
-                $request_type, $content, $request_by, $is_accepted_staff,$is_accepted_spv);
+            mysqli_stmt_bind_param($stmt,"issiiiii",$team_id,
+                $request_type, $content, $request_by, $approve_by_staff,$approve_by_supervisor,$reject_by_staff,$reject_by_supervisor);
             if(mysqli_stmt_execute($stmt)){
                 mysqli_stmt_close($stmt);
                 return true;
@@ -218,6 +218,7 @@ class student_model extends account_model{
                 mysqli_stmt_close($stmt);
                 return $data;
             }
+            return false;
         }
 
         function create_team($team_pending_id, $acc_id, $isteamleader, $supervisor_id,
@@ -238,7 +239,7 @@ class student_model extends account_model{
                 }
             }
 
-
+            return false;
         }
         function has_team($acc_id){
             $sql = "select team_id from student where acc_id = ?";
@@ -254,6 +255,23 @@ class student_model extends account_model{
                 }
                 mysqli_stmt_close($stmt);
                 return false;
+            }
+        }
+
+        function get_capstone_name(){
+            $sql = "select projectname_en, projectname_vi from project, team WHERE  team.project_id= project.project_id and team_id = ?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"i",$_SESSION['team_id']);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                $data=array();
+                while($row = mysqli_fetch_assoc($result)) {
+                    $data[] = $row;
+                }
+                mysqli_stmt_close($stmt);
+                return $data;
             }
         }
         function get_bug(){

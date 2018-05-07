@@ -54,6 +54,7 @@ $role = $_SESSION['role_id'];
         <br>
         <table id="view_request_staff" class="table table-striped table-bordered" >
             <tr>
+                <th></th>
                 <th>Request type</th>
                 <th>Request by</th>
                 <th>Team</th>
@@ -64,7 +65,7 @@ $role = $_SESSION['role_id'];
                 $account_model = new account_model();
                 $student_model = new student_model();
                 $request_by =  $account_model->get_name_by_id($data['request_by']);
-                $team = $student_model->get_team_name_by_team_id($data['team_id']);
+                $team = trim($student_model->get_team_name_by_team_id($data['team_id']));
                 if($data['request_type'] == "BMR" && $data['approve_by_staff'] == "1" ){
                     $status = "Accepted";
                 }elseif($data['request_type'] == "BMR" && $data['reject_by_staff'] == "1" ){
@@ -73,24 +74,32 @@ $role = $_SESSION['role_id'];
                     $status = "Pending";
                 }
                 if($data['request_type'] == "CPN" && $data['approve_by_staff'] == "1" && $data['approve_by_supervisor'] == "1"){
-                    $status = "Accepted";
-                }elseif($data['request_type'] == "CPN" && ($data['reject_by_staff'] == "0" || $data['reject_by_supervisor'] == "0")){
-                    $status = "Rejected";
+                    $status = "<span style='color:rgb(36, 232, 30)'>Accepted</span>";
+                }elseif($data['request_type'] == "CPN" && ($data['reject_by_staff'] == "1" || $data['reject_by_supervisor'] == "1")){
+                    $status = "<span style='color:rgb(229, 16, 16)'>Rejected</span>";
                 }else{
-                    $status = "Pending";
+                    $status = "<span style='color:rgb(243,255,67)'>Pending</span>";
                 }
                 if( $data['request_type'] == "CPN"){
                     $request_type = "Change Project Name";
                 }else{
                     $request_type = "Book Meeting Room";
                 }
-
+                $request_id = $data['request_id'];
             ?>
-            <tr>
-                <td><?php echo $request_type;?></td>
-                <td><?php echo $request_by;?></td>
-                <td><?php echo $team;?></td>
-                <td><?php echo $status;?></td>
+            <tr class="clickable">
+                <td class="request_id"><?php echo $request_id?></td>
+                <td class="request_type"><?php echo $request_type;?></td>
+                <td class="request_by"><?php echo $request_by;?></td>
+                <td class="team"><?php echo $team;?></td>
+                <td class="status"><?php echo $status;?></td>
+                <?php $content = json_decode($data['content'],true);
+                    foreach($content as $key => $value) {
+                        ?>
+                        <input type="hidden" class="<?php echo $key;?>" value="<?php echo $value;?>">
+                        <?php
+                    }
+                ?>
             </tr>
             <?php
             }
@@ -100,114 +109,206 @@ $role = $_SESSION['role_id'];
         <button class="login100-form-btn" id="back_btn" type="button" onclick="window.location.href='./index.php?action=homepage&controller=account'" style="margin: 0 auto;">Back</button>
     </form>
 
-    <div class="bmr-dialog-confirm">
-        <form>
+    <div >
+        <form class="bmr-dialog" title="Book meeting request" action="./index.php?action=update_request&controller=staff" method="post">
             <table>
                 <tr>
+                    <td>Request ID</td>
+                    <td id="request_id"></td>
+                </tr>
+                <tr>
                     <td>Request type</td>
-                    <td></td>
+                    <td id="request_type"></td>
                 </tr>
                 <tr>
                     <td>Team</td>
-                    <td></td>
+                    <td id="team"></td>
+                </tr>
+                <tr>
+                    <td>Slot</td>
+                    <td id="slot"></td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td id="date"></td>
                 </tr>
                 <tr>
                     <td>Room</td>
-                    <td><input type="text" name="room_id" value=""></td>
-                </tr>
-                <tr>
-                    <td>Time</td>
-                    <td>27/05/2018</td>
+                    <td><input type="text" id = "room" name="room_number" value=""></td>
                 </tr>
                 <tr>
                     <td>Description</td>
-                    <td>Nothing</td>
+                    <td id="description"></td>
                 </tr>
                 <tr>
                     <td> Request by</td>
-                    <td>Mr A</td>
+                    <td id="request_by"></td>
                 </tr>
                 <tr>
                     <td>Status</td>
-                    <td>In process</td>
+                    <td id="status"></td>
                 </tr>
+                <input type="hidden" name="Approve" value="BMR">
+                <input type="hidden" id="hidden_request_id" name="request_id" value="">
+                <input type="hidden" id="hidden_team" name="team" value="">
+                <input type="hidden" id="hidden_slot" name="slot" value="">
+                <input type="hidden" id="hidden_date" name="date" value="">
+                <input type="hidden" id="hidden_description" name="description" value="">
             </table>
+            <button value="1" type="submit" name="approve_action" class="approve-btn">Approve</button>
+            <button value="0" type="submit" name="approve_action" class="approve-btn">Reject</button>
+            <button type="button" name="Cancel" class="cancel-btn">Cancel</button>
         </form>
     </div>
 
-    <div class="cpn-dialog-confirm " TITLE="Request">
-        <form>
+    <div>
+        <form class="cpn-dialog" title="Change Project Name Request" action="./index.php?action=update_request&controller=staff" method="post">
             <table>
                 <tr>
+                    <td>Request ID</td>
+                    <td id="request_id"></td>
+                </tr>
+                <tr>
                     <td>Request type</td>
-                    <td>Change Project Name</td>
+                    <td id="request_type"></td>
                 </tr>
                 <tr>
                     <td>Team</td>
-                    <td>Team 2</td>
+                    <td id="team"></td>
                 </tr>
                 <tr>
-                    <td>Old name</td>
-                    <td>Book tours all over the world</td>
+                    <td>Old name (EN)</td>
+                    <td id="old_name_en"></td>
+                </tr>
+                <tr>
+                    <td>Old name (VI)</td>
+                    <td id="old_name_vi"></td>
+                </tr>
+                <tr>
+                    <td>Old project code</td>
+                    <td id="old_code"></td>
                 </tr>
                 <tr>
                     <td>New name (EN)</td>
-                    <td>Pretty House</td>
+                    <td id="new_name_en"></td>
                 </tr>
                 <tr>
                     <td>New name (VI)</td>
-                    <td>Làm đẹp nhà bạn</td>
+                    <td id="new_name_vi"></td>
                 </tr>
                 <tr>
-                    <td> Request by</td>
-                    <td>Hoang Thanh Hai</td>
+                    <td>New project code</td>
+                    <td id="new_code"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td id="description"></td>
+                </tr>
+                <tr>
+                    <td>Request by</td>
+                    <td id="request_by"></td>
                 </tr>
                 <tr>
                     <td>Status</td>
-                    <td>Accepted</td>
+                    <td id="status"></td>
                 </tr>
+                <input type="hidden" name="Approve" value="CPN">
+                <input type="hidden" id="hidden_request_id" name="request_id" value="">
+                <input type="hidden" id="hidden_request_type" name="request_type" value="">
+                <input type="hidden" id="hidden_team" name="team" value="">
+                <input type="hidden" id="hidden_old_name_en" name="old_name_en" value="">
+                <input type="hidden" id="hidden_old_name_vi" name="old_name_vi" value="">
+                <input type="hidden" id="hidden_old_code" name="old_code" value="">
+                <input type="hidden" id="hidden_new_name_vi" name="new_name_vi" value="">
+                <input type="hidden" id="hidden_new_name_en" name="new_name_en" value="">
+                <input type="hidden" id="hidden_new_code" name="new_code" value="">
+                <input type="hidden" id="hidden_description" name="description" value="">
             </table>
+            <button value="1" type="submit" name="approve_action" class="approve-btn">Approve</button>
+            <button value="0" type="submit" name="approve_action" class="approve-btn">Reject</button>
+            <button type="button" name="Cancel" class="cancel-btn">Cancel</button>
         </form>
 
     </div>
     <script>
         $( function() {
-            $( ".cpn-dialog-confirm" ).dialog({
+                $(".approve-btn").button();
+            $( ".cpn-dialog" ).dialog({
                 autoOpen:false,
                 draggable: false,
                 resizable: false,
                 height: "auto",
                 width: 400,
-                modal: true,
-                buttons: {
-                    "Approve": function() {
-                        $( this ).dialog( "close" );
-                    },
-                    Cancel: function() {
-                        $( this ).dialog( "close" );
-                    }
-                }
+                modal: true
             });
 
-                    } );
-
-        $( function() {
-            $( ".bmr-dialog-confirm" ).dialog({
+            $( ".bmr-dialog" ).dialog({
                 autoOpen:false,
                 draggable: false,
                 resizable: false,
                 height: "auto",
                 width: 400,
-                modal: true,
-                buttons: {
-                    "Approve": function() {
-                        $( this ).dialog( "close" );
-                    },
-                    Cancel: function() {
-                        $( this ).dialog( "close" );
-                    }
-                }
+                modal: true
             });
+
+            $(".clickable").on("click",function () {
+                var $this = $(this);
+                var $bmr = $(".bmr-dialog");
+                var $cpn = $(".cpn-dialog");
+                if($this.find(".request_type").html() === "Book Meeting Room"){
+                   $bmr.find("#request_id").html($this.find(".request_id").html());
+                   $bmr.find("#request_type").html($this.find(".request_type").html());
+                   $bmr.find("#team").html($this.find(".team").html());
+                   $bmr.find("#slot").html($this.find(".slot").val());
+                   $bmr.find("#date").html($this.find(".date").val());
+                   $bmr.find("#description").html($this.find(".description").val());
+                   $bmr.find("#request_by").html($this.find(".request_by").html());
+                   $bmr.find("#status").html($this.find(".status").html());
+                   // --hidden values
+                    $bmr.find("#hidden_request_id").val($this.find(".request_id").html());
+                    $bmr.find("#hidden_request_type"). val($this.find(".request_type").html());
+                    $bmr.find("#hidden_team" ).   val($this.find(".team").html());
+                    $bmr.find("#hidden_old_name_en").   val($this.find(".old_name_en").val());
+                    $bmr.find("#hidden_old_name_vi").    val($this.find(".old_name_vi").val());
+                    $bmr.find("#hidden_old_code").   val($this.find(".old_code").val());
+                    $bmr.find("#hidden_new_name_vi"). val($this.find(".name_en").val());
+                    $bmr.find("#hidden_new_name_en"). val($this.find(".name_vi").val());
+                    $bmr.find("#hidden_new_code" ). val($this.find(".new_code").val());
+                    $bmr.find("#hidden_description").   val($this.find(".description").val());
+
+                   $bmr.dialog("open");
+                }else if($this.find(".request_type").html() === "Change Project Name"){
+                    $cpn.find("#request_id").html($this.find(".request_id").html());
+                    $cpn.find("#request_type").html($this.find(".request_type").html());
+                    $cpn.find("#team").html($this.find(".team").html());
+                    $cpn.find("#old_name_en").html($this.find(".old_name_en").val());
+                    $cpn.find("#old_name_vi").html($this.find(".old_name_vi").val());
+                    $cpn.find("#new_name_en").html($this.find(".name_en").val());
+                    $cpn.find("#new_name_vi").html($this.find(".name_vi").val());
+                    $cpn.find("#description").html($this.find(".description").val());
+                    $cpn.find("#request_by").html($this.find(".request_by").html());
+                    $cpn.find("#status").html($this.find(".status").html());
+                    $bmr.find("#hidden_request_id").val($this.find(".request_id").html());
+                    $bmr.find("#hidden_request_type"). val($this.find(".request_type").html());
+                    $bmr.find("#hidden_team" ).   val($this.find(".team").html());
+                    $bmr.find("#hidden_old_name_en").   val($this.find(".old_name_en").val());
+                    $bmr.find("#hidden_old_name_vi").    val($this.find(".old_name_vi").val());
+                    $bmr.find("#hidden_old_code").   val($this.find(".old_code").val());
+                    $bmr.find("#hidden_new_name_vi"). val($this.find(".name_en").val());
+                    $bmr.find("#hidden_new_name_en"). val($this.find(".name_vi").val());
+                    $bmr.find("#hidden_new_code" ). val($this.find(".new_code").val());
+                    $bmr.find("#hidden_description").   val($this.find(".description").val());
+                    $cpn.dialog("open");
+                }
+
+
+            });
+
+            $(".cancel-btn").button().on("click",function () {
+                $( ".bmr-dialog" ).dialog("close");
+                $( ".cpn-dialog" ).dialog("close");
+            })
+
 
         } );
     </script>

@@ -20,7 +20,7 @@ class supervisor_view{
         require_once (SITE_ROOT."/template/student_view_task.php");
     }
 
-    function manage_team_pending(){
+    function manage_team_pending($team_pending_data){
         require_once(SITE_ROOT . "/template/supervisor_manage_team_pending.php");
     }
 }

@@ -96,7 +96,19 @@ class supervisor_model extends account_model {
         }
 
         function get_team_pending(){
-
+            $sql = "select * from team_pending";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                $data = array();
+                while($row = mysqli_fetch_assoc($result)) {
+                    $data[] = $row;
+                }
+                mysqli_stmt_close($stmt);
+                return $data;
+            }
         }
 
         function create_team(){

@@ -37,6 +37,8 @@ class student extends account{
                 $team_id = $_SESSION['team_id'];
                 $request_type = "change_project_name";
                 $content = array(
+                    "old_name_en"=> $_POST['old_cpro_name_en'],
+                    "old_name_vi"=> $_POST['old_cpro_name_vi'],
                     "name_en" => $_POST['new_cpro_name_en'],
                     "name_vi" => $_POST['new_cpro_name_vi'],
                     "description" => $_POST['description']
@@ -105,8 +107,7 @@ class student extends account{
                 $student->create_new_task($parent_task_id, $team_id, $task_name,
                     $description,$created_by, $assign_by, $assign_to, $start_date,
                     $deadline,$task_status_id,$priority);
-                $student_view = new student_view();
-                $student_view->view_task();
+                $this->view_task();
             }
         }
 

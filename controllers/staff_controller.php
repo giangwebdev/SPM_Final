@@ -181,21 +181,66 @@ class staff extends account {
         $staff_view->view_request($request_data);
     }
     function update_request(){
-        if(isset($_POST['approve_btn']) && $_POST['approve_btn'] == "BMR"){
-            $room_number ="";
-            $request_id = $_POST['request_id'];
-            if(isset($_POST['room_number'])){
-                $room_number = $_POST['room_number'];
-            }
-            $request_type= $_POST['approve_btn'];
-            $request_action = $_POST['request_action'];
-            $staff_model = new staff_model();
-           if($staff_model->update_request($request_id,$request_type,$request_action,$room_number)){
-               $this->view_request();
-           }else{
-               echo "Failed to approve request!";
-           }
+        $staff_model = new staff_model();
+        $account_model = new account_model();
 
+        if(isset($_POST['Approve'])){
+            $room_number = "";
+            $slot = "";
+            $date = $new_name_en = "";
+            $new_name_vi = "";
+            $new_code ="";
+            $content=array();
+            $request_id = $_POST['request_id'];
+            $request_type= $_POST['Approve'];
+            $team = $_POST['team'];
+            $team_id= $account_model->get_team_id_by_name($team);
+            $description = $_POST['description'];
+            $staff_id = $_SESSION['acc_id'];
+            if($_POST['Approve'] == "CPN"){
+                $new_name_en = $_POST['new_name_en'];
+                $new_name_vi = $_POST['new_name_vi'];
+                $old_name_en = $_POST['old_name_en'];
+                $old_name_vi = $_POST['old_name_vi'];
+                $new_code = $_POST['new_code'];
+                $old_code = $_POST['old_code'];
+                $content = array(
+                    "old_name_en" => $old_name_en,
+                    "old_name_vi" => $old_name_vi,
+                    "old_code" => $old_code,
+                    "new_name_en" => $new_name_en,
+                    "new_name_vi" => $new_name_vi,
+                    "new_code" => $new_code,
+                    "description" => $description
+                );
+
+            }
+
+            if($_POST['Approve']== "BMR"){
+                $room_number = $_POST['room_number'];
+                $slot = $_POST['slot'];
+                $date = $_POST['date'];
+                $content = array(
+                  "slot" => $slot,
+                    "date" => $date,
+                    "room" =>$room_number,
+                    "description" => $description
+                );
+            }
+            $content = json_encode($content);
+            $request_action = $_POST['approve_action'];
+            if($request_action == 1){
+                $staff_model->update_request($request_id,$content,$request_action,$staff_id);
+                if($request_type == "CPN"){
+                    $staff_model->change_project_name($team_id, $new_name_en, $new_name_vi, $new_code);
+                }elseif ($request_type == "BMR"){
+                    $staff_model->book_room($team_id,$room_number,$slot,$date,$staff_id);
+                }
+            }if($request_action == 0){
+                $staff_model->update_request($request_id,$content,$request_action,$staff_id);
+            }
+
+            $this->view_request();
         }
     }
 

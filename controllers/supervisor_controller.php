@@ -93,7 +93,9 @@ class supervisor extends account {
     }
 
     function manage_team_pending(){
-        $super_view = new supervisor_view();
-        $super_view->manage_team_pending();
+            $super_model = new supervisor_model();
+            $team_pending_data = $super_model->get_team_pending();
+            $super_view = new supervisor_view();
+            $super_view->manage_team_pending($team_pending_data);
     }
 }

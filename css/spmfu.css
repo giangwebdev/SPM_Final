@@ -312,3 +312,8 @@ button:focus{
 .create-btn{
     margin-right: 40px;
 }
+
+/*Manage request*/
+.bmr-dialog #team, .cpn-dialog #team{
+    padding: 0;
+}

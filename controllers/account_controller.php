@@ -65,12 +65,12 @@ class account
                             require_once(SITE_ROOT . '/views/student_view.php');
                             require_once(SITE_ROOT . "/models/student_model.php");
                             $student_model = new student_model();
-                            if($student_model->has_team($this->_role_id)==false) {
-                                $student_view = new student_view();
-                                $student_view->create_team();
-                            }else{
+//                            if($student_model->has_team($this->_role_id)==false) {
+//                                $student_view = new student_view();
+//                                $student_view->create_team();
+//                            }else{
                                 $site->homepage();
-                            }
+//                            }
                         }else{
                             $site->homepage();
                         }

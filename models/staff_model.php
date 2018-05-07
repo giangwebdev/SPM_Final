@@ -164,26 +164,45 @@ class staff_model extends account_model {
         }
     }
 
-
-    function update_request($request_id,$request_type,$request_action,$room_number){
-        if($request_action == 1){
-            $approve = 1; $reject = 0;
-        }else{
-            $approve = 0; $reject = 1;
-        }
-        $sql = "update request set";
-        if($request_type == "BMR"){
-            $sql .= " room_number = ?,";
-        }
-        $sql .= "approve_by_staff = ?,reject_by_staff = ? where request_id= ?";
+    function change_project_name($team_id, $new_name_en, $new_name_vi, $new_code){
+        $sql = "update project set projectname_en = ?, projectname_vi =?,projectname_code =? where team_id= ?";
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
-            if($request_type == "BMR"){
-                mysqli_stmt_bind_param($stmt,"siii",$room_number,$approve,$reject, $request_id);
-            }else{
-                mysqli_stmt_bind_param($stmt,"iii",$approve,$reject, $request_id);
-            }
+            mysqli_stmt_bind_param($stmt,"ssi",$new_name_en,$new_name_vi,$team_id,$new_code);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            return true;
+        }
+        mysqli_stmt_close($stmt);
+        return false;
+    }
+
+    function book_room($team_id,$room,$slot,$date,$approve_by){
+        $sql = "insert into meeting(team_id, room, slot, date, approve_by) values(?,?,?,?,?) ";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"isisi",$team_id,$room,$slot,$date,$approve_by);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            return true;
+        }
+        mysqli_stmt_close($stmt);
+        return false;
+    }
+
+    function update_request($request_id,$content,$request_action,$staff_id){
+        if($request_action == 1){
+            $approve = $staff_id; $reject = null;
+        }else{
+            $approve = null; $reject = $staff_id;
+        }
+        $sql = "update request set content = ?, approve_by_staff = ?,reject_by_staff = ? where request_id= ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"siii",$content,$approve,$reject, $request_id);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
             return true;
