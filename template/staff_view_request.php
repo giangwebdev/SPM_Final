@@ -74,7 +74,7 @@ $role = $_SESSION['role_id'];
                 }
                 if($data['request_type'] == "CPN" && $data['approve_by_staff'] == "1" && $data['approve_by_supervisor'] == "1"){
                     $status = "Accepted";
-                }elseif($data['request_type'] == "CPN" && ($data['reject_by_staff'] == "1" || $data['reject_by_supervisor'] == "1")){
+                }elseif($data['request_type'] == "CPN" && ($data['reject_by_staff'] == "0" || $data['reject_by_supervisor'] == "0")){
                     $status = "Rejected";
                 }else{
                     $status = "Pending";
@@ -101,70 +101,73 @@ $role = $_SESSION['role_id'];
     </form>
 
     <div class="bmr-dialog-confirm">
-        <table>
-            <tr>
-                <td>Request type</td>
-                <td>Book Meeting Room</td>
-            </tr>
-            <tr>
-                <td>Team</td>
-                <td>Team 1</td>
-            </tr>
-            <tr>
-                <td>Room</td>
-                <td><input type="text" name="room_id" value=""></td>
-            </tr>
-            <tr>
-                <td>Time</td>
-                <td>27/05/2018</td>
-            </tr>
-            <tr>
-                <td>Description</td>
-                <td>Nothing</td>
-            </tr>
-            <tr>
-                <td> Request by</td>
-                <td>Mr A</td>
-            </tr>
-            <tr>
-                <td>Status</td>
-                <td>In process</td>
-            </tr>
-        </table>
-
+        <form>
+            <table>
+                <tr>
+                    <td>Request type</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Team</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Room</td>
+                    <td><input type="text" name="room_id" value=""></td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>27/05/2018</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>Nothing</td>
+                </tr>
+                <tr>
+                    <td> Request by</td>
+                    <td>Mr A</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>In process</td>
+                </tr>
+            </table>
+        </form>
     </div>
 
     <div class="cpn-dialog-confirm " TITLE="Request">
-        <table>
-            <tr>
-                <td>Request type</td>
-                <td>Change Project Name</td>
-            </tr>
-            <tr>
-                <td>Team</td>
-                <td>Team 2</td>
-            </tr>
-            <tr>
-                <td>Old name</td>
-                <td>Book tours all over the world</td>
-            </tr>
-            <tr>
-                <td>New name (EN)</td>
-                <td>Pretty House</td>
-            </tr>
-            <tr>
-                <td>New name (VI)</td>
-                <td>Làm đẹp nhà bạn</td>
-            </tr>
-            <tr>
-                <td> Request by</td>
-                <td>Hoang Thanh Hai</td>
-            </tr>
-            <tr>
-                <td>Status</td>
-                <td>Accepted</td>
-            </tr>
-        </table>
+        <form>
+            <table>
+                <tr>
+                    <td>Request type</td>
+                    <td>Change Project Name</td>
+                </tr>
+                <tr>
+                    <td>Team</td>
+                    <td>Team 2</td>
+                </tr>
+                <tr>
+                    <td>Old name</td>
+                    <td>Book tours all over the world</td>
+                </tr>
+                <tr>
+                    <td>New name (EN)</td>
+                    <td>Pretty House</td>
+                </tr>
+                <tr>
+                    <td>New name (VI)</td>
+                    <td>Làm đẹp nhà bạn</td>
+                </tr>
+                <tr>
+                    <td> Request by</td>
+                    <td>Hoang Thanh Hai</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>Accepted</td>
+                </tr>
+            </table>
+        </form>
 
     </div>
     <script>

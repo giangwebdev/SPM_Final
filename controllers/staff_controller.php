@@ -180,8 +180,23 @@ class staff extends account {
         $staff_view =  new staff_view();
         $staff_view->view_request($request_data);
     }
-    function edit_request(){
+    function update_request(){
+        if(isset($_POST['approve_btn']) && $_POST['approve_btn'] == "BMR"){
+            $room_number ="";
+            $request_id = $_POST['request_id'];
+            if(isset($_POST['room_number'])){
+                $room_number = $_POST['room_number'];
+            }
+            $request_type= $_POST['approve_btn'];
+            $request_action = $_POST['request_action'];
+            $staff_model = new staff_model();
+           if($staff_model->update_request($request_id,$request_type,$request_action,$room_number)){
+               $this->view_request();
+           }else{
+               echo "Failed to approve request!";
+           }
 
+        }
     }
 
 

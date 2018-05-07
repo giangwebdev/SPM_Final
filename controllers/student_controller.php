@@ -111,34 +111,72 @@ class student extends account{
         }
 
         function view_task(){
+            $team_id = $_SESSION['team_id'];
+            $student= new student_model();
+            $task_data = $student->get_task_data($team_id);
                 $student = new student_view();
-                $student->view_task();
+                $student->view_task($task_data);
         }
 
         function delete_task(){
             $task_id = $_POST['task_id'];
             $student = new student_model();
             if($student->delete_task($task_id)){
-                $student_view = new student_view();
-                $student_view->view_task();
+                $this->view_task();
             }else{
                 echo "Error! Cant delete task!";
             }
         }
 
         function view_request(){
+            $student_model = new student_model();
+            $request_data = $student_model->get_request();
             $student_view = new student_view();
-            $student_view->view_request();
+            $student_view->view_request($request_data);
         }
 
         function create_team(){
             $student_view = new student_view();
             $student_view->create_team();
+            if(isset($_POST['create_team_btn'])){
+                $student_list = array();
+              for($i=1; $i<=5; $i++){
+                  if(isset($_POST["student$i"])){
+                      array_push($student_list, $_POST["student$i"]);
+                  }
+              }
+                $project_en = $_POST['cpro_name_en'];
+                $project_vi = $_POST['cpro_name_vi'];
+                $supervisor = $_POST['supervisor'];
+                $note = $_POST['note'];
+                $student_model = new student_model();
+                $is_teamleader = $_POST['is_teamleader'];
+                $last_id = $student_model->get_last_team_pending_id();
+                foreach ($student_list as $key => $student){
+                    if($is_teamleader == $student){
+                        $check_leader = 1;
+                    }else{
+                        $check_leader = 0;
+                    }
+                    $student_model->create_team($last_id,$student,$check_leader,$supervisor,$project_en,$project_vi,$note);
+
+                }
+
+                $account = new account();
+                $account->homepage();
+                echo "<script type=\"text/javascript\">
+                        alert('Your creating team request has been sent to head supervisor.'+
+                         'Just wait for a few days' +
+                         'Head supervisor will check your request soon.');
+                       </script>";
+            }
         }
 
         function view_bug(){
+            $student_model = new student_model();
+            $bug_list = $student_model->get_bug();
             $student_view = new student_view();
-            $student_view->view_bug();
+            $student_view->view_bug($bug_list);
         }
 
         function edit_bug(){

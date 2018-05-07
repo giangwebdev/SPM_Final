@@ -28,7 +28,7 @@ $role = $_SESSION['role_id'];
 <body>
 <div class="limiter">
 
-    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+    <div class="container-login100">
         <div class="wrap-login100" style="color: white; width: auto">
 
 

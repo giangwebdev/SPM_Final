@@ -170,16 +170,92 @@ class student_model extends account_model{
         function edit_task_data($parent_task_id, $team_id, $task_name, $description,
                                $created_by, $assign_by, $assign_to, $start_date, $deadline, $technique_check, $qa_check, $task_status_id, $priority){
 
-        }
-
-        function delete_task($task_id,$team_id){
 
         }
 
-        function get_request(){
-
+        function delete_task($task_id){
+            $sql = "delete from task where task_id =?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"i",$task_id);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+                return true;
+            }
+            mysqli_stmt_close($stmt);
+            return false;
         }
 
+    function get_request(){
+        $sql = "select * from request where request_by =?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"i",$this->_acc_id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data = array();
+            while($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+        }
+
+        function get_last_team_pending_id(){
+            $sql = "select max(team_pending_id) from team_pending ";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_execute($stmt);
+                $data="";
+                $result = mysqli_stmt_get_result($stmt);
+                while($row = mysqli_fetch_assoc($result)) {
+                    $data = $row;
+                }
+                mysqli_stmt_close($stmt);
+                return $data;
+            }
+        }
+
+        function create_team($team_pending_id, $acc_id, $isteamleader, $supervisor_id,
+                                              $projectname_vi, $projectname_en, $note){
+            $sql = "insert into team_pending(team_pending_id, acc_id, isteamleader, supervisor_id,
+                                              projectname_vi, projectname_en, note)
+                    VALUES (?,?,?,?,?,?,?)";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"iiiisss",$team_pending_id, $acc_id, $isteamleader, $supervisor_id,
+                                                                                                 $projectname_vi, $projectname_en, $note);
+                if(mysqli_stmt_execute($stmt)){
+                    mysqli_stmt_close($stmt);
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+
+        }
+        function has_team($acc_id){
+            $sql = "select team_id from student where acc_id = ?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"i",$acc_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                if($row = mysqli_fetch_assoc($result)) {
+                    mysqli_stmt_close($stmt);
+                    return true;
+                }
+                mysqli_stmt_close($stmt);
+                return false;
+            }
+        }
         function get_bug(){
 
         }

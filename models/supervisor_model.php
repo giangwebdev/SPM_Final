@@ -59,10 +59,40 @@ class supervisor_model extends account_model {
 
         }
 
-        
+        function get_request($team_id){
+            $sql = "select * from request where team_id =?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"i",$team_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                $data = array();
+                while($row = mysqli_fetch_assoc($result)) {
+                    $data[] = $row;
+                }
+                mysqli_stmt_close($stmt);
+                return $data;
+            }
+        }
 
-        function get_request(){
-
+        function update_request($request_id,$request_action){
+            if($request_action == 1){
+                $approve = 1; $reject = 0;
+            }else{
+                $approve = 0; $reject = 1;
+            }
+            $sql = "update request set approve_by_supervisor = ? , reject_by_supervisor = ? where request_id= ?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"iii",$approve,$reject, $request_id);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+                return true;
+            }
+            mysqli_stmt_close($stmt);
+            return false;
         }
 
         function get_team_pending(){

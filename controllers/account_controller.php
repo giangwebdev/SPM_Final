@@ -59,13 +59,26 @@ class account
                         $_SESSION["acc_id"] = $this->_current_account_info["acc_id"];
                         $_SESSION["username"] = $this->_current_account_info["username"];
                         $_SESSION["role_id"] = $this->_current_account_info["role_id"];
-                        $site = new account_view();
                         $this->_role_id = $this->_current_account_info["role_id"];
-                        $site->homepage();
+                        $site = new account_view();
+                        if($this->_role_id == 1){
+                            require_once(SITE_ROOT . '/views/student_view.php');
+                            require_once(SITE_ROOT . "/models/student_model.php");
+                            $student_model = new student_model();
+                            if($student_model->has_team($this->_role_id)==false) {
+                                $student_view = new student_view();
+                                $student_view->create_team();
+                            }else{
+                                $site->homepage();
+                            }
+                        }else{
+                            $site->homepage();
+                        }
+
                     } else {
                         echo '<script type="text/javascript">
                  alert("Your account is locked!");
-                 window.location = "../index.php";
+                 window.location = "./index.php";
                  </script>';
                     }
                 }
@@ -73,7 +86,7 @@ class account
                 echo '<script type="text/javascript">
                  alert("Wrong username or password! " +
                   " Please try again!");
-                 window.location = "../index.php";
+                 window.location = "./index.php";
                  </script>';
             }
 
@@ -224,7 +237,6 @@ class account
                     echo "Wrong temporary password. You should copy and paste it to avoid missing characters. 
                     \n Remember: Temporary password contains no space.";
                 }
-
             }
         }
 }

@@ -5,6 +5,13 @@
  * Date: 4/24/2018
  * Time: 4:57 PM
  */
+require_once __DIR__."/../config.php";
+require_once (SITE_ROOT."/controllers/account_controller.php");
+
+$account = new account();
+$account->check_Session();
+$role = $_SESSION['role_id'];
+
 ?>
 
 
@@ -46,7 +53,7 @@
                 </tr>
             </table>
             <br>
-            <button type="submit" >Create</button>
+            <button type="submit" name="create_team_btn">Create</button>
             <button type="reset" >Reset</button>
             <button type="button" >Cancel</button>
         </form>

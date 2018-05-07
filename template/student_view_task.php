@@ -12,9 +12,7 @@ require_once (SITE_ROOT."/controllers/account_controller.php");
 $account = new account();
 $account->check_Session();
 $role = $_SESSION['role_id'];
-$team_id = $_SESSION['team_id'];
-$student= new student_model();
-$task_data = $student->get_task_data($team_id);
+
 ?>
 
 <!doctype html>
@@ -57,7 +55,7 @@ $task_data = $student->get_task_data($team_id);
         background-color: #34ACDC;
     }
     #create_bar{
-        z-index: 99999999999999;
+        z-index: 99999;
         margin-bottom: -4em;
         margin-left: 15em;
     }
@@ -286,7 +284,7 @@ $task_data = $student->get_task_data($team_id);
     <ul>
         <li><a href="#" id="create-subtask-btn">Create subtask</a></li>
         <li><a href="#" id="view_detail">View Detail</a></li>
-        <li><a href="#" >Delete</a></li>
+        <li><a href="#" id="delete_task">Delete</a></li>
     </ul>
 </div>
 </body>

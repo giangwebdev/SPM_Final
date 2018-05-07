@@ -15,15 +15,15 @@ class student_view{
         require_once (SITE_ROOT."/template/teamleader_create_request.php");
     }
 
-    function view_task(){
+    function view_task($task_data){
         require_once (SITE_ROOT."/template/student_view_task.php");
     }
 
-    function view_bug(){
+    function view_bug($bug_list){
         require_once (SITE_ROOT."/template/student_bug_list.php");
     }
 
-    function view_request(){
+    function view_request($request_data){
         require_once (SITE_ROOT."/template/teamleader_view_request.php");
     }
 

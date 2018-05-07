@@ -164,5 +164,32 @@ class staff_model extends account_model {
         }
     }
 
+
+    function update_request($request_id,$request_type,$request_action,$room_number){
+        if($request_action == 1){
+            $approve = 1; $reject = 0;
+        }else{
+            $approve = 0; $reject = 1;
+        }
+        $sql = "update request set";
+        if($request_type == "BMR"){
+            $sql .= " room_number = ?,";
+        }
+        $sql .= "approve_by_staff = ?,reject_by_staff = ? where request_id= ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            if($request_type == "BMR"){
+                mysqli_stmt_bind_param($stmt,"siii",$room_number,$approve,$reject, $request_id);
+            }else{
+                mysqli_stmt_bind_param($stmt,"iii",$approve,$reject, $request_id);
+            }
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            return true;
+        }
+        mysqli_stmt_close($stmt);
+        return false;
+    }
 }
 
