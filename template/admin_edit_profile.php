@@ -32,11 +32,42 @@ $role=$_SESSION['role_id'];
     <?php require_once(SITE_ROOT."/template/header.php"); ?>
 </head>
 
+<style>
+    input{
+        padding-left: 10px;
+        border-radius: 10px;
+    }
+    .input-width{
+        width: 230px;
+    }
+    select{
+        border-radius: 10px;
+    }
+    select {
+        -moz-appearance:none; /* Firefox */
+        -webkit-appearance:none; /* Safari and Chrome */
+        appearance:none;
+    }
+    tr td{
+        padding-bottom: 0.5em;
+    }
+
+
+</style>
+
+<!--<script>-->
+<!--    $(window).on("load",function () {-->
+<!--        $(".edit").on("click",function () {-->
+<!--            window.opener.location.href = window.opener.location;-->
+<!--        });-->
+<!--    })-->
+<!--</script>-->
+
 <body>
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100" style="color: white; width: 400px;margin-top: -1em;">
-            <form class="login100-form" action="./index.php?action=admin_edit_profile&controller=staff" method="post">
+            <form class="login100-form" action="./index.php?action=admin_edit_profile_change&controller=staff" method="post">
                 <span class="login100-form-logo" style="width: 150px">
                     <img src="<?php echo $detail['profile_picture']; ?>" width="250px"/>
                 </span>
@@ -49,20 +80,20 @@ $role=$_SESSION['role_id'];
                                     ?>
                             <tr>
                                 <td>Student ID: </td>
-                                <td><input type="text" name="student_id" value="<?php echo $detail['student_id']; ?>"></td>
+                                <td><input type="text" class="input-width" name="student_id" value="<?php echo $detail['student_id']; ?>"></td>
                             </tr>
                             <?php
                             }
                             ?>
                             <tr>
                                 <td>Fullname: </td>
-                                <td><input type="text" name="full_name" value="<?php echo $detail['full_name']; ?>"></td>
+                                <td><input type="text" class="input-width" name="full_name" value="<?php echo $detail['full_name']; ?>"></td>
                             </tr>
 
                             <tr>
                                 <td>Gender: </td>
-                                <td><input type="radio" name="gender" value="male" <?php if($detail['gender']=="male") echo 'checked="checked"';?>/>Male
-                                    <input type="radio"  name="gender" value="female"<?php if($detail['gender']=="female") echo 'checked="checked"';?>/>Female
+                                <td><input type="radio" name="gender" value="male" <?php if(strtolower($detail['gender'])=="male") echo 'checked="checked"';?>/>Male
+                                    <input type="radio"  name="gender" value="female"<?php if(strtolower($detail['gender'])=="female") echo 'checked="checked"';?>/>Female
                                 </td>
                             </tr>
                             <?php
@@ -70,29 +101,29 @@ $role=$_SESSION['role_id'];
                                 ?>
                                 <tr>
                                     <td>Date of Birth:</td>
-                                    <td><input type="date" name="dob" value="<?php echo $detail['dob']; ?>"></td>
+                                    <td><input type="date" class="input-width" name="dob" value="<?php echo $detail['dob']; ?>"></td>
                                 </tr>
                                 <?php
                             }
                             ?>
                             <tr>
                                 <td>Phone: </td>
-                                <td><input type="text" name="phone" value="<?php echo $detail['phone']; ?> "></td>
+                                <td><input type="text"  class="input-width" name="phone" value="<?php echo $detail['phone']; ?> "></td>
                             </tr>
                             <tr>
                                 <td>Email:</td>
-                                <td><input type="text" name="email" value="<?php echo $detail['email']; ?>"></td>
+                                <td><input type="text" class="input-width" name="email" value="<?php echo $detail['email']; ?>"></td>
                             </tr>
                             <?php
                             if($acc_role=="1"){
                                 ?>
                                 <tr>
                                     <td>Major:</td>
-                                    <td><input type="text" name="major" value="<?php echo $detail['major']; ?>"></td>
+                                    <td><input type="text" class="input-width" name="major" value="<?php echo $detail['major']; ?>"></td>
                                 </tr>
                                 <tr>
                                     <td>Campus:</td>
-                                    <td><input type="text" name="campus" value="<?php echo $detail['campus']; ?>"></td>
+                                    <td><input type="text" class="input-width" name="campus" value="<?php echo $detail['campus']; ?>"></td>
                                 </tr>
                                 <?php
                             }
@@ -162,7 +193,7 @@ $role=$_SESSION['role_id'];
                         <td><div class="container-login100-form-btn" >
                                 <input type="hidden" name="acc_id" value="<?php echo $detail['acc_id']; ?>">
                                 <input type="hidden" name="acc_role" value=" <?php echo $acc_role; ?>">
-                                <button class="login100-form-btn" type="submit" name="edit" value="edit">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="login100-form-btn" type="submit" name="edit" value="edit">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button class="login100-form-btn" type="reset" name="reset">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button class="login100-form-btn" type="button" name="cancel" onclick="window.location.href='./index.php?action=display_all_account_info&controller=staff'">Cancel</button>
                             </div>

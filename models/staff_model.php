@@ -48,7 +48,7 @@ class staff_model extends account_model {
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
-            mysqli_stmt_bind_param($stmt,"sisssissss",$student_id, $acc_id, $full_name, $gender, $dob, $phone, $email, $major, $campus, $profile_picture);
+            mysqli_stmt_bind_param($stmt,"sissssssss",$student_id, $acc_id, $full_name, $gender, $dob, $phone, $email, $major, $campus, $profile_picture);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             if($result){

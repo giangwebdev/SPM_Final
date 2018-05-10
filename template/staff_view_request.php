@@ -54,7 +54,7 @@ $role = $_SESSION['role_id'];
         <br>
         <table id="view_request_staff" class="table table-striped table-bordered" >
             <tr>
-                <th></th>
+                <th>Request ID</th>
                 <th>Request type</th>
                 <th>Request by</th>
                 <th>Team</th>
@@ -66,16 +66,16 @@ $role = $_SESSION['role_id'];
                 $student_model = new student_model();
                 $request_by =  $account_model->get_name_by_id($data['request_by']);
                 $team = trim($student_model->get_team_name_by_team_id($data['team_id']));
-                if($data['request_type'] == "BMR" && $data['approve_by_staff'] == "1" ){
+                if($data['request_type'] == "BMR" && $data['approve_by_staff'] !=null ){
                     $status = "Accepted";
-                }elseif($data['request_type'] == "BMR" && $data['reject_by_staff'] == "1" ){
+                }elseif($data['request_type'] == "BMR" && $data['reject_by_staff']!=null ){
                     $status = "Rejected";
-                }elseif ($data['request_type'] == "BMR" && $data['reject_by_staff'] == "0" &&  $data['approve_by_staff'] == "0" ){
+                }elseif ($data['request_type'] == "BMR" && $data['reject_by_staff'] == null &&  $data['approve_by_staff'] == null ){
                     $status = "Pending";
                 }
-                if($data['request_type'] == "CPN" && $data['approve_by_staff'] == "1" && $data['approve_by_supervisor'] == "1"){
+                if($data['request_type'] == "CPN" && $data['approve_by_staff'] !=null && $data['approve_by_supervisor'] !=null){
                     $status = "<span style='color:rgb(36, 232, 30)'>Accepted</span>";
-                }elseif($data['request_type'] == "CPN" && ($data['reject_by_staff'] == "1" || $data['reject_by_supervisor'] == "1")){
+                }elseif($data['request_type'] == "CPN" && ($data['reject_by_staff'] !=null || $data['reject_by_supervisor'] !=null)){
                     $status = "<span style='color:rgb(229, 16, 16)'>Rejected</span>";
                 }else{
                     $status = "<span style='color:rgb(243,255,67)'>Pending</span>";
@@ -87,7 +87,7 @@ $role = $_SESSION['role_id'];
                 }
                 $request_id = $data['request_id'];
             ?>
-            <tr class="clickable">
+            <tr class="clickable staff_request_detail">
                 <td class="request_id"><?php echo $request_id?></td>
                 <td class="request_type"><?php echo $request_type;?></td>
                 <td class="request_by"><?php echo $request_by;?></td>
@@ -95,7 +95,9 @@ $role = $_SESSION['role_id'];
                 <td class="status"><?php echo $status;?></td>
                 <?php $content = json_decode($data['content'],true);
                     foreach($content as $key => $value) {
+                        if($key == "date") $value = date("d-m-Y", strtotime($value));
                         ?>
+
                         <input type="hidden" class="<?php echo $key;?>" value="<?php echo $value;?>">
                         <?php
                     }
@@ -251,7 +253,7 @@ $role = $_SESSION['role_id'];
                 modal: true
             });
 
-            $(".clickable").on("click",function () {
+            $(".staff_request_detail").on("click",function () {
                 var $this = $(this);
                 var $bmr = $(".bmr-dialog");
                 var $cpn = $(".cpn-dialog");
@@ -266,15 +268,10 @@ $role = $_SESSION['role_id'];
                    $bmr.find("#status").html($this.find(".status").html());
                    // --hidden values
                     $bmr.find("#hidden_request_id").val($this.find(".request_id").html());
-                    $bmr.find("#hidden_request_type"). val($this.find(".request_type").html());
-                    $bmr.find("#hidden_team" ).   val($this.find(".team").html());
-                    $bmr.find("#hidden_old_name_en").   val($this.find(".old_name_en").val());
-                    $bmr.find("#hidden_old_name_vi").    val($this.find(".old_name_vi").val());
-                    $bmr.find("#hidden_old_code").   val($this.find(".old_code").val());
-                    $bmr.find("#hidden_new_name_vi"). val($this.find(".name_en").val());
-                    $bmr.find("#hidden_new_name_en"). val($this.find(".name_vi").val());
-                    $bmr.find("#hidden_new_code" ). val($this.find(".new_code").val());
-                    $bmr.find("#hidden_description").   val($this.find(".description").val());
+                    $bmr.find("#hidden_team").val($this.find(".request_type").html());
+                    $bmr.find("#hidden_slot").val($this.find(".team").html());
+                    $bmr.find("#hidden_date").val($this.find(".old_name_en").val());
+                    $bmr.find("#hidden_description").val($this.find(".old_name_vi").val());
 
                    $bmr.dialog("open");
                 }else if($this.find(".request_type").html() === "Change Project Name"){
@@ -283,25 +280,26 @@ $role = $_SESSION['role_id'];
                     $cpn.find("#team").html($this.find(".team").html());
                     $cpn.find("#old_name_en").html($this.find(".old_name_en").val());
                     $cpn.find("#old_name_vi").html($this.find(".old_name_vi").val());
+                    $cpn.find("#old_code").html($this.find(".old_code").val());
                     $cpn.find("#new_name_en").html($this.find(".name_en").val());
                     $cpn.find("#new_name_vi").html($this.find(".name_vi").val());
+                    $cpn.find("#new_code").html($this.find(".new_code").val());
                     $cpn.find("#description").html($this.find(".description").val());
                     $cpn.find("#request_by").html($this.find(".request_by").html());
                     $cpn.find("#status").html($this.find(".status").html());
-                    $bmr.find("#hidden_request_id").val($this.find(".request_id").html());
-                    $bmr.find("#hidden_request_type"). val($this.find(".request_type").html());
-                    $bmr.find("#hidden_team" ).   val($this.find(".team").html());
-                    $bmr.find("#hidden_old_name_en").   val($this.find(".old_name_en").val());
-                    $bmr.find("#hidden_old_name_vi").    val($this.find(".old_name_vi").val());
-                    $bmr.find("#hidden_old_code").   val($this.find(".old_code").val());
-                    $bmr.find("#hidden_new_name_vi"). val($this.find(".name_en").val());
-                    $bmr.find("#hidden_new_name_en"). val($this.find(".name_vi").val());
-                    $bmr.find("#hidden_new_code" ). val($this.find(".new_code").val());
-                    $bmr.find("#hidden_description").   val($this.find(".description").val());
+                    // --hidden values
+                    $cpn.find("#hidden_request_id").val($this.find(".request_id").html());
+                    $cpn.find("#hidden_request_type").val($this.find(".request_type").html());
+                    $cpn.find("#hidden_team" ).val($this.find(".team").html());
+                    $cpn.find("#hidden_old_name_en").val($this.find(".old_name_en").val());
+                    $cpn.find("#hidden_old_name_vi").val($this.find(".old_name_vi").val());
+                    $cpn.find("#hidden_old_code").val($this.find(".old_code").val());
+                    $cpn.find("#hidden_new_name_vi").val($this.find(".name_en").val());
+                    $cpn.find("#hidden_new_name_en").val($this.find(".name_vi").val());
+                    $cpn.find("#hidden_new_code" ).val($this.find(".new_code").val());
+                    $cpn.find("#hidden_description").val($this.find(".description").val());
                     $cpn.dialog("open");
                 }
-
-
             });
 
             $(".cancel-btn").button().on("click",function () {

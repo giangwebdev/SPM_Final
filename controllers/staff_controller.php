@@ -55,7 +55,10 @@ class staff extends account {
             $staff_view = new staff_view();
             $staff_view->admin_edit_profile($acc_detail,$acc_role);
         }
-        if(isset($_POST['edit'])){
+    }
+
+    function admin_edit_profile_change(){
+        if(isset($_POST['edit']) && isset($_POST['acc_id'])){
             $acc_id = $_POST['acc_id'];
             $acc_role = $_POST['acc_role'];
             $student_id = $_POST['student_id'];
@@ -69,14 +72,15 @@ class staff extends account {
             $staff_model = new staff_model();
             $result = $staff_model->update_account_info($student_id , $full_name, $gender, $dob, $phone , $email, $major, $campus , $acc_id,$acc_role);
             if($result == true){
-                $this->display_all_account_info();
+                $acc_model = new account_model();
+                $acc_detail=$acc_model->get_profile_by_id($acc_id,$acc_role);
+                $staff_view = new staff_view();
+                $staff_view->admin_edit_profile($acc_detail,$acc_role);
             }else{
                 echo "Can't edit account info!";
             }
         }
     }
-
-
 
     /**
      * @throws \PhpOffice\PhpSpreadsheet\Exception
@@ -133,6 +137,8 @@ class staff extends account {
                            $student_id = $row[0];
                            $full_name = $row[1];
                            $dob=$row[2];
+                           $dob = strtr($dob, '/', '-');
+                           $dob = date("Y-m-d", strtotime($dob));
                            $gender =$row[3];
                            $phone =$row[4];
                            $email=$row[5];

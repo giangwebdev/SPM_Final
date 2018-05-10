@@ -18,6 +18,7 @@ $old_name = $student_model->get_capstone_name();
 foreach ($old_name as $name){
     $old_name_en = $name['projectname_en'];
     $old_name_vi = $name['projectname_vi'];
+    $old_code = $name['projectname_code'];
 }
 ?>
 
@@ -48,7 +49,6 @@ foreach ($old_name as $name){
                 <tr>
                     <td>Current Capstone Project Name <br>in English</td>
                     <td align="center"><textarea name="old_cpro_name_en" style="display: none;"><?php echo $old_name_en; ?></textarea>
-
                         <?php  echo $old_name_en; ?>
                     </td>
                 </tr>
@@ -56,7 +56,12 @@ foreach ($old_name as $name){
                     <td>Current Capstone Project Name <br>in Vietnamese</td>
                     <td align="center"><textarea name="old_cpro_name_vi" style="display: none;"><?php echo $old_name_vi; ?></textarea>
                         <?php echo $old_name_vi;?>
-
+                    </td>
+                </tr>
+                <tr>
+                    <td>Current Capstone Project Code</td>
+                    <td align="center"><textarea name="old_code" style="display: none;"><?php echo $old_code; ?></textarea>
+                        <?php echo $old_code;?>
                     </td>
                 </tr>
                 <tr>
@@ -66,6 +71,10 @@ foreach ($old_name as $name){
                 <tr>
                     <td>New name in Vietnamese:</td>
                     <td><textarea rows="2" cols="50" name="new_cpro_name_vi" class="form-control"></textarea></td>
+                </tr>
+                <tr>
+                    <td>New capstone project code:</td>
+                    <td><input type="text" name="new_code" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Description (Optional):</td>
@@ -81,6 +90,8 @@ foreach ($old_name as $name){
                 </tr>
             </table>
         </form>
-        </div></div></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -60,19 +60,18 @@ class account
                         $_SESSION["username"] = $this->_current_account_info["username"];
                         $_SESSION["role_id"] = $this->_current_account_info["role_id"];
                         $this->_role_id = $this->_current_account_info["role_id"];
-                        $site = new account_view();
                         if($this->_role_id == 1){
                             require_once(SITE_ROOT . '/views/student_view.php');
                             require_once(SITE_ROOT . "/models/student_model.php");
-                            $student_model = new student_model();
+//                            $student_model = new student_model();
 //                            if($student_model->has_team($this->_role_id)==false) {
 //                                $student_view = new student_view();
 //                                $student_view->create_team();
 //                            }else{
-                                $site->homepage();
+                                $this->homepage();
 //                            }
                         }else{
-                            $site->homepage();
+                            $this->homepage();
                         }
 
                     } else {
@@ -95,7 +94,7 @@ class account
 
         function homepage(){
             $acc_view = new account_view();
-            $acc_view->homepage($this->_role_id);
+            $acc_view->homepage();
         }
         function change_password(){
                 $acc_view = new account_view();
@@ -174,13 +173,13 @@ class account
 
         function logout(){
             session_destroy();
+            ob_end_flush();
             header('Location: index.php',true,301);
             exit();
         }
 
         function reset_password(){
             $acc_view = new account_view();
-            $acc_view->reset_password();
             if(isset($_POST['reset_username']) && $_POST['reset_username'] !=null){
                 $_reset_user = $_POST['reset_username'];
                 $account = new account_model();
@@ -201,18 +200,24 @@ class account
                   <p>Your temporary password is <span style="color: #0000FF; font-size: medium;">'. $password_temp .'</span></p>              
                   <p>Click <a href="google.com.vn">Here</a> to change your password.</p>
                   <h3>Remember: Don\'t give password to anyone. This will lead you losing sensitive data when doing project</h3>
-                  <p>'.date("Y-m-d h:i:sa").'</p>
+                  <p>'.date("m-m-Y h:i:sa").'</p>
                 </body>
                 </html>
                 ';
                 if($account->save_password_temp($acc_id,$password_temp) && $this->sendMail($email,$msg)){
-                    echo "The backup password has been sent to your email.";
+                    $_SESSION['msg_noti'] = "Your password has been sent to your email!";
+                    $acc_view->reset_password();
                 }else{
-                    echo "Fail to send password";
+                    $_SESSION['msg_noti'] = "Failed to send mail, report this issue to administrator to get help.";
+                    $acc_view->reset_password();
                 }
             }else{
-                echo "This account does not exists. Please check again.";
+                $_SESSION['msg_noti'] = "This account does not exists. Please check again.";
+                $acc_view->reset_password();
             }
+            }else{
+
+                $acc_view->reset_password();
             }
 
         }

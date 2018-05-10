@@ -20,7 +20,10 @@ class student extends account{
             parent::__construct();
             $student = new student_model();
             $this->__team_info = $student->get_team_info();
-            $_SESSION['team_id'] = $this->__team_info[0]['team_id'];
+            if(!isset($_SESSION['team_id'])){
+                $_SESSION['team_id'] = $this->__team_info[0]['team_id'];
+            }
+
         }
 
         function  get_team_info(){
@@ -29,27 +32,32 @@ class student extends account{
             }
 
         function create_request(){
-            $student_view = new student_view();
-            $student_view->create_request();
             if(isset($_POST['send_button']) && $_POST['send_button'] !=null){
+                $student_view = new student_view();
                 $student = new student_model();
-                $student->get_team_info();
                 $team_id = $_SESSION['team_id'];
-                $request_type = "change_project_name";
+                $request_type = "CPN";
                 $content = array(
                     "old_name_en"=> $_POST['old_cpro_name_en'],
                     "old_name_vi"=> $_POST['old_cpro_name_vi'],
+                    "old_code"=> $_POST['old_code'],
                     "name_en" => $_POST['new_cpro_name_en'],
                     "name_vi" => $_POST['new_cpro_name_vi'],
+                    "new_code"=> $_POST['new_code'],
                     "description" => $_POST['description']
                 );
                 $content = json_encode($content);
                 $request_by = $_SESSION['acc_id'];
                 if($student->add_request($team_id,$request_type, $content,$request_by)){
+                    $student_view->create_request();
                     echo "Request sent!";
                 }else{
+                    $student_view->create_request();
                     echo "Error sending request!";
                 }
+            }else{
+                $student_view = new student_view();
+                $student_view->create_request();
             }
         }
 
@@ -80,14 +88,15 @@ class student extends account{
         }
 
         function create_task(){
-            if(isset($_POST['task_type'])&& $_POST['task_type'] != null){
+            if(isset($_POST['create_task_btn'])){
                 $priority = $_POST['priority'];
                 $task_name = $_POST['task_name'];
                 $description = $_POST['description'];
                 $created_by = $_SESSION['acc_id'];
-                $assign_by = $_POST['assign_by'];
+                $assign_by = $_SESSION['acc_id'];
                 $assign_to = $_POST['assign_to'];
-                $deadline = $_POST['deadline'];
+                $deadline = strtr($_POST['deadline'], '/', '-');
+                $deadline = date("Y-m-d", strtotime($deadline));
                 $team_id = $_SESSION['team_id'];
                 $parent_task_id ="";
 
@@ -96,7 +105,9 @@ class student extends account{
                 }elseif ($_POST['create_task_btn'] == "new_subtask"){
                     $parent_task_id = $_POST['task_id'];
                 }
-                $start_date = getdate();
+                $start_date = strtr($_POST['start_date'], '/', '-');
+                $start_date = date("Y-m-d", strtotime($start_date));
+
                 if($assign_to !=null){
                     $task_status_id = "2";
                 }else{
@@ -107,6 +118,7 @@ class student extends account{
                 $student->create_new_task($parent_task_id, $team_id, $task_name,
                     $description,$created_by, $assign_by, $assign_to, $start_date,
                     $deadline,$task_status_id,$priority);
+                unset($_POST);
                 $this->view_task();
             }
         }
@@ -160,16 +172,16 @@ class student extends account{
                         $check_leader = 0;
                     }
                     $student_model->create_team($last_id,$student,$check_leader,$supervisor,$project_en,$project_vi,$note);
-
-                }
-
-                $account = new account();
-                $account->homepage();
-                echo "<script type=\"text/javascript\">
+                    echo "<script type=\"text/javascript\">
                         alert('Your creating team request has been sent to head supervisor.'+
                          'Just wait for a few days' +
                          'Head supervisor will check your request soon.');
                        </script>";
+                }
+
+                $account = new account();
+                $account->homepage();
+
             }
         }
 
@@ -178,6 +190,50 @@ class student extends account{
             $bug_list = $student_model->get_bug();
             $student_view = new student_view();
             $student_view->view_bug($bug_list);
+        }
+
+
+        function edit_task(){
+            if(isset($_POST['edit_task_btn'])){
+                $account_model = new  account_model();
+                $priority = $_POST['priority'];
+                $task_name = $_POST['task_name'];
+                $description = $_POST['description'];
+                $assign_to = $account_model->get_id_by_name($_POST['assign_to']);
+                $deadline = strtr($_POST['deadline'], '/', '-');
+                $deadline = date("Y-m-d", strtotime($deadline));
+                $task_id = $_POST['task_id'];
+
+                if(isset($_POST['technique_check']) && $_POST['technique_check']=="tech_checked"){
+                    $technique_check =1;
+                }else{
+                    $technique_check =0;
+                }
+                if(isset($_POST['qa_check'])&& $_POST['qa_check']=="qa_checked"){
+                    $qa_check =1;
+                }else{
+                    $qa_check =0;
+                }
+
+                $parent_task_id = $_POST['parent_task_id'];
+                if($parent_task_id == "No parent task."){
+                    $parent_task_id =null;
+                }
+                $start_date = strtr($_POST['start_date'], '/', '-');
+                $start_date = date("Y-m-d", strtotime($start_date));
+
+                if($assign_to !=null){
+                    $task_status_id = "2";
+                }else{
+                    $task_status_id = "1";
+                }
+                $student = new student_model();
+                $student->edit_task_data($parent_task_id, $task_id, $task_name, $description,
+                    $assign_to, $start_date, $deadline,$technique_check,
+                    $qa_check, $task_status_id, $priority);
+
+                $this->view_task();
+            }
         }
 
         function edit_bug(){

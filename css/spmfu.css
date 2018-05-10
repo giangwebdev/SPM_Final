@@ -221,7 +221,7 @@ table.table.table-striped.table-bordered.dataTable.no-footer{
     text-shadow: 1px 1px 50px #000;
 }
 .dataTables_wrapper{
-    max-width: 1000px;
+    max-width: 100%;
 }
 table#task_table.table.table-striped.table-bordered th,  table#task_table.table.table-striped.table-bordered td{
     padding-top: 0.5em;
@@ -316,4 +316,11 @@ button:focus{
 /*Manage request*/
 .bmr-dialog #team, .cpn-dialog #team{
     padding: 0;
+    background: none;
+}
+
+/*/////Common/////*/
+
+.clickable:hover{
+    cursor: pointer;
 }

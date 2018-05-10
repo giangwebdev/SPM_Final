@@ -30,7 +30,7 @@ class supervisor extends account {
             if(isset($_POST['send_button']) && $_POST['send_button'] !=null){
                 $account = new supervisor_model();
                 $team_id = $_POST['team'];  
-                $request_type = "meeting";
+                $request_type = "BMR";
                 $content = array(
                     "slot" => $_POST['slot'],
                     "date" => $_POST['date'],

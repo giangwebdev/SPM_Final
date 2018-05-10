@@ -9,6 +9,7 @@ ob_start();
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 session_start();
+session_regenerate_id(true);
 require_once __DIR__."/./config.php";
 
     if(!isset($_GET['action']) || !isset($_GET['controller']) || $_GET['action'] ==null || $_GET['controller'] == null) {

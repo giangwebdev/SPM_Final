@@ -56,8 +56,8 @@ $role = $_SESSION['role_id'];
 
                 <tr>
                     <td>Gender: </td>
-                    <td><input type="radio" class="no-click-event" name="gender" value="male" <?php if($detail['gender']=="male") echo 'checked="checked"';?>/>Male
-                        <input type="radio" class="no-click-event" name="gender" value="female"<?php if($detail['gender']=="female") echo 'checked="checked"';?>/>Female
+                    <td><input type="radio" class="no-click-event" name="gender" value="male" <?php if(strtolower($detail['gender'])=="male") echo 'checked="checked"';?>/>Male
+                        <input type="radio" class="no-click-event" name="gender" value="female"<?php if(strtolower($detail['gender'])=="female") echo 'checked="checked"';?>/>Female
                     </td>
                 </tr>
                 <?php
@@ -65,7 +65,7 @@ $role = $_SESSION['role_id'];
                     ?>
                     <tr>
                         <td>Date of Birth:</td>
-                        <td><?php echo $detail['dob']; ?></td>
+                        <td><?php echo date("d-m-Y", strtotime($detail['dob'])); ?></td>
                     </tr>
                     <?php
                 }
@@ -124,14 +124,16 @@ $role = $_SESSION['role_id'];
                         <td>Role in team:</td>
                         <td>
                             <?php
-                            echo $detail['isteamleader']?"Team Leader<br>":"";
-                            echo $detail['isdocleader']?"Document Team Leader<br>":"";
-                            echo $detail['isdaleader']?"Design and Analysis Team Leader<br>":"";
-                            echo $detail['isdevleader']?"Developing Team Leader<br>":"";
-                            echo $detail['istestleader']?"Testing Team Leader<br>":"";
-                            if($detail['isteamleader']==0 && $detail['isdocleader']==0 &&$detail['isdaleader']==0
-                                &&$detail['isdevleader']==0 &&$detail['istestleader']==0){
-                                echo "Team Member";
+                            if($team_info != null) {
+                                echo $detail['isteamleader'] ? "Team Leader<br>" : "";
+                                echo $detail['isdocleader'] ? "Document Team Leader<br>" : "";
+                                echo $detail['isdaleader'] ? "Design and Analysis Team Leader<br>" : "";
+                                echo $detail['isdevleader'] ? "Developing Team Leader<br>" : "";
+                                echo $detail['istestleader'] ? "Testing Team Leader<br>" : "";
+                                if ($detail['isteamleader'] == 0 && $detail['isdocleader'] == 0 && $detail['isdaleader'] == 0
+                                    && $detail['isdevleader'] == 0 && $detail['istestleader'] == 0) {
+                                    echo "Team Member";
+                                }
                             }
                             ?>
                         </td>
@@ -151,11 +153,5 @@ $role = $_SESSION['role_id'];
     </td>
 </form></div></div></div>
 
-<footer class="bg-black">
-    <div class="container">
-        <p class="m-0 text-center text-white small">Copyright &copy; Không Cháy Website 2018</p>
-    </div>
-    <!-- /.container -->
-</footer>
 </body>
 </html>

@@ -51,27 +51,20 @@ $role = $_SESSION['role_id'];
 
                 <tbody>
                     <tr>
-                        <td>Flower Shop</td>
-                        <td>Flower Shop</td>
-                        <td>Mr A</td>
-                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
-                    <tr>
-                        <td>Beauty and Dating</td>
-                        <td>Beauty and Dating</td>
-                        <td>Mr B</td>
-                        <td>5</td>
-                    </tr>
+
                 </tbody>
             </table>
             <br>
-                <tr>
-                    <td>
+
                         <div class="container-login100-form-btn" >
                         <button class="login100-form-btn">Accept</button>
                         <button class="login100-form-btn">Reject</button>
-                    </td>
-                </tr>
+
 
 
         </form>

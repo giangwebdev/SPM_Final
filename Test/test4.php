@@ -10,20 +10,24 @@ require_once __DIR__."/../config.php";
 require_once (SITE_ROOT."/models/account_model.php");
 
 class test4 extends account_model {
+
+
+
     function get_last_id(){
-        $sql = "select max(acc_id) from account ";
-        $link= parent::get_conn();
-        $stmt = mysqli_stmt_init($link);
+        $dob = "00332568";
+//        $dob = strtr($dob, '/', '-');
+//        $dob = date("Y-m-d", strtotime($dob));
+        $sql = "insert into thing(name) values(?)";
+        $conn = mysqli_connect('localhost', 'root', '', 'test');
+        $stmt = mysqli_stmt_init($conn);
         if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"s",$dob);
             mysqli_stmt_execute($stmt);
-            $data="";
-            $result = mysqli_stmt_get_result($stmt);
-            while($row = mysqli_fetch_assoc($result)) {
-                $data = $row;
-            }
             mysqli_stmt_close($stmt);
-            return $data;
+            return true;
         }
+        mysqli_stmt_close($stmt);
+        return false;
     }
 }
 

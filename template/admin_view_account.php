@@ -122,7 +122,7 @@ $role = $_SESSION['role_id'];
                             <button class="login100-form-btn lock_btn">
                                 <?php echo $info['isactive'] ? "<img class=\"lock\" src=\"./image/lock.png\">" : "<img class='unlock' src=\"./image/unlock.png\">"; ?>
                             </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="login100-form-btn edit_btn" type="button" name="admin_edit_profile"><img class="edit" src="./image/pencil.png" style="width: 20px;height: 20px;">
+                            <button class="login100-form-btn edit_btn" type="button" name="admin_edit_profile" value="admin_edit_profile"><img class="edit" src="./image/pencil.png" style="width: 20px;height: 20px;">
                                 </button>&nbsp;&nbsp;&nbsp;&nbsp;
                             <button class="login100-form-btn delete-btn"><img class="delete" src="./image/delete.png" style="width: 20px;height: 20px;">
                             </button>

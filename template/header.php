@@ -63,6 +63,7 @@
 <!--                        Xong-->
                         <li><a href="./index.php?action=create_request&controller=student">Create New Request</a></li>
                         <li><a href="./index.php?action=view_request&controller=student">View Request</a></li>
+                        <li><a href="./index.php?action=create_team&controller=student">Create team</a></li>
                     </ul>
                     </li>
                     <li class="menu-has-children"><a href="#">Manage Task</a>
@@ -117,7 +118,7 @@
                     ?>
                     <li class="menu-has-children"><a href="#">Manage Request</a>
                         <ul>
-                            <li><a href="./index.php?action=manage_team_request&controller=supervisor">Approve Team Pending</a></li>
+                            <li><a href="./index.php?action=manage_team_pending&controller=supervisor">Approve Team Pending</a></li>
                             <li><a href="./index.php?action=create_meeting_request&controller=supervisor">Book Meeting Request</a></li>
 <!--                            Chưa code xong-->
                             <li><a href="./index.php?action=view_request&controller=supervisor">View Request</a></li>

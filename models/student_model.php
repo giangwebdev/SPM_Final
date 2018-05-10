@@ -46,13 +46,11 @@ class student_model extends account_model{
     }
 
     function add_request($team_id,$request_type, $content, $request_by){
-        $approve_by_staff=$approve_by_supervisor=$reject_by_staff=$reject_by_supervisor = 0;
-        $sql = "insert into request(team_id, request_type, content, request_by,approve_by_staff,approve_by_supervisor,reject_by_staff,reject_by_supervisor) VALUES (?,?,?,?)";
+        $sql = "insert into request(team_id, request_type, content, request_by) VALUES (?,?,?,?)";
         $link= parent::get_conn();
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
-            mysqli_stmt_bind_param($stmt,"issiiiii",$team_id,
-                $request_type, $content, $request_by, $approve_by_staff,$approve_by_supervisor,$reject_by_staff,$reject_by_supervisor);
+            mysqli_stmt_bind_param($stmt,"issi",$team_id,$request_type, $content, $request_by);
             if(mysqli_stmt_execute($stmt)){
                 mysqli_stmt_close($stmt);
                 return true;
@@ -167,10 +165,36 @@ class student_model extends account_model{
         }
 
 
-        function edit_task_data($parent_task_id, $team_id, $task_name, $description,
-                               $created_by, $assign_by, $assign_to, $start_date, $deadline, $technique_check, $qa_check, $task_status_id, $priority){
+        function edit_task_data($parent_task_id, $task_id, $task_name, $description,
+                               $assign_to, $start_date, $deadline,$technique_check, $qa_check, $task_status_id, $priority){
+
+            if($technique_check ==1){
+                $technique_check_date = date("Y-m-d");
+            }else{
+                $technique_check_date = null;
+            }
+            if($qa_check == 1){
+                $qa_check_date = date("Y-m-d");
+
+            }else{
+                $qa_check_date = null;
+            }
 
 
+            $sql = "update task set parent_task_id = ?, task_name= ?, description= ?, assign_to= ?,
+                      start_date= ?, deadline= ?, technique_check= ?, qa_check= ?, technique_check_date= ?, qa_check_date= ?,task_status_id= ?, priority= ? where task_id = ?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"ississiissisi",$parent_task_id, $task_name, $description,
+                    $assign_to, $start_date, $deadline, $technique_check, $qa_check, $technique_check_date,$qa_check_date, $task_status_id, $priority,$task_id);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_close($stmt);
+                    return true;
+                }else{
+                    //die(mysqli_error($link));
+                    return false;
+            }
         }
 
         function delete_task($task_id){
@@ -249,17 +273,20 @@ class student_model extends account_model{
                 mysqli_stmt_bind_param($stmt,"i",$acc_id);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
-                if($row = mysqli_fetch_assoc($result)) {
+                $row = mysqli_fetch_assoc($result);
+                if($row['team_id'] != null){
                     mysqli_stmt_close($stmt);
                     return true;
+                }else{
+                    mysqli_stmt_close($stmt);
+                    return false;
                 }
-                mysqli_stmt_close($stmt);
-                return false;
+
             }
         }
 
         function get_capstone_name(){
-            $sql = "select projectname_en, projectname_vi from project, team WHERE  team.project_id= project.project_id and team_id = ?";
+            $sql = "select projectname_en, projectname_vi, projectname_code from project, team WHERE  team.project_id= project.project_id and team_id = ?";
             $link= parent::get_conn();
             $stmt = mysqli_stmt_init($link);
             if(mysqli_stmt_prepare($stmt,$sql)){
@@ -302,4 +329,23 @@ class student_model extends account_model{
 
         }
 
+        function is_team_leader($acc_id){
+            $sql = "select isteamleader from student where acc_id = ?";
+            $link= parent::get_conn();
+            $stmt = mysqli_stmt_init($link);
+            if(mysqli_stmt_prepare($stmt,$sql)){
+                mysqli_stmt_bind_param($stmt,"i",$acc_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                $row = mysqli_fetch_assoc($result);
+                if($row['isteamleader'] == 1){
+                    mysqli_stmt_close($stmt);
+                    return true;
+                }else{
+                    mysqli_stmt_close($stmt);
+                    return false;
+                }
+
+            }
+        }
 }

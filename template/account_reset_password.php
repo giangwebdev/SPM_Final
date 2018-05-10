@@ -47,36 +47,39 @@
     <link href="css/one-page-wonder.min.css" rel="stylesheet">
 
     <link href="css/spmfu.css" rel="stylesheet">
+    </button>
+
 </head>
-
-
-<body>
+<?php if (isset($_SESSION['msg_noti'])) {
+?>
+<body onload="window.alert('<?php echo $_SESSION['msg_noti']; ?>')";
+}">
+    <?php
+    unset($_SESSION['msg_noti']);
+}?>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
 
         <a class="navbar-brand" href="#"><img src="image/Logo-FU-01.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
 
 
     </div>
 </nav>
 <div class="limiter">
 
-    <div class="container-login100" style="background-image: url('./image/bg-01.jpg');">
+    <div class="container-login100">
         <div class="wrap-login100" style="color: white; width: auto">
-
-
             <h1><span class="login100-form-title p-b-34 p-t-27">
                     RESET PASSWORD
 					</span></h1>
 
         <form action="./index.php?action=reset_password&controller=account" method="post">
-            Type your username: <input class="form-control" type="text" name="reset_username" required>
+            Type your username: <input style="border-radius: 10px; margin-top: 10px;" class="form-control" type="text" name="reset_username" required>
             <br>
             <br>
-            <div class="container-login100-form-btn">
+            <div class="container-login100-form-btn" style="margin-bottom: 20px; ">
             <button class="login100-form-btn" type="submit">Send</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="login100-form-btn" type="button" onclick="window.location='./login.php'">Back</button>
             </div>
@@ -88,7 +91,10 @@
     </div>
     <!-- /.container -->
 </footer>
-<div id="dropDownSelect1"></div>
+
+
+
+
 <!--===============================================================================================-->
 
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>

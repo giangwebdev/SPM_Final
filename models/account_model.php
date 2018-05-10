@@ -151,9 +151,9 @@ class account_model extends DB_Driver
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
             if(isset($link_profile) && $link_profile !=null){
-                mysqli_stmt_bind_param($stmt,"isi",$phone,$link_profile ,$this->_acc_id);
+                mysqli_stmt_bind_param($stmt,"ssi",$phone,$link_profile ,$this->_acc_id);
             }else{
-                mysqli_stmt_bind_param($stmt,"ii",$phone ,$this->_acc_id);
+                mysqli_stmt_bind_param($stmt,"si",$phone ,$this->_acc_id);
             }
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
@@ -180,7 +180,7 @@ class account_model extends DB_Driver
         $stmt = mysqli_stmt_init($link);
         if(mysqli_stmt_prepare($stmt,$sql)){
             if($role_id == "1" ){
-                mysqli_stmt_bind_param($stmt,"sisssisssisiiiii",$student_id,$acc_id,$full_name, $gender ,$dob, $phone, $email, $major, $campus, $team_id,
+                mysqli_stmt_bind_param($stmt,"sisssssssisiiiii",$student_id,$acc_id,$full_name, $gender ,$dob, $phone, $email, $major, $campus, $team_id,
                     $profile_picture, $is_teamleader,$isdocleader,$isdaleader, $isdevleader, $istestleader);
             }elseif ($role_id == "2"){
                 mysqli_stmt_bind_param($stmt,"ississsi",$acc_id,$full_name, $gender ,$phone, $email, $major, $profile_picture);
@@ -286,6 +286,57 @@ class account_model extends DB_Driver
             $data="";
             while($row = mysqli_fetch_assoc($result)) {
                 $data = $row['team_id'];
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+    }
+
+    function account_status($acc_id){
+        $sql = "select isactive from account where acc_id= ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"i",$acc_id);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data = "";
+            while($row = mysqli_fetch_assoc($result)) {
+                $data = $row['isactive'];
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+    }
+
+    function search_user($term){
+        $sql = "select student_id, full_name,acc_id from student where full_name REGEXP ? or student_id REGEXP ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"ss",$term,$term);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data = array();
+            while($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+            mysqli_stmt_close($stmt);
+            return $data;
+        }
+    }
+
+    function get_id_by_name($name){
+        $sql = "select acc_id from student where full_name = ?";
+        $link= parent::get_conn();
+        $stmt = mysqli_stmt_init($link);
+        if(mysqli_stmt_prepare($stmt,$sql)){
+            mysqli_stmt_bind_param($stmt,"s",$name);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $data = "";
+            while($row = mysqli_fetch_assoc($result)) {
+                $data = $row['acc_id'];
             }
             mysqli_stmt_close($stmt);
             return $data;
